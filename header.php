@@ -1,3 +1,14 @@
+<?php
+/**
+ * O cabeçalho do tema
+ *
+ * Mostra toda a seção <head>, sidebar e a chamada para o slider
+ *
+ * @package Estúdio Viking
+ * @since 1.0
+ */
+?>
+
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 	<head>
@@ -19,12 +30,9 @@
 			<div id="page" class="conteiner site">
 				<div class="linha">
 					
-					<!-- sidebar -->
 					<div id="sidebar" class="col_4">
 						
-						<!-- header -->
 						<header id="header" role="banner">
-							<!-- masthead -->
 							<hgroup id="brand">
 								<a id="logo-header" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 								
@@ -37,23 +45,17 @@
 									
 									$description = get_bloginfo( 'description', 'display' ); ?>
 									<p id="desc" class="sub-title"><?php echo $description; ?></p>
-								</div>
-								<!-- /head-txt -->
-							</hgroup>
-							<!-- /masthead -->
+								</div><!-- #head-txt -->
+								
+							</hgroup><!-- #brand -->
 							
-							
-							<!-- nav-header -->
 							<div id="nav-header">
 								<?php viking_nav_header( 'header-menu' ); ?>
-							</div>
-							<!-- /nav-header -->
-						</header>
-						<!-- /header -->
+							</div><!-- #nav-header -->
+						</header><!-- #header -->
 						
 						<?php get_sidebar(); ?>
 					
-					</div>
-					<!-- /sidebar -->
+					</div><!-- #sidebar -->
 					
 					<?php get_slider(); ?>

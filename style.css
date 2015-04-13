@@ -1,10 +1,12 @@
 /**
  * Theme Name: Estúdio Viking
- * Description: Tema do Estúdio Viking para WordPress. Desenvolvido baseado no HTML5 Blank Theme (http://html5blank.com)
+ * Theme URI: https://github.com/ivanildodias/evtheme
+ * Description: Tema do Estúdio Viking para WordPress.
  * Version: 1.0
  * Author: Ivanildo Dias (@ivanildodias_id)
  * Author URI: http://estudioviking.com/wm_admin
  * Tags: HTML5, CSS3, slider, thumbnails, lightbox
+ * Text Domain: viking-theme
  * 
  * License: MIT
  * License URI: http://opensource.org/licenses/mit-license.php	
@@ -144,6 +146,11 @@ img {
 a > img { display: block; }
 
 /* Formulários */
+input, textarea {
+	background-color: #fff;
+	background-color: rgba( 255, 255, 255, 0.8 );
+}
+
 .button, a.button, button, input, textarea {
 	padding: 0 5px;
 	padding: 0 0.5rem;
@@ -846,6 +853,10 @@ main > hr:last-child { display: none; }
 	float: right;
 }
 
+#commentform code {
+	display: block;
+}
+
 
 /**
  * Formulário de Contato
@@ -880,17 +891,6 @@ main > hr:last-child { display: none; }
 .sucesso, .falha { text-align: center; font-weight: bold; }
 .sucesso { color: #02c800; }
 .falha { color: #d00; }
-
-
-/**
- * Comentários
- *
- * Ajustes para a seção de comentários do tema.
- * ----------------------------------------------------------------------------
- */
-#commentform code {
-	display: block;
-}
 
 
 /**

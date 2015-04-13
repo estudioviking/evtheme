@@ -11,6 +11,7 @@
 		scrollUp		 = windowPos > lastWindowPos ? true : false;
 		scrollDown		 = windowPos < lastWindowPos ? true : false;
 		
+		// Se a sidebar for maior que o tamanho da janela...
 		if ( sidebarHeight > windowHeight ) {
 			if ( scrollUp ) {
 				if ( top ) {
@@ -43,7 +44,7 @@
 		lastWindowPos = windowPos;
 	}
 	
-	$(document).ready(function(){
+	$( document ).ready( function() {
 		$window	 = $( window );
 		$body	 = $( document.body );
 		$sidebar = $( '#sidebar' ).first();
@@ -111,6 +112,6 @@
 				figcaption.parent().children( 'a' ).attr( 'data-title', caption_txt );
 			}
 		} );
-	});
+	} );
 
 } )( jQuery );

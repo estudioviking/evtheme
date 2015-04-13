@@ -1,8 +1,11 @@
 <?php
 /**
- * Author: Ivanildo Dias (@ivanildodias_id)
- * Author URI: http://estudioviking.com/ivanildodias
- * Funções personalizadas, suporte, posts personalizados e mais.
+ * Funções e definições do Estúdio Viking
+ *
+ * Funções personalizadas, suporte, posts personalizados e mais
+ *
+ * @package Estúdio Viking
+ * @since 1.0
  */
 
 defined( 'THEME_PATH' ) or define( 'THEME_PATH', get_template_directory() );
@@ -443,7 +446,6 @@ function viking_post_thumb( $size = 'post-size' ) {
 	$thumb_caption = viking_get_thumb_meta( $thumb_id, 'caption' );
 	?>
 	
-	<!-- post thumbnail -->
 	<figure class="post-thumb<?php if ( is_page() ) : echo ' col_4'; endif; ?>">
 		<a class="link-thumb img-link"
 		   href="<?php if ( is_single() ) : echo $thumb_link_full; else : the_permalink(); endif; ?>"
@@ -452,7 +454,7 @@ function viking_post_thumb( $size = 'post-size' ) {
 			<?php the_post_thumbnail( $size, array( 'class' => 'img-thumb' ) ); ?>
 		</a>
 	</figure>
-	<!-- /post thumbnail -->
+	<!-- .post thumbnail -->
 	
 	<?php
 }
@@ -468,7 +470,6 @@ function viking_post_details() {
 		$categ_slug = sanitize_html_class( $categ->slug, $categ->term_id );
 	endforeach;
 	?>
-	<!-- post details -->
 	<section class="post-details">
 		<?php viking_post_thumb(); ?>
 		
@@ -485,7 +486,7 @@ function viking_post_details() {
 			</div>
 		<?php endif; ?>
 	</section>
-	<!-- /post details -->
+	<!-- .post details -->
 	<?php
 }
 
@@ -756,9 +757,9 @@ function viking_widgets_init() {
 		'id'			=> 'widget-area-1',
 		'description'	=> __( 'Description for this widget-area...', 'viking-theme' ),
 		'before_widget'	=> '<section id="%1$s" class="widget %2$s">',
-		'after_widget'	=> '</div></section>',
 		'before_title'	=> '<h5 class="widget-title inner">',
-		'after_title'	=> '</h5><div class="widget-content inner">'
+		'after_title'	=> '</h5><div class="widget-content inner">',
+		'after_widget'	=> '</div></section>'
 	) );
 	
 	// Define Sidebar Widget Area 2
@@ -767,16 +768,16 @@ function viking_widgets_init() {
 		'id'			=> 'widget-area-2',
 		'description'	=> __( 'Description for this widget-area...', 'viking-theme' ),
 		'before_widget'	=> '<section id="%1$s" class="widget %2$s">',
-		'after_widget'	=> '</div></section>',
 		'before_title'	=> '<h5 class="widget-title inner">',
-		'after_title'	=> '</h5><div class="widget-content inner">'
+		'after_title'	=> '</h5><div class="widget-content inner">',
+		'after_widget'	=> '</div></section>'
 	) );
 }
 add_action( 'widgets_init', 'viking_widgets_init' );
 
 
 /**
- * Actions, Filtros e ShortCodes
+ * Actions e Filtros
  * ----------------------------------------------------------------------------
  */
 // Remove Actions
