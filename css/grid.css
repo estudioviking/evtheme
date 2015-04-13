@@ -1,0 +1,110 @@
+/**
+ * GRID FLEXÍVEL
+ *
+ * Ajustes para um grid flesível no tema.
+ * ----------------------------------------------------------------------------
+ */
+#grid, #grid > div.conteiner { height: 100%; }
+#grid {
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}
+
+.conteiner, .linha, [class^="col_"] {
+    margin: 0 auto 20px;
+    margin: 0 auto 2rem;	/* 20 / $rembase */
+}
+
+.conteiner {
+	max-width: 95%;
+	/*position: relative;*/
+}
+
+.conteiner:last-child, .linha:last-child,
+[class^="col_"]:last-child,
+.conteiner:only-child, .linha:only-child,
+[class^="col_"]:only-child { margin-bottom: 0; }
+
+.linha { width: 100%; }
+
+.linha:before, .linha:after {
+    content: " ";
+    display: table;
+}
+
+.linha:after { clear: both; }
+
+[class^="col_"] {
+    float: left;
+    position: relative;
+}
+
+[class^="col_"]:first-child { margin-left: 0 !important; }
+
+/* Grid 2 Colunas ( 0 - 400px ) */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+
+    .conteiner {
+        width: 310px;
+        max-width: 96.875%
+    }
+
+    [class^="col_"] { margin-left: 3.2258%; }  /* 10px */
+    
+    .col_1, .col_2, .col_3,
+    .col_4, .col_5, .col_6 {
+        width: 48.3870%;
+    }
+    
+    .col_7, .col_8, .col_9,
+    .col_10, .col_11, .col_12 {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+/* Grid 6 Colunas ( 401px - 884px ) */
+@media screen and (min-width: 401px) and (max-width: 884px) {
+
+    .conteiner { width: 700px; }
+
+    [class^="col_"] { margin-left: 2.8572%; }  /* 20px */
+   
+    .col_1, .col_2 { width: 14.2857%; }
+    .col_3, .col_4 { width: 31.4285%; }
+    .col_5, .col_6 { width: 48.5714%; }
+    .col_7, .col_8 { width: 65.7142%; }
+    .col_9, .col_10 { width: 82.8571%; }
+    .col_11, .col_12 {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+/* Grid 12 Colunas ( 885px - Infinito ) */
+@media screen and (min-width: 885px) {
+
+    .conteiner { width: 1000px; }
+
+    [class^="col_"] { margin-left: 2%; }   /* 20px */
+   
+    .col_1 { width: 6.5%; } 	/* 65px */
+    .col_2 { width: 15%; } 		/* 150px */
+    .col_3 { width: 23.5%; } 	/* 235px */
+    .col_4 { width: 32%; } 		/* 320px */
+    .col_5 { width: 40.5%; } 	/* 405px */
+    .col_6 { width: 49%; } 		/* 490px */
+    .col_7 { width: 57.5%; } 	/* 575px */
+    .col_8 { width: 66%; } 		/* 660px */
+    .col_9 { width: 74.5%; } 	/* 745px */
+    .col_10 { width: 83%; } 	/* 830px */
+    .col_11 { width: 91.5%; } 	/* 915px */
+    .col_12 {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}

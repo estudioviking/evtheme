@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ignus Theme\n"
+"POT-Creation-Date: 2015-04-09 19:24-0300\n"
+"PO-Revision-Date: 2015-04-09 19:24-0300\n"
+"Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
+"Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:13
+msgid "Page not found"
+msgstr ""
+
+#: 404.php:14 loop.php:34 page-contact.php:50 page-object.php:50 page.php:53
+#: single.php:49
+msgid "Sorry, nothing to display."
+msgstr ""
+
+#: 404.php:15
+msgid "Return home?"
+msgstr ""
+
+#: archive.php:7
+msgid "Archives of: "
+msgstr ""
+
+#: archive.php:12
+msgid " of "
+msgstr ""
+
+#: author.php:6
+msgid "Author Archives: "
+msgstr ""
+
+#: author.php:14
+msgid "About "
+msgstr ""
+
+#: category.php:6
+msgid "Categories for: "
+msgstr ""
+
+#: comments.php:3
+msgid "Post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:18
+msgid "Comments are closed here."
+msgstr ""
+
+#: functions.php:246
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: functions.php:394
+msgid "Header Menu"
+msgstr ""
+
+#: functions.php:395
+msgid "Sidebar Menu"
+msgstr ""
+
+#: functions.php:396
+msgid "Extra Menu"
+msgstr ""
+
+#: functions.php:549
+msgid "Leave your thoughts"
+msgstr ""
+
+#: functions.php:549
+msgid "1 Comment"
+msgstr ""
+
+#: functions.php:549
+msgid "% Comments"
+msgstr ""
+
+#: functions.php:689
+#, php-format
+msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
+msgstr ""
+
+#: functions.php:693
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:698
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: functions.php:699
+msgid "[Edit]"
+msgstr ""
+
+#: functions.php:721
+msgid "Widget Area 1"
+msgstr ""
+
+#: functions.php:723 functions.php:734
+msgid "Description for this widget-area..."
+msgstr ""
+
+#: functions.php:732
+msgid "Widget Area 2"
+msgstr ""
+
+#: index.php:6
+msgid "Latest Posts"
+msgstr ""
+
+#: search.php:6
+#, php-format
+msgid "%s Search Results for: "
+msgstr ""
+
+#: searchform.php:5
+msgid "Search"
+msgstr ""
+
+#: single.php:32
+msgid "This post was written by "
+msgstr ""
+
+#: single.php:32
+msgid " in "
+msgstr ""
+
+#: single.php:33
+msgid "Categorised in: "
+msgstr ""
+
+#: single.php:34
+msgid "Tags: "
+msgstr ""
+
+#: tag.php:6
+msgid "Tag Archive: "
+msgstr ""

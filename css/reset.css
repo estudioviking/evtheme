@@ -1,0 +1,325 @@
+/**
+ * 	Notas
+ * ----------------------------------------------------------------------------
+ * Essa folha de estilos usa valores rem com pixel como reserva para navegadores que não suportam o rem.
+ * 
+ * Os valores rem são calculados tendo como base a seguinte variável:
+ * $rembase = 10;
+ * 
+ * => Exemplo
+ * Use um valor em pixel, que ficará como reserva, e logo após coloque o valor rem
+ * para: font-size, padding, margins, etc.
+ * 		padding: 5px 0;
+ * 		padding: 0.5rem 0; ( 5 / $rembase )
+ * 
+ * Defina um font-size e em seguida defina um line-height baseado no font-size
+ * 		font-size: 20px;
+ * 		font-size: 2rem; ( 20 / $rembase )
+ * 		line-height: 1.5; ( 30 / 20(font-size) )
+ * 
+ * Se no seletor não estiver sendo definido o font-size, defina o line-height
+ * em pixels e em seguida em rem.
+ * 		.nova-div {
+ * 			line-height: 30px;
+ * 			line-height: 3rem; ( 30 / $rembase )
+ * 		}
+ * 
+ * => Espaçamento
+ * Para espaçamento use os valores 10px ou 20px
+ * para manter o ritmo no layout:
+ * 		.nova-div {
+ * 			margin: 10px 0;
+ * 			margin: 1rem 0; ( 10 / $rembase )
+ * 		}
+ * 
+ * => Leitura Complementar
+ * http://snook.ca/archives/html_and_css/font-size-with-rem
+ * http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
+ */
+
+/**
+ * Baseado no Reset de Eric Meyer
+ * http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain)
+ */  
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, input, textarea,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}
+
+/* Elemento html com 62.5% de font-size para uso de REM
+ * REM*10 = PX - Ex.: 1.4rem = 14px
+ */
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 62.5%;	/* 10px */
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+
+/**
+ * Elementos HTML5
+ * ----------------------------------------------------------------------------
+ */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main,
+menu, nav, section, summary	{
+	display: block;
+}
+
+/* Ajuste de posicionamento e exibição padrão */
+audio, canvas, progress, video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+/* Oculta elemento "audio" sem controles */
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/* Padroniza a ocultação desses elementos para navegadores antigos */
+[hidden], template {
+	display: none;
+}
+
+
+/**
+ * Estrutura Básica
+ * ----------------------------------------------------------------------------
+ */
+
+/* Aplicando novo padrão de cor, tamanho da fonte e entre-linhas */
+body {
+	color: #000;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.25em;	/* 20px */
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 58px;
+	font-size: 5.8rem;
+	line-height: 1.3793em;	/* 80px */
+}
+
+h2 {
+	font-size: 48px;
+	font-size: 4.8rem;
+	line-height: 1.25em;	/* 60px */
+}
+
+h3 {
+	font-size: 36px;
+	font-size: 3.6rem;
+	line-height: 1.3888em;	/* 50px */
+}
+
+h4 {
+	font-size: 28px;
+	font-size: 2.8rem;
+	line-height: 1.4285em;	/* 40px */
+}
+
+h5 {
+	font-size: 24px;
+	font-size: 2.4rem;
+	line-height: 1.25em;	/* 30px */
+}
+
+h6 {
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.1111em;	/* 20px */
+}
+
+/* Remove outline de todos os elementos no estado "focus" */
+:focus {
+	outline: 0;
+}
+
+
+/**
+ * Links
+ * ----------------------------------------------------------------------------
+ */
+
+/* Remove fundo cinza padrão no IE 10 */
+a {
+	background: transparent;
+}
+
+/* Melhora a legibilidade nessas situações */
+a:active, a:hover {
+	outline: 0;
+}
+
+a:hover, a:focus {
+	cursor: pointer;
+}
+
+/* Remove a decoração em todos os links */
+a, a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+}
+
+
+/**
+ * Imagens e Iframes
+ * ----------------------------------------------------------------------------
+ */
+img, iframe {
+	border: none;
+	text-decoration: none;
+}
+
+
+/**
+ * Semanticas de textos
+ * ----------------------------------------------------------------------------
+ */
+
+/* Ajuste de estilo de abreviaturas */
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+abbr[title], acronym[title], time[title] {
+	cursor: help;
+}
+
+/* Listas */
+ol, ul {
+	list-style: none;
+}
+
+ol li { list-style: decimal; }
+	ol ol li { list-style: upper-alpha; }
+		ol ol ol li { list-style: upper-roman }
+
+ul li { list-style: disc; }
+	ul ul li { list-style: circle; }
+		ul ul ul li { list-style: square; }
+
+li {
+	margin-left: 20px;
+	margin-left: 2rem;
+}
+
+/* Estilos */
+b, strong {
+	font-weight: bold;
+}
+
+dfn, cite, i, em {
+	font-style: italic;
+}
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+pre {
+	font-family: "Courier New", Courier, monospace;
+	white-space: pre;
+	overflow: auto;
+}
+
+code {
+	border: 1px dotted #999;
+	padding: 0 5px;
+	padding: 0 0.5rem;
+	display: inline-block;
+	background: #eee;
+	color:#333;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+
+/**
+ * Tabelas
+ * ----------------------------------------------------------------------------
+ */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td, th { padding: 0; }
+	
+
+/**
+ * Formulários
+ * ----------------------------------------------------------------------------
+ */
+button, input, optgroup, select, textarea {
+	color: inherit;
+	font: inherit;
+}
+
+button, html input[type="button"],
+input[type="reset"], input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+select {
+	margin: inherit;
+}
