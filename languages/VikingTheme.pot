@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ignus Theme\n"
-"POT-Creation-Date: 2015-04-09 19:24-0300\n"
-"PO-Revision-Date: 2015-04-09 19:24-0300\n"
+"POT-Creation-Date: 2015-04-13 20:30-0300\n"
+"PO-Revision-Date: 2015-04-13 20:30-0300\n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgid "Page not found"
 msgstr ""
 
 #: 404.php:14 loop.php:34 page-contact.php:50 page-object.php:50 page.php:53
-#: single.php:49
+#: single.php:47
 msgid "Sorry, nothing to display."
 msgstr ""
 
@@ -38,87 +38,108 @@ msgstr ""
 msgid " of "
 msgstr ""
 
-#: author.php:6
-msgid "Author Archives: "
+#: author-info.php:5
+msgid "Published by:"
 msgstr ""
 
-#: author.php:14
-msgid "About "
+#: author-info.php:23
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: author.php:6
+msgid "Author Archives: "
 msgstr ""
 
 #: category.php:6
 msgid "Categories for: "
 msgstr ""
 
-#: comments.php:3
+#: comments.php:9
 msgid "Post is password protected. Enter the password to view any comments."
 msgstr ""
 
-#: comments.php:18
+#: comments.php:39
 msgid "Comments are closed here."
 msgstr ""
 
-#: functions.php:246
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: functions.php:394
+#: functions.php:71
 msgid "Header Menu"
 msgstr ""
 
-#: functions.php:395
-msgid "Sidebar Menu"
+#: functions.php:72
+msgid "Social Menu"
 msgstr ""
 
-#: functions.php:396
-msgid "Extra Menu"
+#: functions.php:107
+msgid "Widget Area"
 msgstr ""
 
-#: functions.php:549
+#: functions.php:109
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: functions.php:525
 msgid "Leave your thoughts"
 msgstr ""
 
-#: functions.php:549
+#: functions.php:526
 msgid "1 Comment"
 msgstr ""
 
-#: functions.php:549
+#: functions.php:527
 msgid "% Comments"
 msgstr ""
 
-#: functions.php:689
+#: functions.php:685
 #, php-format
 msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
 msgstr ""
 
-#: functions.php:693
+#: functions.php:689
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:698
+#: functions.php:694
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: functions.php:699
+#: functions.php:695
 msgid "[Edit]"
 msgstr ""
 
-#: functions.php:721
-msgid "Widget Area 1"
+#: functions.php:720
+msgid "Comment navigation"
 msgstr ""
 
-#: functions.php:723 functions.php:734
-msgid "Description for this widget-area..."
+#: functions.php:723
+msgid "Older Comments"
 msgstr ""
 
-#: functions.php:732
-msgid "Widget Area 2"
+#: functions.php:727
+msgid "Newer Comments"
 msgstr ""
 
-#: index.php:6
+#: inc/template-tags.php:123
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: index.php:16
 msgid "Latest Posts"
+msgstr ""
+
+#: index.php:24
+msgid "Previous page"
+msgstr ""
+
+#: index.php:25
+msgid "Next page"
+msgstr ""
+
+#: index.php:26
+msgid "Page"
 msgstr ""
 
 #: search.php:6
@@ -130,20 +151,36 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: single.php:32
+#: single.php:29
 msgid "This post was written by "
 msgstr ""
 
-#: single.php:32
+#: single.php:29
 msgid " in "
 msgstr ""
 
-#: single.php:33
+#: single.php:30
 msgid "Categorised in: "
 msgstr ""
 
-#: single.php:34
+#: single.php:31
 msgid "Tags: "
+msgstr ""
+
+#: single.php:56
+msgid "Next"
+msgstr ""
+
+#: single.php:57
+msgid "Next post:"
+msgstr ""
+
+#: single.php:59
+msgid "Previous"
+msgstr ""
+
+#: single.php:60
+msgid "Previous post:"
 msgstr ""
 
 #: tag.php:6

@@ -13,11 +13,7 @@
 	<?php get_template_part( 'searchform' ); ?>
 	
 	<aside class="sidebar-widget">
-		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'widget-area-1' ) ) ?>
-	</aside>
-	
-	<aside class="sidebar-widget">
-		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'widget-area-2' ) ) ?>
+		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'widget-area' ) ) ?>
 	</aside>
 </div>
 <!-- .sidebar -->

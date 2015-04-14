@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Estúdio Viking WordPress Theme\n"
-"POT-Creation-Date: 2015-04-11 14:42-0300\n"
+"POT-Creation-Date: 2015-04-13 20:30-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
@@ -21,7 +21,7 @@ msgid "Page not found"
 msgstr "Página não encontrada"
 
 #: ../404.php:14 ../loop.php:34 ../page-contact.php:50 ../page-object.php:50
-#: ../page.php:53 ../single.php:55
+#: ../page.php:53 ../single.php:47
 msgid "Sorry, nothing to display."
 msgstr ""
 "Desculpe, não encontraramos nada que corresponda aos critérios da sua "
@@ -39,11 +39,11 @@ msgstr "Arquivos de: "
 msgid " of "
 msgstr " de "
 
-#: ../author-info.php:4
+#: ../author-info.php:5
 msgid "Published by:"
 msgstr "Publicado por:"
 
-#: ../author-info.php:19
+#: ../author-info.php:23
 #, php-format
 msgid "View all posts by %s"
 msgstr "Ver todos os artigos de %s"
@@ -52,86 +52,98 @@ msgstr "Ver todos os artigos de %s"
 msgid "Author Archives: "
 msgstr "Artigos do autor: "
 
-#: ../author.php:14
-msgid "About "
-msgstr "Sobre "
-
 #: ../category.php:6
 msgid "Categories for: "
 msgstr "Artigos para a categoria: "
 
-#: ../comments.php:3
+#: ../comments.php:9
 msgid "Post is password protected. Enter the password to view any comments."
 msgstr ""
 "Este artigo é protegido por senha. Para ver os comentários, a senha deve ser "
 "digitada."
 
-#: ../comments.php:18
+#: ../comments.php:39
 msgid "Comments are closed here."
 msgstr "Comentários estão fechados."
 
-#: ../functions.php:248
-#, php-format
-msgid "Page %s"
-msgstr "Página %s"
-
-#: ../functions.php:396
+#: ../functions.php:71
 msgid "Header Menu"
 msgstr "Menu do cabeçalho"
 
-#: ../functions.php:397
-msgid "Sidebar Menu"
-msgstr "Menu lateral"
+#: ../functions.php:72
+msgid "Social Menu"
+msgstr "Menu Social"
 
-#: ../functions.php:398
-msgid "Extra Menu"
-msgstr "Menu extra"
+#: ../functions.php:107
+msgid "Widget Area"
+msgstr "Área de Widgets"
 
-#: ../functions.php:551
+#: ../functions.php:109
+msgid "Add widgets here to appear in your sidebar."
+msgstr "Adicione widgets aqui para aparecer em sua barra lateral."
+
+#: ../functions.php:525
 msgid "Leave your thoughts"
 msgstr "Deixe um comentário"
 
-#: ../functions.php:551
+#: ../functions.php:526
 msgid "1 Comment"
 msgstr "1 Comentário"
 
-#: ../functions.php:551
+#: ../functions.php:527
 msgid "% Comments"
 msgstr "% Comentários"
 
-#: ../functions.php:691
+#: ../functions.php:685
 #, php-format
 msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
 msgstr "<cite class=\"fn\">%s</cite> <span class=\"says\">disse:</span>"
 
-#: ../functions.php:695
+#: ../functions.php:689
 msgid "Your comment is awaiting moderation."
 msgstr "Seu comentário está esperando por moderação."
 
-#: ../functions.php:700
+#: ../functions.php:694
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s em %2$s"
 
-#: ../functions.php:701
+#: ../functions.php:695
 msgid "[Edit]"
 msgstr "[Editar]"
 
+#: ../functions.php:720
+msgid "Comment navigation"
+msgstr "Navegação de comentários"
+
 #: ../functions.php:723
-msgid "Widget Area 1"
-msgstr "Área do Widget 1"
+msgid "Older Comments"
+msgstr "Comentários anteriores"
 
-#: ../functions.php:725 ../functions.php:736
-msgid "Description for this widget-area..."
-msgstr "Descrição para esta área de widgets ..."
+#: ../functions.php:727
+msgid "Newer Comments"
+msgstr "Comentários recentes"
 
-#: ../functions.php:734
-msgid "Widget Area 2"
-msgstr "Área do Widget 2"
+#: ../inc/template-tags.php:123
+#, php-format
+msgid "Page %s"
+msgstr "Página %s"
 
-#: ../index.php:6
+#: ../index.php:16
 msgid "Latest Posts"
 msgstr "Últimos Artigos"
+
+#: ../index.php:24
+msgid "Previous page"
+msgstr "Página anterior"
+
+#: ../index.php:25
+msgid "Next page"
+msgstr "Próxima página"
+
+#: ../index.php:26
+msgid "Page"
+msgstr "Página"
 
 #: ../search.php:6
 #, php-format
@@ -142,25 +154,59 @@ msgstr "%s resultados ao pesquisar: "
 msgid "Search"
 msgstr "Pesquisar"
 
-#: ../single.php:36
+#: ../single.php:29
 msgid "This post was written by "
 msgstr "Este artigo foi escrito por "
 
-#: ../single.php:36
+#: ../single.php:29
 msgid " in "
 msgstr " em "
 
-#: ../single.php:37
+#: ../single.php:30
 msgid "Categorised in: "
 msgstr "Categorizado em: "
 
-#: ../single.php:38
+#: ../single.php:31
 msgid "Tags: "
 msgstr "Tags: "
+
+#: ../single.php:56
+msgid "Next"
+msgstr "Próximo"
+
+#: ../single.php:57
+msgid "Next post:"
+msgstr "Próximo artigo:"
+
+#: ../single.php:59
+msgid "Previous"
+msgstr "Anterior"
+
+#: ../single.php:60
+msgid "Previous post:"
+msgstr "Artigo anterior:"
 
 #: ../tag.php:6
 msgid "Tag Archive: "
 msgstr "Artigos da tag: "
+
+#~ msgid "About "
+#~ msgstr "Sobre "
+
+#~ msgid "Sidebar Menu"
+#~ msgstr "Menu lateral"
+
+#~ msgid "Extra Menu"
+#~ msgstr "Menu extra"
+
+#~ msgid "Widget Area 1"
+#~ msgstr "Área do Widget 1"
+
+#~ msgid "Description for this widget-area..."
+#~ msgstr "Descrição para esta área de widgets ..."
+
+#~ msgid "Widget Area 2"
+#~ msgstr "Área do Widget 2"
 
 #~ msgid "View all posts by %s."
 #~ msgstr "Ver todos os artigos de %s."

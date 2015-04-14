@@ -8,6 +8,7 @@
  * @since 1.0
  */
 
+// Definindo constantes
 defined( 'THEME_PATH' ) or define( 'THEME_PATH', get_template_directory() );
 defined( 'THEME_URI' ) or define( 'THEME_URI', get_template_directory_uri() );
 define( 'INCLUDES_PATH', THEME_PATH . '/inc' );
@@ -37,39 +38,44 @@ require INCLUDES_PATH . '/viking_utilities.php';		// Utilidades
 require INCLUDES_PATH . '/viking_shortcodes.php';		// Shortcodes
 
 
-/**
- * Administração do Tema
- * ----------------------------------------------------------------------------
- */
-/*
-if ( ! class_exists( 'ReduxFramework' ) && file_exists( ADMIN_PATH . '/ReduxCore/framework.php' ) ) {
-    require_once( ADMIN_PATH . '/ReduxCore/framework.php' );
-}
-if ( ! isset( $site_options ) && file_exists( ADMIN_PATH . '/viking/site-config.php' ) ) {
-    require_once( ADMIN_PATH . '/viking/site-config.php' );
-}
-if ( ! isset( $site_options ) && file_exists( ADMIN_PATH . '/sample/sample-config.php' ) ) {
-    require_once( ADMIN_PATH . '/sample/sample-config.php' );
-}*/
-
-
+if ( ! function_exists( 'viking_setup' ) ) :
 /**
  * Setup de Features suportadas pelo tema
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_setup() {
-	// Suporte a menus
-	add_theme_support( 'menus' );
+	// Suporte a idiomas
+	load_theme_textdomain( 'viking-theme', THEME_PATH . '/languages' );
 	
-	// Habilita RSS feed links de postagens e comentários para o head
+	// Habilita RSS feed links de postagens e comentários para o <head>
 	add_theme_support( 'automatic-feed-links' );
+	
+	// Registro interno dos menus, não usando diretamente do tema
+	add_theme_support( 'menus' );
 	
 	// Suporte a miniaturas
     add_theme_support( 'post-thumbnails' );
-	add_image_size( 'large', 620, '', true );		// Miniatura grande
-	add_image_size( 'medium', 250, '', true );		// Miniatura média
-	add_image_size( 'small', 120, '', true );		// Miniatura pequena
-	add_image_size( 'post-size', 660, 300, true );	// Miniatura personalizada. Uso: the_post_thumbnail( 'post-size' );
+		// Miniatura grande
+		add_image_size( 'large', 620, '', true );
+		// Miniatura média
+		add_image_size( 'medium', 250, '', true );
+		// Miniatura pequena
+		add_image_size( 'small', 120, '', true );
+		// Miniatura personalizada. Uso: the_post_thumbnail( 'post-size' );
+		add_image_size( 'post-size', 660, 300, true );
+	
+	// Registro dos menus de navegação usados nesse tema
+	register_nav_menus( array(
+		'header-menu'	=> __('Header Menu', 'viking-theme'),
+		'social-menu'	=> __('Social Menu', 'viking-theme'),
+	) );
+	
+	// Suporte a elementos HTML5
+	add_theme_support( 'html5', array(
+		'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
+	) );
 	
 	// Suporte a background personalizado
 	add_theme_support( 'custom-background', array(
@@ -81,182 +87,134 @@ function viking_setup() {
 	) );
 
 	// Inclui o arquivo que dá suporte a cabeçalho personalizado
-    require INCLUDES_PATH . '/viking_custom_header.php';
-	
-	// Suporte a elementos HTML5
-	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-	
-	// Suporte a idiomas
-	load_theme_textdomain( 'viking-theme', THEME_PATH . '/languages' );
+    require INCLUDES_PATH . '/custom-header.php';
 }
+endif; // viking_setup
 add_action( 'after_setup_theme', 'viking_setup' );
 
 
 /**
- * Favicon personalizado
+ * Registro da áreas de widgets
+ * 
+ * @since Estúdio Viking 1.0
+ * 
+ * @link https://codex.wordpress.org/Function_Reference/register_sidebar
  * ----------------------------------------------------------------------------
  */
-function my_favicon(){
-	$favicon 			= ICONS_URI . '/favicon.ico';
-	$apple_icons 		= read_dir( ICONS_PATH, 'png' );
-	$apple_icons_name 	= array_keys( $apple_icons );
-	$apple_icons_count 	= count( $apple_icons_name );
-	$apple_icons_size 	= str_replace( '-', '', $apple_icons_name);
-	$apple_icons_size 	= str_replace( 'appletouchicon', '', $apple_icons_size);
-	
-	$favicons  = '<!-- Favicon IE 9 -->';
-	$favicons .= '<!--[if lte IE 9]><link rel="icon" type="image/x-icon" href="' . $favicon . '" /> <![endif]-->';
-	
-	$favicons .= '<!-- Favicon Outros Navegadores -->';
-	$favicons .= '<link rel="shortcut icon" type="image/png" href="' . $favicon . '" />';
-	
-	$favicons .='<!-- Favicon Apple -->';
-	
-	for ( $i = 0; $i < $apple_icons_count; $i++ ) :
-		$size = ( $apple_icons_size[$i] == '' ) ? '' : ' sizes="' . $apple_icons_size[$i] . '"';
-		
-		$favicons .='<link rel="apple-touch-icon"' . $size . ' href="' . ICONS_URI . $apple_icons_name[$i] . '.png" />';
-	endfor;
-	
-	echo $favicons;
+function viking_widgets_init() {
+	// Define Sidebar Widget Area 1
+	register_sidebar( array(
+		'name'			=> __( 'Widget Area', 'viking-theme' ),
+		'id'			=> 'widget-area',
+		'description'	=> __( 'Add widgets here to appear in your sidebar.', 'viking-theme' ),
+		'before_widget'	=> '<section id="%1$s" class="widget %2$s">',
+		'before_title'	=> '<h5 class="widget-title inner">',
+		'after_title'	=> '</h5><div class="widget-content inner">',
+		'after_widget'	=> '</div></section>'
+	) );
 }
-add_action( 'wp_head', 'my_favicon' );
-add_action( 'admin_head', 'my_favicon' );
-add_action( 'login_head', 'my_favicon' );
+add_action( 'widgets_init', 'viking_widgets_init' );
 
 
 /**
- * Ícone personalizado para a tela de login
- * ----------------------------------------------------------------------------
- */
-function viking_login_icon(){
-	$login_icon_url 	= IMAGES_URI . '/login_icon.png';
-	$login_icon_width 	= 290;
-	$login_icon_height 	= 250;
-	
-	$output  = '<style id="viking_login_icon" type="text/css">';
-	$output .= 'body.login #login {';
-	$output .= 'width: 1000px;';
-	$output .= 'max-width: 95%;';
-	$output .= 'padding-top: 5%;';
-	$output .= '}';
-	$output .= 'body.login #login h1 {';
-	$output .= 'float: left;';
-	$output .= 'width: 29%;';
-	$output .= 'margin-right: 2%;';
-	$output .= '}';
-	$output .= 'body.login #login h1 a {';
-	$output .= 'background: url("' . $login_icon_url . '") no-repeat;';
-	$output .= 'background-position: center center;';
-	$output .= 'width: ' . $login_icon_width . 'px;';
-	$output .= 'height: ' . $login_icon_height . 'px;';
-	$output .= 'max-width: 100%;';
-	$output .= 'margin: auto;';
-	$output .= 'margin-bottom: 0;';
-	$output .= '}';
-	$output .= 'body.login #login #loginform {';
-	$output .= 'margin-top: 0;';
-	$output .= '}';
-	$output .= 'body.login #login > p {';
-	$output .= 'text-align: right;';
-	$output .= '}';
-	$output .= '</style>';
-	
-	echo $output;
-}
-add_action( 'login_head', 'viking_login_icon' );
-
-
-/**
- * Carregar as folhas de estilo do tema
+ * Carrega as folhas de estilo do tema na tag <head>
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_styles() {
-	wp_register_style( 'reset', STYLES_URI . '/reset.css', array(), '2.0', 'all' );
-	wp_enqueue_style( 'reset' );
+	// Reset
+	wp_enqueue_style( 'reset', STYLES_URI . '/reset.css', array(), '2.0', 'all' );
 	
-	wp_register_style( 'grid', STYLES_URI . '/grid.css', array(), '2.0', 'all' );
-	wp_enqueue_style( 'grid' );
+	// Grid
+	wp_enqueue_style( 'grid', STYLES_URI . '/grid.css', array(), '2.0', 'all' );
 	
-	wp_register_style( 'font-awesome', THEME_URI . '/font-awesome/css/font-awesome.min.css', array(), '4.3.0', 'all' );
-	wp_enqueue_style( 'font-awesome' );
+	// Font-Awesome
+	wp_enqueue_style( 'font-awesome', THEME_URI . '/font-awesome/css/font-awesome.min.css', array(), '4.3.0', 'all' );
 	
-	wp_register_style( 'font-metamorphous', 'http://fonts.googleapis.com/css?family=Metamorphous&subset=latin,latin-ext', array(), '1.0', 'all' );
-	wp_enqueue_style( 'font-metamorphous' );
+	// Font Metamorphous
+	wp_enqueue_style( 'font-metamorphous', 'http://fonts.googleapis.com/css?family=Metamorphous&subset=latin,latin-ext', array(), '1.0', 'all' );
 	
-	wp_register_style( 'viking_style', THEME_URI . '/style.css', array(), '2.0', 'all' );
-	wp_enqueue_style( 'viking_style' );
+	// CSS Principal
+	wp_enqueue_style( 'viking_style', THEME_URI . '/style.css', array(), '2.0', 'all' );
 	
-	wp_register_style( 'viking_lightbox', STYLES_URI . '/lightbox.css', array(), '2.7.1', 'all' );
-	wp_enqueue_style( 'viking_lightbox' );
+	// LightBox
+	wp_enqueue_style( 'viking_lightbox', STYLES_URI . '/lightbox.css', array(), '2.7.1', 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'viking_styles' );
 
 
 /**
- * Remove 'text/css' das folhas de estilo
- * ----------------------------------------------------------------------------
- */
-function my_style_remove( $tag ) {
-	return preg_replace( '~\s+type=["\'][^"\']++["\']~', '', $tag );
-}
-add_filter( 'style_loader_tag', 'my_style_remove' );
-
-
-/**
  * Carregar os scripts do tema
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_header_scripts() {
 	if ( ! is_admin() ) :
-		wp_register_script('viking_jquery', SCRIPT_URI . '/lib/jquery.js', array(), '2.1.1'); // JQuery
-		wp_enqueue_script('viking_jquery');
+		// JQuery
+		wp_enqueue_script('viking_jquery', SCRIPT_URI . '/lib/jquery.js', array(), '2.1.1');
 		
-		wp_register_script('grid_js', SCRIPT_URI . '/grid.js', array(), '1.0'); // Grid Scripts
-		wp_enqueue_script('grid_js');
-	//elseif ( $GLOBALS['pagenow'] != 'wp-login.php' && ! is_admin() ) :
-		wp_register_script('viking_jcycle2', SCRIPT_URI . '/lib/jcycle2.js', array(), '2.1.5'); // JCycle 2
-		wp_enqueue_script('viking_jcycle2');
+		// Grid Scripts
+		wp_enqueue_script('grid_js', SCRIPT_URI . '/grid.js', array(), '1.0');
 		
-		wp_register_script('viking_lightbox', SCRIPT_URI . '/lib/lightbox.js', array(), '2.7.1'); // Lightbox 2
-		wp_enqueue_script('viking_lightbox');
+		// JCycle 2
+		wp_enqueue_script('viking_jcycle2', SCRIPT_URI . '/lib/jcycle2.js', array(), '2.1.5');
 		
-		wp_register_script('viking_modernizr', SCRIPT_URI . '/lib/modernizr.js', array(), '2.8.3'); // Modernizr
-		wp_enqueue_script('viking_modernizr');
+		// Lightbox 2
+		wp_enqueue_script('viking_lightbox', SCRIPT_URI . '/lib/lightbox.js', array(), '2.7.1');
 		
-		wp_register_script('viking_scripts', SCRIPT_URI . '/geral.js', array(), '2.0'); // Scripts personalizados
-		wp_enqueue_script('viking_scripts');
+		// Modernizr
+		wp_enqueue_script('viking_modernizr', SCRIPT_URI . '/lib/modernizr.js', array(), '2.8.3');
+		
+		// Scripts personalizados do tema
+		wp_enqueue_script('viking_scripts', SCRIPT_URI . '/geral.js', array(), '2.0');
 	endif;
 }
 add_action( 'init', 'viking_header_scripts');
 
 
 /**
- * Título das páginas
+ * Adiciona a imagem destacada dos artigos como background nos elementos
+ * da navegação dos posts
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-function my_wp_title ( $title, $sep ) {
-	global $paged, $page;
+function viking_post_nav_background() {
+	if ( ! is_single() ) return;
+	
+	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+	$next     = get_adjacent_post( false, '', false );
+	$css      = '';
+	
+	if ( is_attachment() && 'attachment' == $previous->post_type ) return;
 
-	if ( is_feed() ) return $title;
+	if ( $previous &&  has_post_thumbnail( $previous->ID ) ) :
+		$prevthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $previous->ID ), 'post-size' );
+		$prevthumb = $prevthumb[0];
+		$css .= '
+			.post-navigation .nav-previous { background-image: url(' . esc_url( $prevthumb ) . '); }
+		';
+	endif; // $previous
 
-	// Adiciona o nome do site.
-	$title .= get_bloginfo( 'name', 'display' );
+	if ( $next && has_post_thumbnail( $next->ID ) ) :
+		$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'post-size' );
+		$nextthumb = $nextthumb[0];
+		$css .= '
+			.post-navigation .nav-next { background-image: url(' . esc_url( $nextthumb ) . '); }
+		';
+	endif; // $next
 
-	// Adiciona a descrição do site para a home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) $title = "$title $sep $site_description";
-
-	// Adiciona o número da página se necessário.
-	if ( $paged >= 2 || $page >= 2 ) $title = "$title $sep " . sprintf( __( 'Page %s', 'viking-theme' ), max( $paged, $page ) );
-
-	return $title;
+	wp_add_inline_style( 'viking_style', $css );
 }
-add_filter( 'wp_title', 'my_wp_title', 10, 2 );
+add_action( 'wp_enqueue_scripts', 'viking_post_nav_background' );
 
 
 /**
  * Remove estilos de comentários recentes injetados no wp_head()
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function my_remove_recent_comments_style() {
@@ -272,6 +230,8 @@ add_action( 'widgets_init', 'my_remove_recent_comments_style' );
 
 /**
  * Altera a meta tag generator no wp_head()
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function change_generator() {
@@ -282,6 +242,8 @@ add_filter( 'the_generator', 'change_generator' );
 
 /**
  * Remove barra de administração
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function remove_admin_bar() {
@@ -293,6 +255,8 @@ add_filter( 'show_admin_bar', 'remove_admin_bar' );
 /**
  * Adiciona o "slug" de página como classe no elemento <body>
  * Créditos: Starkers Wordpress Theme
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function add_slug_to_body_class( $classes ) {
@@ -321,6 +285,8 @@ add_filter( 'body_class', 'add_slug_to_body_class' );
  * @param	$menu_class			string	Classe que vai ser aplicada no menu
  * @param	$container_id		string	Id que vai ser aplicada no conteiner
  * @return	Menu de navegação
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_nav( $menu, $container_class = null, $menu_class = null, $container_id = null ) {
@@ -360,6 +326,8 @@ function viking_nav( $menu, $container_class = null, $menu_class = null, $contai
  * @param	$menu_class			string	Classe que vai ser aplicada no menu
  * @param	$container_id		string	Id que vai ser aplicada no conteiner
  * @return	Menu de navegação
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_nav_header( $menu, $container_class = null, $menu_class = null ) {
@@ -370,8 +338,8 @@ function viking_nav_header( $menu, $container_class = null, $menu_class = null )
 	$menu_class = ( ! empty( $menu_class ) ) ? ' ' . $menu_class : '';
 	
 	wp_nav_menu( array(
-		'theme_location'	=> '',
-		'menu'				=> $menu,
+		'theme_location'	=> $menu,
+		'menu'				=> '',
 		'container'			=> 'nav',
 		'container_class'	=> $container_class,
 		'container_id'		=> $menu . '-nav',
@@ -391,21 +359,9 @@ function viking_nav_header( $menu, $container_class = null, $menu_class = null )
 
 
 /**
- * Registro dos Menus de Navegação do Tema
- * ----------------------------------------------------------------------------
- */
-function register_viking_menu() {
-	register_nav_menus( array(		// Use o array para especificar mais menus, se necessário.
-		'header-menu'	=> __('Header Menu', 'viking-theme'),	// Menu Principal
-		'sidebar-menu'	=> __('Sidebar Menu', 'viking-theme'),	// Menu da Barra Lateral
-		'extra-menu'	=> __('Extra Menu', 'viking-theme')		// Menu Extra. Se necessário, duplique para quantos precisar.
-	) );
-}
-add_action( 'init', 'register_viking_menu' );
-
-
-/**
  * Chamada para o slider
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function get_slider() {
@@ -415,6 +371,8 @@ function get_slider() {
 
 /**
  * Coleta informações da imagem destacada da postagem
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_get_thumb_meta( $thumbnail_id, $meta ) {
@@ -435,6 +393,8 @@ function viking_get_thumb_meta( $thumbnail_id, $meta ) {
 
 /**
  * Miniaturas personalizadas para as postagens
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_post_thumb( $size = 'post-size' ) {
@@ -462,6 +422,8 @@ function viking_post_thumb( $size = 'post-size' ) {
 
 /**
  * Detalhes personalizadas para as postagens
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_post_details() {
@@ -494,6 +456,8 @@ function viking_post_details() {
 /**
  * Remove as dimensões de largura e altura das miniaturas
  * que evitam imagens fluidas em the_thumbnail
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function remove_thumbnail_dimensions( $html ) {
@@ -506,6 +470,8 @@ add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
 
 /**
  * Remove valores invalidos do atributo "rel" na lista de categorias
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function remove_category_rel_from_category_list( $thelist ) {
@@ -516,6 +482,8 @@ add_filter( 'the_category', 'remove_category_rel_from_category_list' );
 
 /**
  * Cria datas como links
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_date_link() {
@@ -547,6 +515,8 @@ function viking_date_link() {
 
 /**
  * Link para os comentários
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_comment_link() {
@@ -561,6 +531,8 @@ function viking_comment_link() {
 
 /**
  * Criar resumos personalizados
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_excerpt( $length_callback = '', $more_callback = '' ) {
@@ -586,6 +558,8 @@ function viking_excerpt( $length_callback = '', $more_callback = '' ) {
 /**
  * Tamanho em palavras para os resumos personalizados.
  * Uso: viking_excerpt( 'viking_index' );
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_index( $length ) {
@@ -596,6 +570,8 @@ function viking_index( $length ) {
 /**
  * Tamanho em palavras para os resumos personalizados do slider.
  * Uso: viking_excerpt( 'viking_length_slider' );
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_length_slider( $lenght ) {
@@ -604,7 +580,9 @@ function viking_length_slider( $lenght ) {
 
 
 /**
- * Cria link Ver Artigo personalizado para a postagem 
+ * Cria link Ver Artigo personalizado para a postagem
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_view_article( $more ) {
@@ -624,6 +602,8 @@ add_filter( 'excerpt_more', 'viking_view_article' );
 
 /**
  * Paginador para postagens com links "Próximo" e "Anterior", sem plugins.
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_pagination() {
@@ -646,6 +626,8 @@ add_action( 'init', 'viking_pagination' );
  * ----------------------------------------------------------------------------
  * Obs.: Não funciona com imagens em servidor local (wampserver, xamp, etc..).
  * Quando o tema estiver online irá funcionar.
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_gravatar( $avatar_defaults ) {
@@ -658,6 +640,8 @@ add_filter( 'avatar_defaults', 'viking_gravatar' );
 
 /**
  * Comentários 'Threaded'
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function enable_threaded_comments() {
@@ -672,6 +656,8 @@ add_action( 'get_header', 'enable_threaded_comments' );
 
 /**
  * Comentários personalizados
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_comments( $comment, $args, $depth ) {
@@ -723,6 +709,8 @@ function viking_comments( $comment, $args, $depth ) {
 
 /**
  * Navegação dos comentários
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_comment_nav() {
@@ -745,39 +733,10 @@ function viking_comment_nav() {
 	<?php endif;
 }
 
-
-/**
- * Registro de Áreas de Widget
- * ----------------------------------------------------------------------------
- */
-function viking_widgets_init() {
-	// Define Sidebar Widget Area 1
-	register_sidebar( array(
-		'name'			=> __( 'Widget Area 1', 'viking-theme' ),
-		'id'			=> 'widget-area-1',
-		'description'	=> __( 'Description for this widget-area...', 'viking-theme' ),
-		'before_widget'	=> '<section id="%1$s" class="widget %2$s">',
-		'before_title'	=> '<h5 class="widget-title inner">',
-		'after_title'	=> '</h5><div class="widget-content inner">',
-		'after_widget'	=> '</div></section>'
-	) );
-	
-	// Define Sidebar Widget Area 2
-	register_sidebar( array(
-		'name'			=> __( 'Widget Area 2', 'viking-theme' ),
-		'id'			=> 'widget-area-2',
-		'description'	=> __( 'Description for this widget-area...', 'viking-theme' ),
-		'before_widget'	=> '<section id="%1$s" class="widget %2$s">',
-		'before_title'	=> '<h5 class="widget-title inner">',
-		'after_title'	=> '</h5><div class="widget-content inner">',
-		'after_widget'	=> '</div></section>'
-	) );
-}
-add_action( 'widgets_init', 'viking_widgets_init' );
-
-
 /**
  * Actions e Filtros
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 // Remove Actions
@@ -802,4 +761,11 @@ add_filter( 'widget_text', 'shortcode_unautop' );							// Remove tags <p> nas S
 // Remove Filtros
 remove_filter( 'the_excerpt', 'wpautop' );		// Remove completamente tags <p> dos resumos de postagem
 
-?>
+
+/**
+ * Tags de modelo personalizadas para este tema
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+require INCLUDES_PATH . '/template-tags.php';

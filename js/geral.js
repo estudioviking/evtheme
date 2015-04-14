@@ -53,7 +53,10 @@
 		scroll();
 		$window.scroll( scroll );
 		
-		// Adicionando a classe .radius5
+		// Ajustes da paginação dos artigos
+		$( '.pagination .prev, .pagination .next' ).addClass( 'button' );
+		
+		// Adicionando a classe .radius2
 		$( 'form, fildset, input, button, .button, .input-group, textarea, pre' ).addClass( 'radius2' );
 		
 		// Adicionando a classe .transition

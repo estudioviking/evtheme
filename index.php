@@ -19,7 +19,13 @@ get_header(); ?>
 		
 		<?php get_template_part( 'loop' ); ?>
 		
-		<?php get_template_part( 'pagination' ); ?>
+		<?php //get_template_part( 'pagination' );
+			the_posts_pagination( array(
+					'prev_text'          => '<i class="fa fa-arrow-left"></i> ' . __( 'Previous page', 'viking-theme' ),
+					'next_text'          => __( 'Next page', 'viking-theme' ) . ' <i class="fa fa-arrow-right"></i>',
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'viking-theme' ) . ' </span>',
+				) );
+		?>
 		
 	</main>
 	

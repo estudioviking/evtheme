@@ -277,7 +277,7 @@ form span.required {
 	clear: both;
 }
 
-.hidden {
+.hidden, .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
 }
@@ -289,7 +289,9 @@ form span.required {
 			border-radius: 0.2rem;
 }
 
-.transition {
+.transition,
+.transition:before,
+.transition:after {
 	-webkit-transition: all 600ms ease;
 	   -moz-transition: all 600ms ease;
 		-ms-transition: all 600ms ease;
@@ -440,7 +442,7 @@ form span.required {
 #sidebar, .slider-caption, #page-title,
 #principal .post-title,
 #principal .post-content, #post-info,
-#comments, #copyright {
+#comments, .pagination, #copyright {
 	padding: 20px;
 	padding: 2rem;
 }
@@ -706,9 +708,9 @@ article.post {
 }
 
 #principal .post-title {
-	font-size: 48px;
-	font-size: 4.8rem;
-	line-height: 1.4583em; 	/* 70px */
+	font-size: 40px;
+	font-size: 4rem;
+	line-height: 1.5em; 	/* 60px */
 	padding-top: 0;
 	padding-bottom: 0;
 }
@@ -770,6 +772,130 @@ main > hr:last-child { display: none; }
 	background-color: #fff;
 	background-color: rgba(255,255,255,0.3);
 }
+
+
+/**
+ * Navegação dos Artigos
+ *
+ * Ajustes para navegação de artigos no tema.
+ * ----------------------------------------------------------------------------
+ */
+.post-navigation {
+	background-color: #fff;
+	font-weight: bold;
+}
+
+.post-navigation .meta-nav,
+.post-navigation .post-title,
+.post-navigation .nav-next,
+.post-navigation .nav-previous {
+	position: relative;
+	z-index: 2;
+}
+
+.post-navigation span,
+.post-navigation a,
+.post-navigation a:before {
+	display: block;
+}
+
+.post-navigation a {
+	padding: 25px 50px;
+	padding: 2.5rem 5rem;
+}
+
+.post-navigation .nav-previous .post-title,
+.post-navigation .nav-next .post-title,
+.post-navigation .nav-previous a:hover .post-title,
+.post-navigation .nav-next a:hover .post-title,
+.post-navigation .nav-previous .meta-nav,
+.post-navigation .nav-next .meta-nav {
+	color: #fff;
+}
+
+.post-navigation .nav-previous a:before,
+.post-navigation .nav-next a:before {
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.post-navigation a:before {
+	content: "";
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.post-navigation a:hover:before,
+.post-navigation a:focus:before {
+	opacity: 0.5;
+}
+
+.post-navigation .meta-nav {
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1.4285em;	/* 20px */
+	text-transform: uppercase;
+}
+
+#principal .post-navigation .post-title {
+	font-family: "Metamorphous", cursive;
+	font-size: 24px;
+	font-size: 2.4rem;
+	line-height: 1.6666em;	/* 40px */
+	padding: 0;
+}
+
+.post-navigation .nav-next,
+.post-navigation .nav-previous {
+	background-position: center;
+	background-size: cover;
+}
+
+.post-navigation .nav-next .post-title,
+.post-navigation .nav-next .meta-nav {
+	text-align: right;
+}
+
+.post-navigation .meta-nav {
+	opacity: 0.8;
+}
+
+
+/**
+ * Paginação dos Artigos
+ *
+ * Ajustes para paginação de artigos no tema.
+ * ----------------------------------------------------------------------------
+ */
+.pagination .nav-links {
+	background-color: #fff;
+	background-color: rgba( 255, 255, 255, 0.5 );
+	font-size: 24px;
+	font-size: 2.4rem;
+	line-height: 1.25em;	/* 30px */
+	position: relative;
+	text-align: center;
+}
+.page-numbers {
+}
+
+.pagination .prev,
+.pagination .next {
+	position: absolute;
+}
+
+.pagination .prev {
+	left: 0;	
+}
+
+.pagination .next {
+	right: 0;
+}
+
 
 
 /**
