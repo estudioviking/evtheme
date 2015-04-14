@@ -32,10 +32,14 @@ if ( ! isset( $content_width ) ) $content_width = 620;
 
 /**
  * Inclusão de recursos ao tema
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-require INCLUDES_PATH . '/viking_utilities.php';		// Utilidades
-require INCLUDES_PATH . '/viking_shortcodes.php';		// Shortcodes
+// Utilidades
+require INCLUDES_PATH . '/viking_utilities.php';
+// Shortcodes
+require INCLUDES_PATH . '/viking_shortcodes.php';
 
 
 if ( ! function_exists( 'viking_setup' ) ) :
@@ -51,6 +55,9 @@ function viking_setup() {
 	
 	// Habilita RSS feed links de postagens e comentários para o <head>
 	add_theme_support( 'automatic-feed-links' );
+	
+	// Habilita a tag <title>
+	add_theme_support( 'title-tag' );
 	
 	// Registro interno dos menus, não usando diretamente do tema
 	add_theme_support( 'menus' );
@@ -194,7 +201,9 @@ function viking_post_nav_background() {
 		$prevthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $previous->ID ), 'post-size' );
 		$prevthumb = $prevthumb[0];
 		$css .= '
-			.post-navigation .nav-previous { background-image: url(' . esc_url( $prevthumb ) . '); }
+			.post-navigation .nav-previous {
+				background-image: url(' . esc_url( $prevthumb ) . ');
+			}
 		';
 	endif; // $previous
 
@@ -202,7 +211,9 @@ function viking_post_nav_background() {
 		$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'post-size' );
 		$nextthumb = $nextthumb[0];
 		$css .= '
-			.post-navigation .nav-next { background-image: url(' . esc_url( $nextthumb ) . '); }
+			.post-navigation .nav-next {
+				background-image: url(' . esc_url( $nextthumb ) . ');
+			}
 		';
 	endif; // $next
 

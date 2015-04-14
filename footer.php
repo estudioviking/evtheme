@@ -12,9 +12,7 @@
 
 				<footer id="footer" class="col_8" role="contentinfo">
 					<p id="copyright">
-						&copy; <?php echo do_shortcode( '[current-year]' ) ?> | <?php echo do_shortcode( '[home-link]' ) ?>. 
-						Orgulhosamente desenvolvido com 
-						<a id="wordpress-ico" href="//wordpress.org" title="Desenvolvido com WordPress"><i class="fa fa-wordpress"></i> WordPress</a>.
+						&copy; Copyright <?php echo do_shortcode( '[current-year]' ) ?> | <?php echo do_shortcode( '[home-link]' ) ?> - <?php bloginfo( 'description' ); ?>.
 					</p><!-- #copyright -->
 				</footer><!-- #footer -->
 				

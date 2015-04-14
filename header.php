@@ -13,9 +13,9 @@
 <html class="no-js" <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		
+		<!--
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		
+		-->
 		<link rel="dns-prefetch" href="//www.google-analytics.com">
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

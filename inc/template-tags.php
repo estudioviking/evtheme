@@ -18,7 +18,7 @@
  */
 function my_favicon(){
 	$favicon 			= ICONS_URI . '/favicon.ico';
-	$apple_icons 		= read_dir( ICONS_PATH, 'png' );
+	$apple_icons 		= viking_readdir( ICONS_PATH, 'png' );
 	$apple_icons_name 	= array_keys( $apple_icons );
 	$apple_icons_count 	= count( $apple_icons_name );
 	$apple_icons_size 	= str_replace( '-', '', $apple_icons_name);
@@ -56,33 +56,35 @@ function viking_login_icon(){
 	$login_icon_width 	= 290;
 	$login_icon_height 	= 250;
 	
-	$output  = '<style id="viking_login_icon" type="text/css">';
-	$output .= 'body.login #login {';
-	$output .= 'width: 1000px;';
-	$output .= 'max-width: 95%;';
-	$output .= 'padding-top: 5%;';
-	$output .= '}';
-	$output .= 'body.login #login h1 {';
-	$output .= 'float: left;';
-	$output .= 'width: 29%;';
-	$output .= 'margin-right: 2%;';
-	$output .= '}';
-	$output .= 'body.login #login h1 a {';
-	$output .= 'background: url("' . $login_icon_url . '") no-repeat;';
-	$output .= 'background-position: center center;';
-	$output .= 'width: ' . $login_icon_width . 'px;';
-	$output .= 'height: ' . $login_icon_height . 'px;';
-	$output .= 'max-width: 100%;';
-	$output .= 'margin: auto;';
-	$output .= 'margin-bottom: 0;';
-	$output .= '}';
-	$output .= 'body.login #login #loginform {';
-	$output .= 'margin-top: 0;';
-	$output .= '}';
-	$output .= 'body.login #login > p {';
-	$output .= 'text-align: right;';
-	$output .= '}';
-	$output .= '</style>';
+	$output  = '
+		<style id="viking_login_icon" type="text/css">
+			body.login #login {
+				width: 1000px;
+				max-width: 95%;
+				padding-top: 5%;
+			}
+			body.login #login h1 {
+				float: left;
+				width: 29%;
+				margin-right: 2%;
+			}
+			body.login #login h1 a {
+				background: url("' . $login_icon_url . '") no-repeat;
+				background-position: center center;
+				width: ' . $login_icon_width . 'px;
+				height: ' . $login_icon_height . 'px;
+				max-width: 100%;
+				margin: auto;
+				margin-bottom: 0;
+			}
+			body.login #login #loginform {
+				margin-top: 0;
+			}
+			body.login #login > p {
+				text-align: right;
+			}
+		</style>
+	';
 	
 	echo $output;
 }

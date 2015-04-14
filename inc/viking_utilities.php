@@ -1,7 +1,14 @@
 <?php
-// Funções de algumas utilidades
+/**
+ * Funções de algumas utilidades
+ * 
+ * Funções para algumas utilidades básicas no tema
+ *
+ * @package Estúdio Viking
+ * @since 1.0
+ */
 
-
+ 
 /**
  * Converte cores do padrão hexadecimal para rgb
  * ----------------------------------------------------------------------------
@@ -56,7 +63,7 @@ function hexalpha2rgba( $hexalpha ) {
  * Função para leitura de diretórios
  * ----------------------------------------------------------------------------
  */
-function read_dir( $dir, $type = FALSE ) {
+function viking_readdir( $dir, $type = FALSE ) {
 	$files = array();
 	$ds = DIRECTORY_SEPARATOR;
 	
