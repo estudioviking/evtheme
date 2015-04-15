@@ -14,7 +14,6 @@ get_header();
 ?>
 	
 <div id="principal" class="col_8">
-	
 	<main id="main-content" role="main">
 		
 		<?php
@@ -31,7 +30,6 @@ get_header();
 		?>
 		
 	</main><!-- #main-content -->
-	
 </div><!-- #principal -->
 
 <?php

@@ -15,10 +15,11 @@ get_header();
 ?>
 	
 <div id="principal" class="col_8">
-	
-	<h1 id="page-title"><?php _e( 'Latest Posts', 'viking-theme' ); ?></h1>
-	
 	<main id="main-content" role="main">
+	
+		<section id="page-header">
+			<h1 id="page-title"><?php _e( 'Latest Posts', 'viking-theme' ); ?></h1>
+		</section><!-- #page-header -->
 		
 		<?php
 			if ( have_posts() ):
@@ -45,7 +46,6 @@ get_header();
 		?>
 		
 	</main><!-- #main-content -->
-	
 </div><!-- #principal -->
 
 <?php
