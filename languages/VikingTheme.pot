@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ignus Theme\n"
-"POT-Creation-Date: 2015-04-13 20:30-0300\n"
-"PO-Revision-Date: 2015-04-13 20:30-0300\n"
+"POT-Creation-Date: 2015-04-14 21:31-0300\n"
+"PO-Revision-Date: 2015-04-14 21:31-0300\n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,16 +17,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:13
+#: 404.php:19
 msgid "Page not found"
 msgstr ""
 
-#: 404.php:14 loop.php:34 page-contact.php:50 page-object.php:50 page.php:53
-#: single.php:47
+#: 404.php:24 page-contact.php:50 page-object.php:50
 msgid "Sorry, nothing to display."
 msgstr ""
 
-#: 404.php:15
+#: 404.php:25
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: 404.php:28 content-none.php:34
 msgid "Return home?"
 msgstr ""
 
@@ -63,123 +66,145 @@ msgstr ""
 msgid "Comments are closed here."
 msgstr ""
 
-#: functions.php:71
+#: content-none.php:13
+msgid "Nothing found"
+msgstr ""
+
+#: content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: content-none.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: content.php:44
+msgid "This post was written by "
+msgstr ""
+
+#: content.php:44
+msgid " in "
+msgstr ""
+
+#: content.php:45
+msgid "Categorised in: "
+msgstr ""
+
+#: content.php:46
+msgid "Tags: "
+msgstr ""
+
+#: functions.php:78
 msgid "Header Menu"
 msgstr ""
 
-#: functions.php:72
+#: functions.php:79
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:107
+#: functions.php:114
 msgid "Widget Area"
 msgstr ""
 
-#: functions.php:109
+#: functions.php:116
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:525
+#: functions.php:536
 msgid "Leave your thoughts"
 msgstr ""
 
-#: functions.php:526
+#: functions.php:537
 msgid "1 Comment"
 msgstr ""
 
-#: functions.php:527
+#: functions.php:538
 msgid "% Comments"
 msgstr ""
 
-#: functions.php:685
+#: functions.php:696
 #, php-format
 msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
 msgstr ""
 
-#: functions.php:689
+#: functions.php:700
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:694
+#: functions.php:705
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: functions.php:695
+#: functions.php:706
 msgid "[Edit]"
 msgstr ""
 
-#: functions.php:720
+#: functions.php:731
 msgid "Comment navigation"
 msgstr ""
 
-#: functions.php:723
+#: functions.php:734
 msgid "Older Comments"
 msgstr ""
 
-#: functions.php:727
+#: functions.php:738
 msgid "Newer Comments"
 msgstr ""
 
-#: inc/template-tags.php:123
+#: inc/template-tags.php:125
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: index.php:16
-msgid "Latest Posts"
-msgstr ""
-
-#: index.php:24
+#: inc/template-tags.php:140
 msgid "Previous page"
 msgstr ""
 
-#: index.php:25
+#: inc/template-tags.php:141
 msgid "Next page"
 msgstr ""
 
-#: index.php:26
+#: inc/template-tags.php:142
 msgid "Page"
 msgstr ""
 
-#: search.php:6
+#: index.php:19
+msgid "Latest Posts"
+msgstr ""
+
+#: search.php:15
 #, php-format
-msgid "%s Search Results for: "
+msgid "Search results for: %s"
 msgstr ""
 
 #: searchform.php:5
 msgid "Search"
 msgstr ""
 
-#: single.php:29
-msgid "This post was written by "
-msgstr ""
-
-#: single.php:29
-msgid " in "
-msgstr ""
-
-#: single.php:30
-msgid "Categorised in: "
-msgstr ""
-
-#: single.php:31
-msgid "Tags: "
-msgstr ""
-
-#: single.php:56
+#: single.php:32
 msgid "Next"
 msgstr ""
 
-#: single.php:57
+#: single.php:33
 msgid "Next post:"
 msgstr ""
 
-#: single.php:59
+#: single.php:35
 msgid "Previous"
 msgstr ""
 
-#: single.php:60
+#: single.php:36
 msgid "Previous post:"
 msgstr ""
 
