@@ -440,7 +440,7 @@ form span.required {
 }
 
 #sidebar, .slider-caption, #page-title,
-#principal .post-title,
+#principal .post-title, #author-bio,
 #principal .post-content, .post-footer,
 #comments, .pagination, #copyright {
 	padding: 20px;
@@ -772,7 +772,7 @@ main > hr:last-child { display: none; }
 	float: right;
 }
 
-.post-footer {
+.post-footer, #author-bio {
 	background-color: #fff;
 	background-color: rgba( 255, 255, 255, 0.3 );
 }
