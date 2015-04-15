@@ -73,14 +73,14 @@ pre, code, ul, ol, form, form li,
 	margin-bottom: 2rem;
 }
 
-ul ul, ol ol, p:last-of-type,
+ul ul, ol ol, p:last-child,
 .widget:last-child, #search-form {
 	margin-bottom: 0;
 }
 
 hr {
-	margin: 20px 10px;
-	margin: 2rem 1rem;
+	margin: 20px;
+	margin: 2rem;
 	border-width: 0;
 	border-bottom: 3px dotted #630;
 	clear: both;
@@ -90,7 +90,7 @@ pre {
 	border: 1px solid #eee;
 	padding: 20px;
 	padding: 2rem;
-	background: url("img/bg_pre.png") top left repeat #fff;
+	background: url( "img/bg_pre.png" ) top left repeat #fff;
 	color: #333;
 	font-size: 14px;
 	font-size: 1.4rem;
@@ -100,7 +100,7 @@ pre {
 
 blockquote {
 	background-color: #fff;
-	background-color: rgba(255,255,255,0.3);
+	background-color: rgba( 255, 255, 255, 0.3 );
 	border-color: #963;
 	border-style: solid;
 	border-width: 0 0 0 3px;
@@ -135,7 +135,7 @@ a, a:visited {
 a:hover, a:focus {
 	color: #fc6;
 	text-shadow: 2px 2px 2px #000;
-	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.75 );
 }
 
 /* Imagens */
@@ -167,7 +167,7 @@ input[type="reset"], input[type="submit"] {
 	color: #fff;
 	font-weight: bold;
 	text-shadow: 2px 2px 2px #000;
-	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.75 );
 	-webkit-box-shadow: inset -1px -1px 1px 0 #630;
 			box-shadow: inset -1px -1px 1px 0 #630;
 }
@@ -198,8 +198,8 @@ textarea:focus {
 	border: 1px solid #630;
 	-webkit-box-shadow:inset 0 0 5px 0 #000;
 			box-shadow:inset 0 0 5px 0 #000;
-	-webkit-box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.2);
-			box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.2);
+	-webkit-box-shadow:inset 0 0 5px 0 rgba( 0, 0, 0, 0.2 );
+			box-shadow:inset 0 0 5px 0 rgba( 0, 0, 0, 0.2 );
 }
 
 label { display: block; }
@@ -302,8 +302,8 @@ form span.required {
 .shadow {
 	-webkit-box-shadow: 1px 2px 5px 1px #000;
 		    box-shadow: 1px 2px 5px 1px #000;
-	-webkit-box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
-		    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 1px 2px 5px 1px rgba( 0, 0, 0, 0.4 );
+		    box-shadow: 1px 2px 5px 1px rgba( 0, 0, 0, 0.4 );
 }
 
 .alignleft {
@@ -415,7 +415,7 @@ form span.required {
  * ----------------------------------------------------------------------------
  */
 #header, .widget,
-.archive #post-info,
+.archive .post-footer,
 #author-info {
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
@@ -430,8 +430,8 @@ form span.required {
 	margin-left: 34%;
 	-webkit-box-shadow: 2px 5px 10px 0px #000;
 			box-shadow: 2px 5px 10px 0px #000;
-	-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.5);
-			box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 2px 5px 10px 0px rgba( 0, 0, 0, 0.5 );
+			box-shadow: 2px 5px 10px 0px rgba( 0, 0, 0, 0.5 );
 }
 
 #principal, #viking-slider {
@@ -441,7 +441,7 @@ form span.required {
 
 #sidebar, .slider-caption, #page-title,
 #principal .post-title,
-#principal .post-content, #post-info,
+#principal .post-content, .post-footer,
 #comments, .pagination, #copyright {
 	padding: 20px;
 	padding: 2rem;
@@ -469,7 +469,7 @@ form span.required {
 
 .slider-caption {
 	background-color: #fff;
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba( 255, 255, 255, 0.8 );
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -501,7 +501,7 @@ form span.required {
 	right: 2rem;
 	text-align: center;
 	text-shadow: 2px 2px 3px #000;
-	text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+	text-shadow: 2px 2px 3px rgba( 0, 0, 0, 0.3 );
 	z-index: 9999;
 }
 #slider-navigation a { color: #fff; }
@@ -525,7 +525,7 @@ form span.required {
  * ----------------------------------------------------------------------------
  */
 #sidebar {
-	background: url(img/bg_sidebar.png) top center;
+	background: url( img/bg_sidebar.png ) top center;
 	background-size: 100% auto;
 	color: #fc6;
 	padding-top: 0;
@@ -534,7 +534,7 @@ form span.required {
 	margin-bottom: 0;
 	position: absolute;
 	text-shadow: 2px 2px 2px #000;
-	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.75 );
 }
 
 #sidebar a {
@@ -552,11 +552,11 @@ form span.required {
 
 #header-menu, #sidebar .widget {
 	background-color: #963;
-	background-color: rgba(153, 102, 51, 0.5);
+	background-color: rgba( 153, 102, 51, 0.5 );
 	-webkit-box-shadow: inset 0 0 15px 0 #000;
 			box-shadow: inset 0 0 15px 0 #000;
-	-webkit-box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.75);
-			box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: inset 0 0 15px 0 rgba( 0, 0, 0, 0.75 );
+			box-shadow: inset 0 0 15px 0 rgba( 0, 0, 0, 0.75 );
 }
 
 #sidebar ul {
@@ -585,7 +585,7 @@ form span.required {
 .widget_recent_comments li:hover,
 #sidebar li.current-menu-item > a {
 	background-color: #630;
-	background-color: rgba(102, 51, 0, 0.5);
+	background-color: rgba( 102, 51, 0, 0.5 );
 }
 
 
@@ -639,6 +639,10 @@ form span.required {
 	font-weight: normal;
 }
 
+.search-input {
+	color: #420;
+}
+
 
 /**
  * Widgets
@@ -673,7 +677,7 @@ form span.required {
  * ----------------------------------------------------------------------------
  */
 #principal {
-	background: url("img/bg_principal.jpg") top center;
+	background: url( "img/bg_principal.jpg" ) top center;
 	padding: 20px 0;
 	padding: 2rem 0;
 }
@@ -768,9 +772,9 @@ main > hr:last-child { display: none; }
 	float: right;
 }
 
-#post-info {
+.post-footer {
 	background-color: #fff;
-	background-color: rgba(255,255,255,0.3);
+	background-color: rgba( 255, 255, 255, 0.3 );
 }
 
 
@@ -872,15 +876,23 @@ main > hr:last-child { display: none; }
  * ----------------------------------------------------------------------------
  */
 .pagination .nav-links {
-	background-color: #fff;
-	background-color: rgba( 255, 255, 255, 0.5 );
-	font-size: 24px;
-	font-size: 2.4rem;
-	line-height: 1.25em;	/* 30px */
+	font-size: 20px;
+	font-size: 2rem;
+	line-height: 1.5em;	/* 30px */
 	position: relative;
 	text-align: center;
 }
-.page-numbers {
+.pagination .page-numbers {
+	padding: 0 8px;
+	padding: 0 0.8rem;
+}
+.pagination .current {
+	background-color: #fff;
+	background-color: rgba( 255, 255, 255, 0.5 );
+	border: 1px solid #963;
+	-webkit-border-radius: 50%;
+			border-radius: 50%;
+	overflow: hidden;
 }
 
 .pagination .prev,
@@ -1026,7 +1038,7 @@ main > hr:last-child { display: none; }
  * ----------------------------------------------------------------------------
  */
 #footer {
-	background: url("img/bg_principal.jpg") top center repeat;
+	background: url( "img/bg_principal.jpg" ) top center repeat;
 }
 
 #copyright {

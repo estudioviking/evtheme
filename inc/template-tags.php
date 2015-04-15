@@ -4,7 +4,7 @@
  * 
  * Eventualmente, algumas das funcionalidades aqui poderia ser substituída
  * por características do wordpress
- *
+ * 
  * @package Estúdio Viking
  * @since 1.0
  */
@@ -109,7 +109,7 @@ add_filter( 'style_loader_tag', 'my_style_remove' );
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-function my_wp_title ( $title, $sep ) {
+function my_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() ) return $title;
@@ -128,3 +128,19 @@ function my_wp_title ( $title, $sep ) {
 }
 add_filter( 'wp_title', 'my_wp_title', 10, 2 );
 
+
+/**
+ * Paginação de Artigos
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function viking_post_pagination() {
+	the_posts_pagination( array(
+		'prev_text'          => '<i class="fa fa-arrow-left"></i> ' . __( 'Previous page', 'viking-theme' ),
+		'next_text'          => __( 'Next page', 'viking-theme' ) . ' <i class="fa fa-arrow-right"></i>',
+		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'viking-theme' ) . ' </span>',
+	) );
+	
+	echo '<!-- .pagination -->';
+}

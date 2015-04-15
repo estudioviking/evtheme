@@ -54,7 +54,7 @@
 		$window.scroll( scroll );
 		
 		// Ajustes da paginação dos artigos
-		$( '.pagination .prev, .pagination .next' ).addClass( 'button' );
+		$( '.pagination .prev, .pagination .next' ).addClass( 'button' ).removeClass( 'page-numbers' );
 		
 		// Adicionando a classe .radius2
 		$( 'form, fildset, input, button, .button, .input-group, textarea, pre' ).addClass( 'radius2' );
