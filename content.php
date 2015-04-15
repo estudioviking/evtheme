@@ -23,7 +23,8 @@
 				</h2>
 				<?php
 			endif;
-		
+			
+			// Quadro de detalhes da postagem
 			viking_post_details();
 		?>
 	
@@ -53,7 +54,6 @@
 		endif;
 	?>
 	
-
 </article>
 <!-- #post## -->
 

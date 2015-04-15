@@ -1,7 +1,7 @@
 <?php
 /**
  * O template para exibir todos os single posts
- *
+ * 
  * @package Estúdio Viking
  * @since 1.0
  */
@@ -10,7 +10,6 @@ get_header();
 ?>
 	
 <div id="principal" class="col_8">
-	
 	<main id="main-content" role="main">
 		
 		<?php
@@ -42,7 +41,6 @@ get_header();
 		?>
 		
 	</main><!-- #main-content -->
-	
 </div><!-- #principal -->
 
 <?php

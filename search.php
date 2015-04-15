@@ -10,14 +10,13 @@ get_header();
 ?>
 	
 <div id="principal" class="col_8">
-	
-	<section id="page-header">
-		<h1 id="page-title"><?php
-			echo sprintf( __( 'Search results for: %s', 'viking-theme' ), get_search_query() );  ?>
-		</h1>
-	</section><!-- #page-header -->
-	
 	<main id="main-content" role="main">
+		
+		<section id="page-header">
+			<h1 id="page-title"><?php
+				echo sprintf( __( 'Search results for: %s', 'viking-theme' ), get_search_query() );  ?>
+			</h1>
+		</section><!-- #page-header -->
 		
 		<?php
 			if ( have_posts() ):
@@ -44,7 +43,6 @@ get_header();
 		?>
 		
 	</main><!-- #main-content -->
-	
 </div><!-- #principal -->
 
 <?php
