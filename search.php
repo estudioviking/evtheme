@@ -1,19 +1,49 @@
-<?php get_header(); ?>
+<?php
+/**
+ * O template para exibir as páginas de resultados de buscas
+ * 
+ * @package Estúdio Viking
+ * @since 1.0
+ */
+
+get_header();
+?>
 	
-<!-- principal -->
 <div id="principal" class="col_8">
 	
-	<h1 id="page-title"><?php echo sprintf( __( '%s Search Results for: ', 'viking-theme' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
+	<h1 id="page-title"><?php
+		echo sprintf( __( 'Search results for: %s', 'viking-theme' ), get_search_query() );  ?>
+	</h1>
 	
-	<main role="main">
+	<main id="main-content" role="main">
 		
-		<?php get_template_part( 'loop' ); ?>
+		<?php
+			if ( have_posts() ):
+				// Início do Loop
+				while ( have_posts() ) : the_post();
+					
+					/**
+					 * Inclui o template do formato de postagem específico para o conteúdo.
+					 * Se você quiser usar isso em um child theme, inclua um arquivo chamado content-____.php
+					 * (onde ____ é o formato de postagem) e que será utilizado em seu lugar.
+					 */
+					get_template_part( 'content', get_post_format() );
+				
+				endwhile;
+				
+				// Paginação de artigos
+				viking_post_pagination();
+				
+			else:
+				// Se não houver conteúdo, inclui o template "Nenhum artigo encontrado".
+				get_template_part( 'content', 'none' );
+				
+			endif;
+		?>
 		
-		<?php get_template_part( 'pagination' ); ?>
-		
-	</main>
+	</main><!-- #main-content -->
 	
-</div>
-<!-- /principal -->
+</div><!-- #principal -->
 
-<?php get_footer(); ?>
+<?php
+get_footer();

@@ -1,66 +1,38 @@
-<?php get_header(); ?>
+<?php
+/**
+ * O template para exibir páginas
+ * 
+ * Este é o template que exibe todas as páginas por padrão.
+ * Por favor, note que esta é a construtor WordPress de páginas e que
+ * as outras "páginas" em seu site WordPress usarão um template diferente.
+ * 
+ * @package Estúdio Viking
+ * @since 1.0
+ */
 
-<!-- principal -->
+get_header();
+?>
+	
 <div id="principal" class="col_8">
 	
-	<main role="main">
+	<main id="main-content" role="main">
 		
-		<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
-
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			
-				<!-- post header -->
-				<header class="post-header<?php if ( is_page( 'home' ) ) echo ' inner'; ?>">
-					<?php if ( ! is_page( 'home' ) ) : ?>
-						<h1 id="page-title"><?php the_title(); ?></h1>
-					<?php endif; ?>
-					
-					<span class="edit-link">
-						<?php // Link para editar a postagem
-							edit_post_link(); ?>
-					</span>
-					
-				</header>
-				<!-- /post header -->
+		<?php
+			// Início do Loop
+			while ( have_posts() ) : the_post();
 				
-				<!-- post content -->
-				<?php if ( has_post_thumbnail() ) : // Checa se existe miniaturas ?>
-					<section class="post-content linha">
-						<div class="col_8">
-							<?php the_content(); // Conteúdo Dinâmico ?>
-						</div>
-						
-						<?php viking_post_thumb() ?>
-					</section>
-				<?php else : ?>
-					<section class="post-content">
-						<?php the_content(); // Conteúdo Dinâmico ?>
-					</section>
-				<?php endif; ?>
-				<!-- /post content -->
-
-			</article>
-			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else: ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'viking-theme' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
+				// Inclui o template de conteúdo de páginas
+				get_template_part( 'content', 'page' );
+				
+				// Se os comentários estiverem habilitados ou temos pelo menos um comentário, carrega o template de comentários
+				if ( comments_open() || get_comments_number() ) comments_template();
+				
+			endwhile;
+		?>
 		
-	</main>
+	</main><!-- #main-content -->
 	
-</div>
-<!-- /principal -->
+</div><!-- #principal -->
 
-
-<?php get_footer(); ?>
+<?php
+get_footer();

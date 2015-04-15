@@ -1,35 +1,52 @@
 <?php
 /**
  * O arquivo principal do tema
- *
- * Mostra uma camada para o cabeçalho, a div#principal com as chamadas do loop
- * e da paginação e uma chamada para o rodapé do tema
- *
+ * 
+ * Este é o mais genérico arquivo de template em um tema WordPress
+ * e um dos dois arquivos necessários para um tema (o outro seria o style.css).
+ * Ele é usado para exibir uma página quando nada mais específico corresponde a uma consulta.
+ * Por exemplo, ele reúne a home page quando nenhum arquivo home.php existe.
+ * 
  * @package Estúdio Viking
  * @since 1.0
  */
 
-get_header(); ?>
+get_header();
+?>
 	
 <div id="principal" class="col_8">
 	
 	<h1 id="page-title"><?php _e( 'Latest Posts', 'viking-theme' ); ?></h1>
 	
-	<main role="main">
+	<main id="main-content" role="main">
 		
-		<?php get_template_part( 'loop' ); ?>
-		
-		<?php //get_template_part( 'pagination' );
-			the_posts_pagination( array(
-					'prev_text'          => '<i class="fa fa-arrow-left"></i> ' . __( 'Previous page', 'viking-theme' ),
-					'next_text'          => __( 'Next page', 'viking-theme' ) . ' <i class="fa fa-arrow-right"></i>',
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'viking-theme' ) . ' </span>',
-				) );
+		<?php
+			if ( have_posts() ):
+				// Início do Loop
+				while ( have_posts() ) : the_post();
+					
+					/**
+					 * Inclui o template do formato de postagem específico para o conteúdo.
+					 * Se você quiser usar isso em um child theme, inclua um arquivo chamado content-____.php
+					 * (onde ____ é o formato de postagem) e que será utilizado em seu lugar.
+					 */
+					get_template_part( 'content', get_post_format() );
+				
+				endwhile;
+				
+				// Paginação de artigos
+				viking_post_pagination();
+				
+			else:
+				// Se não houver conteúdo, inclui o template "Nenhum artigo encontrado".
+				get_template_part( 'content', 'none' );
+				
+			endif;
 		?>
 		
-	</main>
+	</main><!-- #main-content -->
 	
-</div>
-<!-- #principal -->
+</div><!-- #principal -->
 
-<?php get_footer(); ?>
+<?php
+get_footer();

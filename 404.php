@@ -1,27 +1,38 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template que exibe as páginas 404 (Nada encontrado)
+ * 
+ * @package Estúdio Viking
+ * @since 1.0
+ */
+
+get_header();
+?>
 	
-<!-- principal -->
 <div id="principal" class="col_8">
 	
-	<main role="main">
-		<!-- section -->
-		<section class="inner">
+	<main id="main-content" role="main">
+		
+		<article id="post-error-404" class="not-found error-404 post">
 			
-			<!-- article -->
-			<article id="post-404">
-				
-				<h1><?php _e( 'Page not found', 'ignus-theme' ); ?></h1>
-				<p><?php _e( 'Sorry, nothing to display.', 'ignus-theme' ); ?></p>
-				<h4><a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'ignus-theme' ); ?></a></h4>
-				
-			</article>
-			<!-- /article -->
+			<header class="post-header">
+				<h1 id="page-title"><?php _e( 'Page not found', 'viking-theme' ); ?></h1>
+			</header><!-- .post header -->
 			
-		</section>
-		<!-- /section -->
-	</main>
+			<section class="post-content">
+				<p>
+					<?php _e( 'Sorry, nothing to display.', 'viking-theme' ); ?><br />
+					<?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'viking-theme' ); ?>
+				</p>
+				<?php get_search_form(); ?>
+				<p><a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'viking-theme' ); ?></a></p>
+			</section><!-- .post content -->
+		
+		</article><!-- #post-error-404 -->
+		
+	</main><!-- #main-content -->
 	
-</div>
-<!-- /principal -->
+</div><!-- #principal -->
 
-<?php get_footer(); ?>
+<?php
+get_footer();

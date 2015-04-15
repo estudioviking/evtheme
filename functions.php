@@ -1,9 +1,9 @@
 <?php
 /**
  * Funções e definições do Estúdio Viking
- *
+ * 
  * Funções personalizadas, suporte, posts personalizados e mais
- *
+ * 
  * @package Estúdio Viking
  * @since 1.0
  */

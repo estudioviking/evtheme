@@ -1,70 +1,54 @@
-<?php get_header(); ?>
+<?php
+/**
+ * O template para exibir todos os single posts
+ *
+ * @package Estúdio Viking
+ * @since 1.0
+ */
+
+get_header();
+?>
 	
 <div id="principal" class="col_8">
 	
-	<main role="main">
-		
-		<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
-		
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				
-				<header class="post-header">
-		
-					<h1 class="post-title"><?php the_title(); ?></h1>
-					
-					<?php viking_post_details(); ?>
-				
-				</header>
-				<!-- .post-header -->
-				
-				<section class="post-content">
-					<?php the_content(); ?>
-				</section>
-				<!-- .post-content -->
-				
-				<div id="post-info">
-					<?php if ( get_the_author_meta( 'description' ) ) get_template_part( 'author-info' ); ?>
-					
-					<p>
-						<?php _e( 'This post was written by ', 'viking-theme' ); the_author_posts_link(); _e( ' in ', 'viking-theme' ); viking_date_link(); ?>.<br />
-						<i class="fa fa-folder-open"></i> <?php _e( 'Categorised in: ', 'viking-theme' ); the_category( ', ' ); // Separado por vírgula ?>.<br />
-						<i class="fa fa-tags"></i> <?php the_tags( __( 'Tags: ', 'viking-theme' ) ); ?>.
-					</p>
-				</div>
-				<!-- .post-info -->
-		
-				<?php comments_template(); ?>
-		
-			</article>
-			<!-- .article -->
-		
-		<?php endwhile; ?>
-		
-		<?php else: ?>
-		
-			<article>
-		
-				<h1><?php _e( 'Sorry, nothing to display.', 'viking-theme' ); ?></h1>
-		
-			</article>
-			<!-- .article -->
-		
-		<?php endif; ?>
+	<main id="main-content" role="main">
 		
 		<?php
-		the_post_navigation( array(
-			'next_text' => '<span class="meta-nav">' . __( 'Next', 'viking-theme' ) . '</span> ' .
-				'<span class="screen-reader-text">' . __( 'Next post:', 'viking-theme' ) . '</span> ' .
-				'<span class="post-title">%title</span>',
-			'prev_text' => '<span class="meta-nav">' . __( 'Previous', 'viking-theme' ) . '</span> ' .
-				'<span class="screen-reader-text">' . __( 'Previous post:', 'viking-theme' ) . '</span> ' .
-				'<span class="post-title">%title</span>',
-		) );
+			// Início do Loop
+			while ( have_posts() ) : the_post();
+				
+				/**
+				 * Inclui o template do formato de postagem específico para o conteúdo.
+				 * Se você quiser usar isso em um child theme, inclua um arquivo chamado content-____.php
+				 * (onde ____ é o formato de postagem) e que será utilizado em seu lugar.
+				 */
+				get_template_part( 'content', get_post_format() );
+				
+				// Se os comentários estiverem habilitados ou temos pelo menos um comentário, carrega o template de comentários
+				if ( comments_open() || get_comments_number() ) comments_template();
+				
+				// Navegação de artigos
+				the_post_navigation( array(
+					'next_text' => '<span class="meta-nav">' . __( 'Next', 'viking-theme' ) . '</span> ' .
+						'<span class="screen-reader-text">' . __( 'Next post:', 'viking-theme' ) . '</span> ' .
+						'<span class="post-title">%title</span>',
+					'prev_text' => '<span class="meta-nav">' . __( 'Previous', 'viking-theme' ) . '</span> ' .
+						'<span class="screen-reader-text">' . __( 'Previous post:', 'viking-theme' ) . '</span> ' .
+						'<span class="post-title">%title</span>',
+				) );
+				?><!-- .post-navigation --><?php
+				
+			endwhile;
 		?>
+		
+	</main><!-- #main-content -->
 	
-	</main>
-	
-</div>
-<!-- #principal -->
+</div><!-- #principal -->
 
-<?php get_footer(); ?>
+<?php
+get_footer();
+	
+	
+
+
+			
