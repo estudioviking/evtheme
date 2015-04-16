@@ -1,3 +1,11 @@
+<?php
+/**
+ * O template para exibir as informações do Autor
+ * 
+ * @package Estúdio Viking
+ * @since 1.0
+ */
+?>
 
 <div id="author-info">
 	<?php if ( is_single() ) : ?>
