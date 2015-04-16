@@ -534,8 +534,8 @@ function viking_comment_link() {
 	if ( comments_open( get_the_ID() ) )
 		comments_popup_link(
 			__( 'Leave your thoughts', 'viking-theme' ),
-			__( '1 Comment', 'viking-theme' ),
-			__( '% Comments', 'viking-theme' )
+			__( '1 comment', 'viking-theme' ),
+			__( '% comments', 'viking-theme' )
 		);
 }
 
@@ -728,14 +728,14 @@ function viking_comment_nav() {
 	// Há comentários para navegação?
 	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav class="nav comment-nav" role="navigation">
-			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfifteen' ); ?></h2>
+			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'viking-theme' ); ?></h2>
 			<div class="nav-links">
 				<?php
-					if ( $prev_link = get_previous_comments_link( __( 'Older Comments', 'twentyfifteen' ) ) ) :
+					if ( $prev_link = get_previous_comments_link( __( 'Older comments', 'viking-theme' ) ) ) :
 						printf( '<div class="nav-previous">%s</div>', $prev_link );
 					endif;
 	
-					if ( $next_link = get_next_comments_link( __( 'Newer Comments', 'twentyfifteen' ) ) ) :
+					if ( $next_link = get_next_comments_link( __( 'Newer comments', 'viking-theme' ) ) ) :
 						printf( '<div class="nav-next">%s</div>', $next_link );
 					endif;
 				?>
