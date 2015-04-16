@@ -65,13 +65,13 @@ function viking_setup() {
 	// Suporte a miniaturas
     add_theme_support( 'post-thumbnails' );
 		// Miniatura grande
-		add_image_size( 'large', 620, '', true );
+		add_image_size( 'large', 740, '', true );
 		// Miniatura média
 		add_image_size( 'medium', 250, '', true );
 		// Miniatura pequena
 		add_image_size( 'small', 120, '', true );
 		// Miniatura personalizada. Uso: the_post_thumbnail( 'post-size' );
-		add_image_size( 'post-size', 660, 300, true );
+		add_image_size( 'post-size', 780, 300, true );
 	
 	// Registro dos menus de navegação usados nesse tema
 	register_nav_menus( array(

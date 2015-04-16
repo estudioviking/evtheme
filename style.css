@@ -434,13 +434,17 @@ form span.required {
 	margin-bottom: 2rem;
 }
 
+.conteiner {
+	position: static;
+}
+
 #page, .widget:last-child, #author-info:last-child,
 #search-form, #viking-slider, .comment-form {
 	margin-bottom: 0;
 }
 
 #principal, #footer, #viking-slider {
-	margin-left: 34%;
+	margin-left: 33.8984%;
 	-webkit-box-shadow: 2px 5px 10px 0px #000;
 			box-shadow: 2px 5px 10px 0px #000;
 	-webkit-box-shadow: 2px 5px 10px 0px rgba( 0, 0, 0, 0.5 );
@@ -542,8 +546,8 @@ form span.required {
 	background-size: 100% auto;
 	color: #fc6;
 	padding-top: 0;
-	max-width: 320px;
-	max-width: 32rem;
+	max-width: 380px;
+	max-width: 38rem;
 	margin-bottom: 0;
 	position: absolute;
 	text-shadow: 2px 2px 2px #000;

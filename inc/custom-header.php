@@ -16,8 +16,8 @@ add_theme_support( 'custom-header', array(
 	'default-text-color'     => '000',
 	
 	// Tamanho padrão para as imagens
-	'width'                  => 280,
-	'height'                 => 100,
+	'width'                  => 340,
+	'height'                 => 120,
 	
 	// Opções extras
 	'random-default'         => false,	// Cabeçalho aleatório

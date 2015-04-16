@@ -1,11 +1,9 @@
 /**
- * Theme Name: Estúdio Viking
- * Description: Ajustes para um grid flexível no tema.
- * Version: 1.2
- * License: MIT
- * License URI: http://opensource.org/licenses/mit-license.php	
+ * GRID FLEXÍVEL
+ *
+ * Ajustes para um grid flesível no tema.
+ * ----------------------------------------------------------------------------
  */
-
 #grid, #grid > div.conteiner { height: 100%; }
 #grid {
     position: absolute;
@@ -20,7 +18,7 @@
 
 .conteiner {
 	max-width: 95%;
-	position: relative;
+	/*position: relative;*/
 }
 
 .conteiner:last-child, .linha:last-child,
@@ -89,21 +87,21 @@
 /* Grid 12 Colunas ( 885px - Infinito ) */
 @media screen and (min-width: 885px) {
 
-    .conteiner { width: 1180px; }
+    .conteiner { width: 1000px; }
 
-    [class^="col_"] { margin-left: 1.695%; }   /* 20px */
+    [class^="col_"] { margin-left: 2%; }   /* 20px */
    
-    .col_1 { width: 6.7796%; } 		/* 80px */
-    .col_2 { width: 15.2542%; } 	/* 180px */
-    .col_3 { width: 23.7288%; } 	/* 280px */
-    .col_4 { width: 32.2033%; } 	/* 380px */
-    .col_5 { width: 40.6779%; } 	/* 480px */
-    .col_6 { width: 49.1525%; } 	/* 580px */
-    .col_7 { width: 57.6271%; } 	/* 680px */
-    .col_8 { width: 66.1016%; } 	/* 780px */
-    .col_9 { width: 74.5762%; } 	/* 880px */
-    .col_10 { width: 83.0508%; } 	/* 980px */
-    .col_11 { width: 91.5254%; } 	/* 1080px */
+    .col_1 { width: 6.5%; } 	/* 65px */
+    .col_2 { width: 15%; } 		/* 150px */
+    .col_3 { width: 23.5%; } 	/* 235px */
+    .col_4 { width: 32%; } 		/* 320px */
+    .col_5 { width: 40.5%; } 	/* 405px */
+    .col_6 { width: 49%; } 		/* 490px */
+    .col_7 { width: 57.5%; } 	/* 575px */
+    .col_8 { width: 66%; } 		/* 660px */
+    .col_9 { width: 74.5%; } 	/* 745px */
+    .col_10 { width: 83%; } 	/* 830px */
+    .col_11 { width: 91.5%; } 	/* 915px */
     .col_12 {
         width: 100%;
         margin-left: 0;
