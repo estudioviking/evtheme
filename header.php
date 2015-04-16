@@ -13,10 +13,8 @@
 <html class="no-js" <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<!--
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		-->
 		<link rel="dns-prefetch" href="//www.google-analytics.com">
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
