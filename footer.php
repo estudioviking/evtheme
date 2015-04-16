@@ -1,6 +1,6 @@
 <?php
 /**
- * O rodapé do tema
+ * O template para exibir rodapé do tema
  *
  * Contém o #copyright onde é exibido os créditos do site e do tema
  * e o fechamento da div#page.
@@ -12,7 +12,11 @@
 
 				<footer id="footer" class="col_8" role="contentinfo">
 					<p id="copyright">
-						&copy; Copyright <?php echo do_shortcode( '[current-year]' ) ?> | <?php echo do_shortcode( '[home-link]' ) ?> - <?php bloginfo( 'description' ); ?>.
+						&copy; <?php echo date( 'Y' ) . ' ' . do_shortcode( '[home-link]' ) . ' - ' . __( 'All rights reserved', 'viking-theme' ) . '<br />' .
+						sprintf(
+							__( 'Powered by <a href="%s" rel="nofollow" target="_blank">Estúdio Viking</a> on <a href="%s" rel="nofollow" target="_blank">WordPress</a>.', 'viking-theme' ),
+							'https://github.com/ivanildodias/evtheme',
+							'http://wordpress.org/' ); ?>
 					</p><!-- #copyright -->
 				</footer><!-- #footer -->
 				
