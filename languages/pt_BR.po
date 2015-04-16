@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Estúdio Viking WordPress Theme\n"
-"POT-Creation-Date: 2015-04-15 21:15-0300\n"
+"POT-Creation-Date: 2015-04-16 00:19-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
@@ -41,11 +41,11 @@ msgstr "Arquivos de: "
 msgid " of "
 msgstr " de "
 
-#: ../author-info.php:4
+#: ../author-info.php:12
 msgid "Published by:"
 msgstr "Publicado por:"
 
-#: ../author-info.php:22
+#: ../author-info.php:30
 #, php-format
 msgid "View all posts by %s"
 msgstr "Ver todos os artigos de %s"
@@ -54,9 +54,9 @@ msgstr "Ver todos os artigos de %s"
 msgid "Author Archives: "
 msgstr "Artigos do autor: "
 
-#: ../category.php:6
-msgid "Categories for: "
-msgstr "Artigos para a categoria: "
+#: ../category.php:18
+msgid "Posts for category: "
+msgstr "Artigos para categoria: "
 
 #: ../comments.php:20
 msgid "Post is password protected. Enter the password to view any comments."
@@ -236,9 +236,15 @@ msgstr "Anterior"
 msgid "Previous post:"
 msgstr "Artigo anterior:"
 
-#: ../tag.php:6
-msgid "Tag Archive: "
-msgstr "Artigos da tag: "
+#: ../tag.php:18
+msgid "Posts for tag: "
+msgstr "Artigos para a tag: "
+
+#~ msgid "Tag Archive: "
+#~ msgstr "Artigos da tag: "
+
+#~ msgid "Categories for: "
+#~ msgstr "Artigos para a categoria: "
 
 #~ msgid "Older Comments"
 #~ msgstr "Comentários anteriores"

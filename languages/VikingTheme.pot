@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ignus Theme\n"
-"POT-Creation-Date: 2015-04-15 21:15-0300\n"
-"PO-Revision-Date: 2015-04-15 21:15-0300\n"
+"POT-Creation-Date: 2015-04-16 00:18-0300\n"
+"PO-Revision-Date: 2015-04-16 00:18-0300\n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -41,11 +41,11 @@ msgstr ""
 msgid " of "
 msgstr ""
 
-#: author-info.php:4
+#: author-info.php:12
 msgid "Published by:"
 msgstr ""
 
-#: author-info.php:22
+#: author-info.php:30
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
@@ -54,8 +54,8 @@ msgstr ""
 msgid "Author Archives: "
 msgstr ""
 
-#: category.php:6
-msgid "Categories for: "
+#: category.php:18
+msgid "Posts for category: "
 msgstr ""
 
 #: comments.php:20
@@ -229,6 +229,6 @@ msgstr ""
 msgid "Previous post:"
 msgstr ""
 
-#: tag.php:6
-msgid "Tag Archive: "
+#: tag.php:18
+msgid "Posts for tag: "
 msgstr ""
