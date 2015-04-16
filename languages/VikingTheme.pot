@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ignus Theme\n"
-"POT-Creation-Date: 2015-04-14 21:31-0300\n"
-"PO-Revision-Date: 2015-04-14 21:31-0300\n"
+"POT-Creation-Date: 2015-04-15 21:15-0300\n"
+"PO-Revision-Date: 2015-04-15 21:15-0300\n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -33,24 +33,24 @@ msgstr ""
 msgid "Return home?"
 msgstr ""
 
-#: archive.php:7
+#: archive.php:32
 msgid "Archives of: "
 msgstr ""
 
-#: archive.php:12
+#: archive.php:36
 msgid " of "
 msgstr ""
 
-#: author-info.php:5
+#: author-info.php:4
 msgid "Published by:"
 msgstr ""
 
-#: author-info.php:23
+#: author-info.php:22
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: author.php:6
+#: author.php:18
 msgid "Author Archives: "
 msgstr ""
 
@@ -58,12 +58,45 @@ msgstr ""
 msgid "Categories for: "
 msgstr ""
 
-#: comments.php:9
+#: comments.php:20
 msgid "Post is password protected. Enter the password to view any comments."
 msgstr ""
 
-#: comments.php:39
+#: comments.php:31 comments.php:63 functions.php:536
+msgid "Leave your thoughts"
+msgstr ""
+
+#: comments.php:31 functions.php:537
+msgid "1 comment"
+msgstr ""
+
+#: comments.php:31 functions.php:538
+#, php-format
+msgid "% comments"
+msgstr ""
+
+#: comments.php:32
+msgid "on"
+msgstr ""
+
+#: comments.php:54
 msgid "Comments are closed here."
+msgstr ""
+
+#: comments.php:65
+msgid "Comment"
+msgstr ""
+
+#: comments.php:68
+msgid "Name"
+msgstr ""
+
+#: comments.php:70
+msgid "Email"
+msgstr ""
+
+#: comments.php:72
+msgid "Website"
 msgstr ""
 
 #: content-none.php:13
@@ -88,19 +121,19 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: content.php:44
+#: content.php:45
 msgid "This post was written by "
 msgstr ""
 
-#: content.php:44
+#: content.php:45
 msgid " in "
 msgstr ""
 
-#: content.php:45
+#: content.php:46
 msgid "Categorised in: "
 msgstr ""
 
-#: content.php:46
+#: content.php:47
 msgid "Tags: "
 msgstr ""
 
@@ -118,18 +151,6 @@ msgstr ""
 
 #: functions.php:116
 msgid "Add widgets here to appear in your sidebar."
-msgstr ""
-
-#: functions.php:536
-msgid "Leave your thoughts"
-msgstr ""
-
-#: functions.php:537
-msgid "1 Comment"
-msgstr ""
-
-#: functions.php:538
-msgid "% Comments"
 msgstr ""
 
 #: functions.php:696
@@ -155,11 +176,11 @@ msgid "Comment navigation"
 msgstr ""
 
 #: functions.php:734
-msgid "Older Comments"
+msgid "Older comments"
 msgstr ""
 
 #: functions.php:738
-msgid "Newer Comments"
+msgid "Newer comments"
 msgstr ""
 
 #: inc/template-tags.php:125
@@ -179,11 +200,11 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: index.php:19
+#: index.php:21
 msgid "Latest Posts"
 msgstr ""
 
-#: search.php:15
+#: search.php:17
 #, php-format
 msgid "Search results for: %s"
 msgstr ""
@@ -192,19 +213,19 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: single.php:32
+#: single.php:31
 msgid "Next"
 msgstr ""
 
-#: single.php:33
+#: single.php:32
 msgid "Next post:"
 msgstr ""
 
-#: single.php:35
+#: single.php:34
 msgid "Previous"
 msgstr ""
 
-#: single.php:36
+#: single.php:35
 msgid "Previous post:"
 msgstr ""
 
