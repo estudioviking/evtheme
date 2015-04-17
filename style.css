@@ -14,16 +14,18 @@
 
 /**
  * 	Notas
- * ----------------------------------------------------------------------------
- * Essa folha de estilos usa valores rem com pixel como reserva para navegadores que não suportam o rem.
- * Essa configuração é feita no arquivo "reset.css" que se encontra na pasta "css" no tema.
+ * ============================================================================
+ * Essa folha de estilos usa valores rem com pixel como reserva para
+ * navegadores que não suportam o rem.
+ * Essa configuração é feita no arquivo "reset.css" que se encontra na pasta
+ * "css" no tema.
  * 
  * Os valores rem são calculados tendo como base a seguinte variável:
  * $rembase = 10;
  * 
  * => Exemplo
- * Use um valor em pixel, que ficará como reserva, e logo após coloque o valor rem
- * para: font-size, padding, margins, etc.
+ * Use um valor em pixel, que ficará como reserva, e logo após coloque
+ * o valor rem para: font-size, padding, margins, etc.
  * 		padding: 5px 0;
  * 		padding: 0.5rem 0; ( 5 / $rembase )
  * 
@@ -55,17 +57,8 @@
 
 /**
  * Pre-set
- *
- * Ajustes pre-setados para unificação do tema.
- * ----------------------------------------------------------------------------
+ * ============================================================================
  */
-body {
-	color: #420;
-	font-family: "Book Antiqua", sans-serif;
-	text-align: justify;
-	background-size: cover;
-}
-
 p, h1, h2, h3, h4, h5, h6, blockquote,
 pre, code, ul, ol, form, form li,
 #header, .widget {
@@ -84,6 +77,21 @@ hr {
 	border-width: 0;
 	border-bottom: 3px dotted #630;
 	clear: both;
+}
+
+
+/**
+ * Tipografia
+ * ============================================================================
+ */
+body {
+	color: #420;
+	font-family: "Book Antiqua", sans-serif;
+	font-size: 20px;
+	font-size: 2rem;
+	line-height: 1.5em;		/* 30px */
+	text-align: justify;
+	background-size: cover;
 }
 
 pre {
@@ -114,6 +122,48 @@ blockquote {
 
 /* Títulos */
 h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 58px;
+	font-size: 5.8rem;
+	line-height: 1.3793em;	/* 80px */
+}
+
+h2 {
+	font-size: 48px;
+	font-size: 4.8rem;
+	line-height: 1.25em;	/* 60px */
+}
+
+h3 {
+	font-size: 36px;
+	font-size: 3.6rem;
+	line-height: 1.3888em;	/* 50px */
+}
+
+h4 {
+	font-size: 28px;
+	font-size: 2.8rem;
+	line-height: 1.4285em;	/* 40px */
+}
+
+h5 {
+	font-size: 24px;
+	font-size: 2.4rem;
+	line-height: 1.25em;	/* 30px */
+}
+
+h6 {
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.1111em;	/* 20px */
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
 	font-family: 'Metamorphous', cursive;
 }
 
@@ -127,8 +177,15 @@ h4 a:hover, h5 a:hover, h6 a:hover
     margin-top: -2rem;
 }
 
-/* Links */
-a, a:visited {
+/**
+ * Links
+ * ----------------------------------------------------------------------------
+ */
+a, a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+}
+
+a, a:link, a:visited {
 	color: #963;
 }
 
@@ -136,6 +193,7 @@ a:hover, a:focus {
 	color: #fc6;
 	text-shadow: 2px 2px 2px #000;
 	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.75 );
+	cursor: pointer;
 }
 
 /* Imagens */
