@@ -14,7 +14,7 @@
 			<h1 id="page-title"><?php the_title(); ?></h1>
 		<?php endif; ?>
 		
-		<span class="edit-link"><?php edit_post_link(); ?></span>
+		<?php edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' ); ?>
 		
 	</header><!-- .post header -->
 	

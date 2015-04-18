@@ -28,7 +28,7 @@
 			<div id="page" class="conteiner site">
 				<div class="linha">
 					
-					<div id="sidebar" class="col_4">
+					<section id="sidebar" class="col_4">
 						
 						<header id="header" role="banner">
 							<hgroup id="brand">
@@ -47,13 +47,21 @@
 								
 							</hgroup><!-- #brand -->
 							
-							<div id="nav-header">
-								<?php viking_nav_header( 'header-menu' ); ?>
-							</div><!-- #nav-header -->
+							<aside id="nav-header">
+								<?php
+									wp_nav_menu( array(
+										'theme_location'	=> 'header-menu',
+										'container'			=> 'nav',
+										'container_id'		=> 'header-menu-nav',
+										'menu_id'			=> 'header-menu',
+										'walker'			=> new Viking_Walker_Nav()
+									) );
+								?>
+							</aside><!-- #nav-header -->
 						</header><!-- #header -->
 						
 						<?php get_sidebar(); ?>
 					
-					</div><!-- #sidebar -->
+					</section><!-- #sidebar -->
 					
 					<?php get_slider(); ?>

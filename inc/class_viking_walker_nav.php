@@ -1,5 +1,5 @@
 <?php
-class viking_walker_nav_menu extends Walker {
+class Viking_Walker_Nav extends Walker {
 	var $tree_type = array( 'post_type', 'taxonomy', 'custom' );
 	var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
 	

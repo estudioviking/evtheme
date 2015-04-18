@@ -56,7 +56,7 @@
 
 
 /**
- * Pre-set
+ * Espaçamentos Gerais
  * ============================================================================
  */
 p, h1, h2, h3, h4, h5, h6, blockquote,
@@ -71,14 +71,6 @@ ul ul, ol ol, p:last-child,
 	margin-bottom: 0;
 }
 
-hr {
-	margin: 20px;
-	margin: 2rem;
-	border-width: 0;
-	border-bottom: 3px dotted #630;
-	clear: both;
-}
-
 
 /**
  * Tipografia
@@ -87,23 +79,21 @@ hr {
 body {
 	color: #420;
 	font-family: "Book Antiqua", sans-serif;
-	font-size: 20px;
-	font-size: 2rem;
-	line-height: 1.5em;		/* 30px */
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.6666;	/* 30px */
 	text-align: justify;
-	background-size: cover;
 }
 
 pre {
+	background: url( "img/bg_pre.png" ) top left repeat #fff;
+	color: #333;
 	border: 1px solid #eee;
 	padding: 20px;
 	padding: 2rem;
-	background: url( "img/bg_pre.png" ) top left repeat #fff;
-	color: #333;
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 1.4285em;	/* 20px */
-	overflow: auto;
+	line-height: 1.4285;	/* 20px */
 }
 
 blockquote {
@@ -115,66 +105,72 @@ blockquote {
 	border-width: 0 0 0 0.3rem;
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 1.4285em;	/* 20px */
+	line-height: 1.4285;	/* 20px */
 	padding: 10px;
 	padding: 1rem;
 }
 
 /* Títulos */
 h1, h2, h3, h4, h5, h6 {
+	font-family: 'Metamorphous', cursive;
 	clear: both;
 	font-weight: bold;
 }
 
+h3, h4, h6 {
+	line-height: 1.4285;	/* 60px, 40px, 30px, 20px */
+}
+
 h1 {
-	font-size: 58px;
-	font-size: 5.8rem;
-	line-height: 1.3793em;	/* 80px */
+	font-size: 40px;
+	font-size: 4rem;
+	line-height: 1.25;		/* 50px */
 }
 
 h2 {
-	font-size: 48px;
-	font-size: 4.8rem;
-	line-height: 1.25em;	/* 60px */
+	font-size: 32px;
+	font-size: 3.2rem;
+	line-height: 1.5625;	/* 50px */
 }
 
 h3 {
-	font-size: 36px;
-	font-size: 3.6rem;
-	line-height: 1.3888em;	/* 50px */
+	font-size: 28px;
+	font-size: 2.8rem;
 }
 
 h4 {
-	font-size: 28px;
-	font-size: 2.8rem;
-	line-height: 1.4285em;	/* 40px */
+	font-size: 21px;
+	font-size: 2.1rem;
 }
 
 h5 {
-	font-size: 24px;
-	font-size: 2.4rem;
-	line-height: 1.25em;	/* 30px */
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.6666;	/* 30px */
 }
 
 h6 {
-	font-size: 18px;
-	font-size: 1.8rem;
-	line-height: 1.1111em;	/* 20px */
-}
-
-/* Títulos */
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Metamorphous', cursive;
+	font-size: 14px;
+	font-size: 1.4rem;
 }
 
 h1, h2, h3, h4, h5, h6,
 h1 a:hover, h2 a:hover, h3 a:hover,
-h4 a:hover, h5 a:hover, h6 a:hover
-	{ font-weight: normal; }
+h4 a:hover, h5 a:hover, h6 a:hover {
+	font-weight: normal;
+}
 
 .sub-title {
     margin-top: -20px;
     margin-top: -2rem;
+}
+
+hr {
+	margin: 20px;
+	margin: 2rem;
+	border-width: 0;
+	border-bottom: 3px dotted #630;
+	clear: both;
 }
 
 /**
@@ -197,7 +193,7 @@ a:hover, a:focus {
 }
 
 /* Imagens */
-img {
+img, picture, video, embed {
 	max-width: 100%;
 }
 
@@ -214,7 +210,7 @@ input, textarea {
 	padding: 0 0.5rem;
 	font-size: 16px;
 	font-size: 1.6rem;
-	line-height: 1.875em;	/* 30px */
+	line-height: 1.875;	/* 30px */
 }
 
 .button, a.button, button, html input[type="button"],
@@ -263,7 +259,7 @@ textarea:focus {
 label {
 	font-size: 18px;
 	font-size: 1.8rem;
-	line-height: 1.6666em;	/* 30px */
+	line-height: 1.6666;	/* 30px */
 	font-weight: bold;
 	display: block;
 	margin-bottom: 5px;
@@ -274,7 +270,7 @@ label.error {
 	color: #d33;
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 1.4285em;	/* 20px */
+	line-height: 1.4285;	/* 20px */
 	font-weight: bold;
 }
 
@@ -299,7 +295,7 @@ form span.required {
 	color: #444;
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 2.1428em;	/* 30px */
+	line-height: 2.1428;	/* 30px */
 	font-style: italic;
 	text-align: inherit;
 }
@@ -308,7 +304,7 @@ form span.required {
 	color: #444;
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 2.1428em;	/* 30px */
+	line-height: 2.1428;	/* 30px */
 	font-style: italic;
 	text-align: inherit;
 }
@@ -317,7 +313,7 @@ form span.required {
 	color: #444;
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 2.1428em;	/* 30px */
+	line-height: 2.1428;	/* 30px */
 	font-style: italic;
 	text-align: inherit;
 }
@@ -584,12 +580,12 @@ form span.required {
 #slider-pager {
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 1.4285em;	/* 20px */
+	line-height: 1.4285;	/* 20px */
 }
 .cycle-pager-active {
 	font-size: 16px;
 	font-size: 1.6rem;
-	line-height: 1.25em;	/* 20px */
+	line-height: 1.25;	/* 20px */
 }
 
 
@@ -695,7 +691,7 @@ form span.required {
 	color: #fff;
 	font-size: 24px;
 	font-size: 2.4rem;
-	line-height: 1.6666em; 	/* 40px */
+	line-height: 1.6666; 	/* 40px */
 	position: absolute;
 	top: 0;
 	left: 10px;
@@ -787,9 +783,6 @@ article.post {
 }
 
 #principal .post-title {
-	font-size: 40px;
-	font-size: 4rem;
-	line-height: 1.5em; 	/* 60px */
 	padding-top: 0;
 	padding-bottom: 0;
 }
@@ -829,7 +822,7 @@ main > hr:last-child { display: none; }
 	background-color: #520;
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 2.8571em;		/* 40px */
+	line-height: 2.8571;		/* 40px */
 	text-align: center;
 }
 
@@ -916,7 +909,7 @@ main > hr:last-child { display: none; }
 .post-navigation .meta-nav {
 	font-size: 14px;
 	font-size: 1.4rem;
-	line-height: 1.4285em;	/* 20px */
+	line-height: 1.4285;	/* 20px */
 	text-transform: uppercase;
 }
 
@@ -924,7 +917,7 @@ main > hr:last-child { display: none; }
 	font-family: "Metamorphous", cursive;
 	font-size: 24px;
 	font-size: 2.4rem;
-	line-height: 1.6666em;	/* 40px */
+	line-height: 1.6666;	/* 40px */
 	padding: 0;
 }
 
@@ -953,7 +946,7 @@ main > hr:last-child { display: none; }
 .pagination .nav-links {
 	font-size: 20px;
 	font-size: 2rem;
-	line-height: 1.5em;	/* 30px */
+	line-height: 1.5;	/* 30px */
 	position: relative;
 	text-align: center;
 }
@@ -996,7 +989,7 @@ main > hr:last-child { display: none; }
 .author-heading {
 	font-size: 18px;
 	font-size: 1.8rem;
-	line-height: 1.6666em; 	/* 30px */
+	line-height: 1.6666; 	/* 30px */
 }
 
 .author-avatar {
@@ -1016,7 +1009,7 @@ main > hr:last-child { display: none; }
 .author-title {
 	font-size: 24px;
 	font-size: 2.4rem;
-	line-height: 1.25em; 	/* 30px */
+	line-height: 1.25; 	/* 30px */
 	clear: none;
 }
 

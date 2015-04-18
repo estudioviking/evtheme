@@ -9,11 +9,10 @@
  */
 ?>
 
-<div class="sidebar" role="complementary">
-	<?php get_template_part( 'searchform' ); ?>
+<section class="sidebar" role="complementary">
+	<?php get_search_form(); ?>
 	
 	<aside class="sidebar-widget">
 		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'widget-area' ) ) ?>
 	</aside>
-</div>
-<!-- .sidebar -->
+</section><!-- .sidebar -->

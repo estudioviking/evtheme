@@ -108,7 +108,7 @@ add_filter( 'style_loader_tag', 'my_style_remove' );
  * 
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
- */
+ *//*
 function my_wp_title( $title, $sep ) {
 	global $paged, $page;
 
@@ -126,8 +126,33 @@ function my_wp_title( $title, $sep ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'my_wp_title', 10, 2 );
+add_filter( 'wp_title', 'my_wp_title', 10, 2 );*/
 
+
+/**
+ * Títulos personalizados para páginas arquivos
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function my_archive_title( $title ) {
+	if ( is_category() ) :
+		$title = sprintf( __( 'Posts in category: %s', 'viking-theme' ), single_cat_title( '', false ) );
+	elseif ( is_tag() ) :
+		$title = sprintf( __( 'Posts in tag: %s', 'viking-theme' ), single_tag_title( '', false ) );
+	elseif ( is_author() ) :
+		$title = sprintf( __( 'Posts of the author: %s', 'viking-theme' ), get_the_author() );
+	elseif ( is_day() ) :
+		$title = sprintf( __( 'Posts of the day: %s', 'viking-theme' ), get_the_date( get_option( 'date_format' ) ) );
+	elseif ( is_month() ) :
+		$title = sprintf( __( 'Posts of the month: %s', 'viking-theme' ), get_the_date( 'F\/Y' ) );
+	elseif ( is_year() ) :
+		$title = sprintf( __( 'Posts of the year: %s', 'viking-theme' ), get_the_date( 'Y' ) );
+	endif;
+	
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'my_archive_title' );
 
 /**
  * Paginação de Artigos

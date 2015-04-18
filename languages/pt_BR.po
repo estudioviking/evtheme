@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Estúdio Viking WordPress Theme\n"
-"POT-Creation-Date: 2015-04-16 08:37-0300\n"
+"POT-Creation-Date: 2015-04-17 21:47-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
@@ -34,14 +34,6 @@ msgstr "Nada foi encontrado neste local. Quer tentar uma pesquisa?"
 msgid "Return home?"
 msgstr "Voltar para a página inicial?"
 
-#: ../archive.php:32
-msgid "Archives of: "
-msgstr "Arquivos de: "
-
-#: ../archive.php:36
-msgid " of "
-msgstr " de "
-
 #: ../author-info.php:12
 msgid "Published by:"
 msgstr "Publicado por:"
@@ -51,29 +43,21 @@ msgstr "Publicado por:"
 msgid "View all posts by %s"
 msgstr "Ver todos os artigos de %s"
 
-#: ../author.php:18
-msgid "Author Archives: "
-msgstr "Artigos do autor: "
-
-#: ../category.php:18
-msgid "Posts for category: "
-msgstr "Artigos para categoria: "
-
 #: ../comments.php:20
 msgid "Post is password protected. Enter the password to view any comments."
 msgstr ""
 "Este artigo é protegido por senha. Para ver os comentários, a senha deve ser "
 "digitada."
 
-#: ../comments.php:31 ../comments.php:63 ../functions.php:536
+#: ../comments.php:31 ../comments.php:63 ../functions.php:462
 msgid "Leave your thoughts"
 msgstr "Deixe seus comentários"
 
-#: ../comments.php:31 ../functions.php:537
+#: ../comments.php:31 ../functions.php:463
 msgid "1 comment"
 msgstr "1 comentário"
 
-#: ../comments.php:31 ../functions.php:538
+#: ../comments.php:31 ../functions.php:464
 #, php-format
 msgid "% comments"
 msgstr "% comentários"
@@ -129,6 +113,10 @@ msgstr ""
 "Parece que não pudemos encontrar o que você está procurando. Talvez a "
 "pesquisa possa ajudar."
 
+#: ../content-page.php:17 ../functions.php:383
+msgid "Edit"
+msgstr "Editar"
+
 #: ../content.php:45
 msgid "This post was written by "
 msgstr "Este artigo foi escrito por "
@@ -159,74 +147,81 @@ msgstr ""
 "Viking</a> em <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">WordPress</"
 "a>."
 
-#: ../functions.php:78
+#: ../functions.php:80
 msgid "Header Menu"
 msgstr "Menu do cabeçalho"
 
-#: ../functions.php:79
+#: ../functions.php:81
 msgid "Social Menu"
 msgstr "Menu Social"
 
-#: ../functions.php:114
+#: ../functions.php:121
 msgid "Widget Area"
 msgstr "Área de Widgets"
 
-#: ../functions.php:116
+#: ../functions.php:123
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Adicione widgets aqui para aparecer em sua barra lateral."
 
-#: ../functions.php:696
-#, php-format
-msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
-msgstr "<cite class=\"fn\">%s</cite> <span class=\"says\">disse:</span>"
-
-#: ../functions.php:700
-msgid "Your comment is awaiting moderation."
-msgstr "Seu comentário está esperando por moderação."
-
-#: ../functions.php:705
-#, php-format
-msgid "%1$s at %2$s"
-msgstr "%1$s em %2$s"
-
-#: ../functions.php:706
-msgid "[Edit]"
-msgstr "[Editar]"
-
-#: ../functions.php:731
+#: ../functions.php:604
 msgid "Comment navigation"
 msgstr "Navegação de comentários"
 
-#: ../functions.php:734
+#: ../functions.php:607
 msgid "Older comments"
 msgstr "Comentários anteriores"
 
-#: ../functions.php:738
+#: ../functions.php:611
 msgid "Newer comments"
 msgstr "Comentários recentes"
 
-#: ../inc/template-tags.php:125
-#, php-format
-msgid "Page %s"
-msgstr "Página %s"
-
 #: ../inc/template-tags.php:140
+#, php-format
+msgid "Posts in category: %s"
+msgstr "Artigos na categoria: %s"
+
+#: ../inc/template-tags.php:142
+#, php-format
+msgid "Posts in tag: %s"
+msgstr "Artigos na tag: %s"
+
+#: ../inc/template-tags.php:144
+#, php-format
+msgid "Posts of the author: %s"
+msgstr "Artigos do author: %s"
+
+#: ../inc/template-tags.php:146
+#, php-format
+msgid "Posts of the day: %s"
+msgstr "Artigos do dia: %s"
+
+#: ../inc/template-tags.php:148
+#, php-format
+msgid "Posts of the month: %s"
+msgstr "Artigos do mês: %s"
+
+#: ../inc/template-tags.php:150
+#, php-format
+msgid "Posts of the year: %s"
+msgstr "Artigos do ano: %s"
+
+#: ../inc/template-tags.php:165
 msgid "Previous page"
 msgstr "Página anterior"
 
-#: ../inc/template-tags.php:141
+#: ../inc/template-tags.php:166
 msgid "Next page"
 msgstr "Próxima página"
 
-#: ../inc/template-tags.php:142
+#: ../inc/template-tags.php:167
 msgid "Page"
 msgstr "Página"
 
-#: ../index.php:21
+#: ../index.php:20
 msgid "Latest Posts"
 msgstr "Últimos Artigos"
 
-#: ../search.php:17
+#: ../search.php:16
 #, php-format
 msgid "Search results for: %s"
 msgstr "Resultados da pesquisa para: %s"
@@ -235,25 +230,57 @@ msgstr "Resultados da pesquisa para: %s"
 msgid "Search"
 msgstr "Pesquisar"
 
-#: ../single.php:31
+#: ../single.php:30
 msgid "Next"
 msgstr "Próximo"
 
-#: ../single.php:32
+#: ../single.php:31
 msgid "Next post:"
 msgstr "Próximo artigo:"
 
-#: ../single.php:34
+#: ../single.php:33
 msgid "Previous"
 msgstr "Anterior"
 
-#: ../single.php:35
+#: ../single.php:34
 msgid "Previous post:"
 msgstr "Artigo anterior:"
 
-#: ../tag.php:18
-msgid "Posts for tag: "
-msgstr "Artigos para a tag: "
+#~ msgid "Posts for category: "
+#~ msgstr "Artigos para categoria: "
+
+#~ msgid "Posts for tag: "
+#~ msgstr "Artigos para a tag: "
+
+#~ msgid "Author Archives: "
+#~ msgstr "Artigos do autor: "
+
+#~ msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
+#~ msgstr "<cite class=\"fn\">%s</cite> <span class=\"says\">disse:</span>"
+
+#~ msgid "Your comment is awaiting moderation."
+#~ msgstr "Seu comentário está esperando por moderação."
+
+#~ msgid "%1$s at %2$s"
+#~ msgstr "%1$s em %2$s"
+
+#~ msgid "[Edit]"
+#~ msgstr "[Editar]"
+
+#~ msgid "Archives of:"
+#~ msgstr "Arquivos de:"
+
+#~ msgid "of"
+#~ msgstr "de"
+
+#~ msgid "Page %s"
+#~ msgstr "Página %s"
+
+#~ msgid "Archives of: "
+#~ msgstr "Arquivos de: "
+
+#~ msgid " of "
+#~ msgstr " de "
 
 #~ msgid "Tag Archive: "
 #~ msgstr "Artigos da tag: "

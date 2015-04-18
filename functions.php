@@ -40,6 +40,8 @@ if ( ! isset( $content_width ) ) $content_width = 620;
 require INCLUDES_PATH . '/viking_utilities.php';
 // Shortcodes
 require INCLUDES_PATH . '/viking_shortcodes.php';
+// Inclui o Walker personalizado para construção de menus
+require_once INCLUDES_PATH . '/class_viking_walker_nav.php';
 
 
 if ( ! function_exists( 'viking_setup' ) ) :
@@ -79,6 +81,11 @@ function viking_setup() {
 		'social-menu'	=> __('Social Menu', 'viking-theme'),
 	) );
 	
+	// Suporte aos formatos de post
+	//add_theme_support( 'post-formats', array(
+	//	'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'
+	//) );
+	
 	// Suporte a elementos HTML5
 	add_theme_support( 'html5', array(
 		'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
@@ -87,10 +94,10 @@ function viking_setup() {
 	// Suporte a background personalizado
 	add_theme_support( 'custom-background', array(
 		'default-color'			=> 'fff',
-		'default-image'			=> THEME_URI . '/img/bg/bg_site.jpg',
-		'default-repeat'		=> 'no-repeat',
+		'default-image'			=> THEME_URI . '/img/bg_site.jpg',
+		'default-repeat'		=> 'repeat',
 		'default-position-x'	=> 'center',
-		'default-attachment'	=> 'fixed'
+		'default-attachment'	=> 'scroll'
 	) );
 
 	// Inclui o arquivo que dá suporte a cabeçalho personalizado
@@ -115,8 +122,8 @@ function viking_widgets_init() {
 		'id'			=> 'widget-area',
 		'description'	=> __( 'Add widgets here to appear in your sidebar.', 'viking-theme' ),
 		'before_widget'	=> '<section id="%1$s" class="widget %2$s">',
-		'before_title'	=> '<h5 class="widget-title inner">',
-		'after_title'	=> '</h5><div class="widget-content inner">',
+		'before_title'	=> '<h2 class="widget-title inner">',
+		'after_title'	=> '</h2><div class="widget-content inner">',
 		'after_widget'	=> '</div></section>'
 	) );
 }
@@ -289,87 +296,6 @@ add_filter( 'body_class', 'add_slug_to_body_class' );
 
 
 /**
- * Menu de navegação customizado.
- * 
- * @param	$menu				string	Nome do menu personalizado pre-registrado em Aparência > Menus
- * @param	$container_class	string	Classe que vai ser aplicada no conteiner
- * @param	$menu_class			string	Classe que vai ser aplicada no menu
- * @param	$container_id		string	Id que vai ser aplicada no conteiner
- * @return	Menu de navegação
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_nav( $menu, $container_class = null, $menu_class = null, $container_id = null ) {
-	// Inclui o Walker personalizado para construção do menu
-	require INCLUDES_PATH . '/viking_walker_nav_menu.php';
-	
-	$container_id = ( ! empty( $container_id ) ) ? ' ' . $container_id : '';
-	$container_class = ( ! empty( $container_class ) ) ? ' ' . $container_class : '';
-	$menu_class = ( ! empty( $menu_class ) ) ? ' ' . $menu_class : '';
-	
-	wp_nav_menu( array(
-		'theme_location'	=> '',
-		'menu'				=> $menu,
-		'container'			=> 'nav',
-		'container_class'	=> 'nav-menu-container' . $container_class,
-		'container_id'		=> $menu . '-nav' . $container_id,
-		'menu_class'		=> 'nav-menu' . $menu_class,
-		'menu_id'			=> $menu,
-		'echo'				=> true,
-		'fallback_cb'		=> 'wp_page_menu',
-		'before'			=> '',
-		'after'				=> '',
-		'link_before'		=> '',
-		'link_after'		=> '',
-		'items_wrap'		=> '<ul id="%1$s" class="%2$s">%3$s</ul>',
-		'depth'				=> 0,
-		'walker'			=> new viking_walker_nav_menu()
-	) );
-}
-
-
-/**
- * Menu de navegação customizado do cabeçalho.
- * 
- * @param	$menu				string	Nome do menu personalizado pre-registrado em Aparência > Menus
- * @param	$container_class	string	Classe que vai ser aplicada no conteiner
- * @param	$menu_class			string	Classe que vai ser aplicada no menu
- * @param	$container_id		string	Id que vai ser aplicada no conteiner
- * @return	Menu de navegação
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_nav_header( $menu, $container_class = null, $menu_class = null ) {
-	// Inclui o Walker personalizado para construção do menu
-	require INCLUDES_PATH . '/viking_walker_nav_menu.php';
-	
-	$container_class = ( ! empty( $container_class ) ) ? ' ' . $container_class : '';
-	$menu_class = ( ! empty( $menu_class ) ) ? ' ' . $menu_class : '';
-	
-	wp_nav_menu( array(
-		'theme_location'	=> $menu,
-		'menu'				=> '',
-		'container'			=> 'nav',
-		'container_class'	=> $container_class,
-		'container_id'		=> $menu . '-nav',
-		'menu_class'		=> $menu_class,
-		'menu_id'			=> $menu,
-		'echo'				=> true,
-		'fallback_cb'		=> 'wp_page_menu',
-		'before'			=> '',
-		'after'				=> '',
-		'link_before'		=> '',
-		'link_after'		=> '',
-		'items_wrap'		=> '<ul id="%1$s" class="%2$s">%3$s</ul>',
-		'depth'				=> 0,
-		'walker'			=> new viking_walker_nav_menu()
-	) );
-}
-
-
-/**
  * Chamada para o slider
  * 
  * @since Estúdio Viking 1.0
@@ -454,7 +380,7 @@ function viking_post_details() {
 				<span class="post-date"><?php viking_date_link(); ?></span> | 
 				<span class="post-comments"><?php viking_comment_link(); ?></span>
 				<?php if ( is_user_logged_in() ) : ?>
-					 | <span class="edit-link"><?php edit_post_link(); // Link para editar a postagem ?></span>
+					 | <?php edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' ); ?>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
@@ -663,59 +589,6 @@ function enable_threaded_comments() {
 	endif;
 }
 add_action( 'get_header', 'enable_threaded_comments' );
-
-
-/**
- * Comentários personalizados
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_comments( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	
-	extract( $args, EXTR_SKIP );
-	
-	if ( 'div' == $args['style'] ) :
-		$tag = 'div';
-		$add_below = 'comment';
-	else :
-		$tag = 'li';
-		$add_below = 'div-comment';
-	endif;
-?>
-	<!-- heads up: starting < for the html tag (li or div) in the next line: -->
-	<<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
-		
-		<?php if ( 'div' != $args['style'] ) : ?>
-			<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-		<?php endif; ?>
-		
-		<div class="comment-author vcard">
-			<?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['180'] ); ?>
-			<?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ) ?>
-		</div>
-		
-		<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'viking-theme' ) ?></em><br />
-		<?php endif; ?>
-		
-		<div class="comment-meta commentmetadata">
-			<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-				<?php printf( __( '%1$s at %2$s', 'viking-theme' ), get_comment_date(),  get_comment_time() ) ?>
-			</a><?php edit_comment_link( __( '[Edit]', 'viking-theme' ),'  ','' ); ?>
-		</div>
-		
-		<?php comment_text(); ?>
-		
-		<div class="reply">
-			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) ?>
-		</div>
-		
-	<?php if ( 'div' != $args['style'] ) : ?>
-		</div>
-	<?php endif;
-}
 
 
 /**

@@ -10,7 +10,7 @@
 <article id="post-not-found" class="not-found no-results post">
 	
 	<header class="post-header">
-		<h1 class="post-title"><?php _e( 'Nothing found', 'viking-theme' ); ?></h1>
+		<h3 class="post-title"><?php _e( 'Nothing found', 'viking-theme' ); ?></h3>
 	</header><!-- .post header -->
 	
 	<section class="post-content">

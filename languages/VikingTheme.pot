@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ignus Theme\n"
-"POT-Creation-Date: 2015-04-16 08:30-0300\n"
-"PO-Revision-Date: 2015-04-16 08:30-0300\n"
+"POT-Creation-Date: 2015-04-17 21:47-0300\n"
+"PO-Revision-Date: 2015-04-17 21:47-0300\n"
 "Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -33,14 +33,6 @@ msgstr ""
 msgid "Return home?"
 msgstr ""
 
-#: archive.php:32
-msgid "Archives of: "
-msgstr ""
-
-#: archive.php:36
-msgid " of "
-msgstr ""
-
 #: author-info.php:12
 msgid "Published by:"
 msgstr ""
@@ -50,27 +42,19 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: author.php:18
-msgid "Author Archives: "
-msgstr ""
-
-#: category.php:18
-msgid "Posts for category: "
-msgstr ""
-
 #: comments.php:20
 msgid "Post is password protected. Enter the password to view any comments."
 msgstr ""
 
-#: comments.php:31 comments.php:63 functions.php:536
+#: comments.php:31 comments.php:63 functions.php:462
 msgid "Leave your thoughts"
 msgstr ""
 
-#: comments.php:31 functions.php:537
+#: comments.php:31 functions.php:463
 msgid "1 comment"
 msgstr ""
 
-#: comments.php:31 functions.php:538
+#: comments.php:31 functions.php:464
 #, php-format
 msgid "% comments"
 msgstr ""
@@ -121,6 +105,10 @@ msgid ""
 "searching can help."
 msgstr ""
 
+#: content-page.php:17 functions.php:383
+msgid "Edit"
+msgstr ""
+
 #: content.php:45
 msgid "This post was written by "
 msgstr ""
@@ -148,74 +136,81 @@ msgid ""
 "a> on <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">WordPress</a>."
 msgstr ""
 
-#: functions.php:78
+#: functions.php:80
 msgid "Header Menu"
 msgstr ""
 
-#: functions.php:79
+#: functions.php:81
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:114
+#: functions.php:121
 msgid "Widget Area"
 msgstr ""
 
-#: functions.php:116
+#: functions.php:123
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:696
-#, php-format
-msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
-msgstr ""
-
-#: functions.php:700
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#: functions.php:705
-#, php-format
-msgid "%1$s at %2$s"
-msgstr ""
-
-#: functions.php:706
-msgid "[Edit]"
-msgstr ""
-
-#: functions.php:731
+#: functions.php:604
 msgid "Comment navigation"
 msgstr ""
 
-#: functions.php:734
+#: functions.php:607
 msgid "Older comments"
 msgstr ""
 
-#: functions.php:738
+#: functions.php:611
 msgid "Newer comments"
 msgstr ""
 
-#: inc/template-tags.php:125
-#, php-format
-msgid "Page %s"
-msgstr ""
-
 #: inc/template-tags.php:140
-msgid "Previous page"
-msgstr ""
-
-#: inc/template-tags.php:141
-msgid "Next page"
+#, php-format
+msgid "Posts in category: %s"
 msgstr ""
 
 #: inc/template-tags.php:142
+#, php-format
+msgid "Posts in tag: %s"
+msgstr ""
+
+#: inc/template-tags.php:144
+#, php-format
+msgid "Posts of the author: %s"
+msgstr ""
+
+#: inc/template-tags.php:146
+#, php-format
+msgid "Posts of the day: %s"
+msgstr ""
+
+#: inc/template-tags.php:148
+#, php-format
+msgid "Posts of the month: %s"
+msgstr ""
+
+#: inc/template-tags.php:150
+#, php-format
+msgid "Posts of the year: %s"
+msgstr ""
+
+#: inc/template-tags.php:165
+msgid "Previous page"
+msgstr ""
+
+#: inc/template-tags.php:166
+msgid "Next page"
+msgstr ""
+
+#: inc/template-tags.php:167
 msgid "Page"
 msgstr ""
 
-#: index.php:21
+#: index.php:20
 msgid "Latest Posts"
 msgstr ""
 
-#: search.php:17
+#: search.php:16
 #, php-format
 msgid "Search results for: %s"
 msgstr ""
@@ -224,22 +219,18 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: single.php:31
+#: single.php:30
 msgid "Next"
 msgstr ""
 
-#: single.php:32
+#: single.php:31
 msgid "Next post:"
 msgstr ""
 
-#: single.php:34
+#: single.php:33
 msgid "Previous"
 msgstr ""
 
-#: single.php:35
+#: single.php:34
 msgid "Previous post:"
-msgstr ""
-
-#: tag.php:18
-msgid "Posts for tag: "
 msgstr ""

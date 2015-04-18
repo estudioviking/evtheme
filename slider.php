@@ -58,7 +58,7 @@ if ( $slides->post_count > 0 ) :
 	$slider_pause_hover = 'true';
 	
 	?>
-	<div id="viking-slider" class="col_8">
+	<section id="viking-slider" class="col_8">
 		<figure class="cycle-slideshow"
 				data-cycle-fx="scrollHorz"
 				data-cycle-pause-on-hover="<?php echo $slider_pause_hover ?>"
@@ -101,7 +101,7 @@ if ( $slides->post_count > 0 ) :
 	        </span><!-- #slider-navigation -->
 			
 		</figure>
-	</div><!-- #viking-slider -->
+	</section><!-- #viking-slider -->
 	<?php
 	
 endif;
