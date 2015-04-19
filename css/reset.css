@@ -13,15 +13,18 @@
 
 /**
  * 	Notas
- * ----------------------------------------------------------------------------
- * Essa folha de estilos usa valores rem com pixel como reserva para navegadores que não suportam o rem.
+ * ============================================================================
+ * Essa folha de estilos usa valores rem com pixel como reserva para
+ * navegadores que não suportam o rem.
+ * Essa configuração é feita no arquivo "reset.css" que se encontra na pasta
+ * "css" no tema.
  * 
  * Os valores rem são calculados tendo como base a seguinte variável:
  * $rembase = 10;
  * 
  * => Exemplo
- * Use um valor em pixel, que ficará como reserva, e logo após coloque o valor rem
- * para: font-size, padding, margins, etc.
+ * Use um valor em pixel, que ficará como reserva, e logo após coloque
+ * o valor rem para: font-size, padding, margins, etc.
  * 		padding: 5px 0;
  * 		padding: 0.5rem 0; ( 5 / $rembase )
  * 
@@ -318,10 +321,6 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
-}
-
-input {
-	line-height: normal;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

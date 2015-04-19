@@ -45,17 +45,37 @@
 									<p id="desc" class="sub-title"><?php echo $description; ?></p>
 								</div><!-- #head-txt -->
 								
+								<h6 id="toggle-container" class="clear">
+									<?php _e( 'Click on the button to display the menu.', 'viking-theme' ); ?>
+									<button id="toggle" type="button"><i class="fa fa-bars"></i></button>
+								</h6><!-- #toggle-container -->
 							</hgroup><!-- #brand -->
 							
 							<aside id="nav-header">
 								<?php
-									wp_nav_menu( array(
-										'theme_location'	=> 'header-menu',
-										'container'			=> 'nav',
-										'container_id'		=> 'header-menu-nav',
-										'menu_id'			=> 'header-menu',
-										'walker'			=> new Viking_Walker_Nav()
-									) );
+									if ( has_nav_menu( 'header-menu' ) ) :
+										wp_nav_menu( array(
+											'theme_location'	=> 'header-menu',
+											'container'			=> 'nav',
+											'container_id'		=> 'header-menu-nav',
+											'menu_id'			=> 'header-menu',
+											'walker'			=> new Viking_Walker_Nav()
+										) );
+										echo '<!-- #header-menu-nav -->';
+									endif;
+									
+									if ( has_nav_menu( 'social-menu' ) ) :
+										wp_nav_menu( array(
+											'theme_location'	=> 'social-menu',
+											'container'			=> 'nav',
+											'container_id'		=> 'social-menu-nav',
+											'menu_id'			=> 'social-menu',
+											'walker'			=> new Viking_Walker_Nav()
+										) );
+										echo '<!-- #social-menu-nav -->';
+									endif;
+									
+									get_search_form();
 								?>
 							</aside><!-- #nav-header -->
 						</header><!-- #header -->

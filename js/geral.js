@@ -2,6 +2,18 @@
 	var $window, $sidebar, $body, windowHeight, bodyHeight, sidebarHeight, top = false,
 	    bottom = false, topOffset = 0, lastWindowPos = 0, scrollLenght, scrollDif;
 	
+	function resize() {
+		windowWidth   = $window.width();
+		windowHeight  = $window.height();
+		bodyHeight    = $body.height();
+		sidebarHeight = $sidebar.height();
+
+		if ( 900 > windowWidth ) {
+			top = bottom = false;
+			$sidebar.removeAttr( 'style' );
+		}
+	}
+	
 	function scroll() {
 		windowHeight	 = $window.height();
 		bodyHeight		 = $body.height();
@@ -10,6 +22,10 @@
 		sidebarTopOffset = $sidebar.offset().top;
 		scrollUp		 = windowPos > lastWindowPos ? true : false;
 		scrollDown		 = windowPos < lastWindowPos ? true : false;
+		
+		if ( 900 > windowWidth ) {
+			return;
+		}
 		
 		// Se a sidebar for maior que o tamanho da janela...
 		if ( sidebarHeight > windowHeight ) {
@@ -44,14 +60,24 @@
 		lastWindowPos = windowPos;
 	}
 	
+	function resize_and_scroll() {
+		resize();
+		scroll();
+	}
+	
 	$( document ).ready( function() {
 		$window	 = $( window );
 		$body	 = $( document.body );
 		$sidebar = $( '#sidebar' ).first();
 		
-		// Executando a função scroll
-		scroll();
-		$window.scroll( scroll );
+		// Executando a função resize_and_scroll
+		resize_and_scroll();
+		$window.scroll( resize_and_scroll );
+		$window.resize( resize_and_scroll );
+		
+		$( '#toggle' ).click( function() {
+			$( '#nav-header' ).slideToggle();
+		} );
 		
 		// Ajustes da paginação dos artigos
 		$( '.pagination .prev, .pagination .next' ).addClass( 'button' ).removeClass( 'page-numbers' );

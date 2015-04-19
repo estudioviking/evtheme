@@ -10,7 +10,7 @@
 ?>
 
 <section class="sidebar" role="complementary">
-	<?php get_search_form(); ?>
+	
 	
 	<aside class="sidebar-widget">
 		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'widget-area' ) ) ?>

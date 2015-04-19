@@ -81,6 +81,7 @@ function viking_header_style() {
 			line-height: 0;
 			height: 0;
 			text-indent: -99999px;
+			display: block;
 		}
 	<?php endif;
 		

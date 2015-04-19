@@ -56,23 +56,6 @@
 
 
 /**
- * Espaçamentos Gerais
- * ============================================================================
- */
-p, h1, h2, h3, h4, h5, h6, blockquote,
-pre, code, ul, ol, form, form li,
-#header, .widget {
-	margin-bottom: 20px;
-	margin-bottom: 2rem;
-}
-
-ul ul, ol ol, p:last-child,
-.widget:last-child, #search-form {
-	margin-bottom: 0;
-}
-
-
-/**
  * Tipografia
  * ============================================================================
  */
@@ -102,7 +85,6 @@ blockquote {
 	border-color: #963;
 	border-style: solid;
 	border-width: 0 0 0 3px;
-	border-width: 0 0 0 0.3rem;
 	font-size: 14px;
 	font-size: 1.4rem;
 	line-height: 1.4285;	/* 20px */
@@ -110,15 +92,17 @@ blockquote {
 	padding: 1rem;
 }
 
-/* Títulos */
+/**
+ * Títulos
+ * ----------------------------------------------------------------------------
+ */
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Metamorphous', cursive;
 	clear: both;
-	font-weight: bold;
 }
 
 h3, h4, h6 {
-	line-height: 1.4285;	/* 60px, 40px, 30px, 20px */
+	line-height: 1.4285;	/* 40px, 30px, 20px */
 }
 
 h1 {
@@ -165,6 +149,11 @@ h4 a:hover, h5 a:hover, h6 a:hover {
     margin-top: -2rem;
 }
 
+
+/**
+ * Elementos
+ * ============================================================================
+ */
 hr {
 	margin: 20px;
 	margin: 2rem;
@@ -172,6 +161,21 @@ hr {
 	border-bottom: 3px dotted #630;
 	clear: both;
 }
+
+#toggle-container {
+	font-size: 30px;
+	font-size: 3rem;
+	line-height: 1.6666; /* 50px */
+}
+
+#toggle {
+	float: right;
+	width: 50px;
+	width: 5rem;
+	height: 50px;
+	height: 5rem;
+}
+
 
 /**
  * Links
@@ -208,9 +212,6 @@ input, textarea {
 .button, a.button, button, input, textarea {
 	padding: 0 5px;
 	padding: 0 0.5rem;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.875;	/* 30px */
 }
 
 .button, a.button, button, html input[type="button"],
@@ -476,6 +477,23 @@ form span.required {
 
 
 /**
+ * Espaçamentos Gerais
+ * ============================================================================
+ */
+p, h1, h2, h3, h4, h5, h6, blockquote,
+pre, code, ul, ol, form, form li,
+#header, #header-menu-nav, .widget {
+	margin-bottom: 20px;
+	margin-bottom: 2rem;
+}
+
+ul ul, ol ol, p:last-child,
+.widget:last-child, #search-form {
+	margin-bottom: 0;
+}
+
+
+/**
  * Estrutura
  *
  * Ajustes para estruturação geral do tema.
@@ -667,12 +685,13 @@ form span.required {
  * ----------------------------------------------------------------------------
  */
 #brand {
-	display: table;
-	margin: 0 auto;
 }
 #brand > * {
-	display: table-cell !important;
-	vertical-align: middle;
+}
+
+#logo-header {
+	max-width: 100%;
+	margin: 0 auto;
 }
 
 
@@ -986,11 +1005,7 @@ main > hr:last-child { display: none; }
  */
 #author-info {}
 
-.author-heading {
-	font-size: 18px;
-	font-size: 1.8rem;
-	line-height: 1.6666; 	/* 30px */
-}
+.author-heading {}
 
 .author-avatar {
 	border: 5px solid #630;
@@ -1007,9 +1022,6 @@ main > hr:last-child { display: none; }
 }
 
 .author-title {
-	font-size: 24px;
-	font-size: 2.4rem;
-	line-height: 1.25; 	/* 30px */
 	clear: none;
 }
 
@@ -1115,96 +1127,45 @@ main > hr:last-child { display: none; }
 }
 
 
-
-
-
-
-
-
-/*------------------------------------*\
-    RESPONSIVE
-\*------------------------------------*/
-@media screen and (min-width: 0px) and (max-width: 400px) {
-	
-	[class*="col_"] {
-		width: 100%;
-		margin-left: 3.2258%;
-	}
-	
-}
-@media only screen and (min-width:320px) {
-
-}
-@media only screen and (min-width:480px) {
-
-}
-@media only screen and (min-width:768px) {
-
-}
-@media only screen and (min-width:1024px) {
-
-}
-@media only screen and (min-width:1140px) {
-
-}
-@media only screen and (min-width:1280px) {
-
-}
-@media only screen and (-webkit-min-device-pixel-ratio:1.5),
-	   only screen and (min-resolution:144dpi) {
-
+/**
+ * Media Queries
+ * ============================================================================
+ */
+@media screen and ( min-width: 0px ) and ( max-width: 480px ) {
+    html {
+    	font-size: 6px;
+    }
 }
 
-/*------------------------------------*\
-    PRINT
-\*------------------------------------*/
+@media screen and ( min-width: 0px ) and ( max-width: 600px ) {
+    #viking-slider {
+    	display: none;
+    }
+}
 
-@media print {
-	* {
-		background-color:transparent !important;
-		color:#000 !important;
-		box-shadow:none !important;
-		text-shadow:none !important;
+@media screen and ( min-width: 0px ) and ( max-width: 900px ) {
+	#sidebar {
+    	position: static;
+    	max-width: 100%;
+    }
+    
+    .col_8, .col_4 {
+    	width: 100%;
+    	margin-left: 0 !important;
+    }
+    #nav-header, .sidebar {
+    	display: none;
+    }
+}
+
+@media screen and ( min-width: 481px ) and ( max-width: 900px ) {
+	html {
+		font-size: 8px;
 	}
-	a,
-	a:visited {
-		text-decoration:underline;
-	}
-	a[href]:after {
-		content:" (" attr(href) ")";
-	}
-	abbr[title]:after {
-		content:" (" attr(title) ")";
-	}
-	.ir a:after,
-	a[href^="javascript:"]:after,
-	a[href^="#"]:after {
-		content:"";
-	}
-	pre,blockquote {
-		border:1px solid #999;
-		page-break-inside:avoid;
-	}
-	thead {
-		display:table-header-group;
-	}
-	tr,img {
-		page-break-inside:avoid;
-	}
-	img {
-		max-width:100% !important;
-	}
-	@page {
-		margin:0.5cm;
-	}
-	p,
-	h2,
-	h3 {
-		orphans:3;
-		widows:3;
-	}
-	h2,
-	h3 {
-		page-break-after:avoid;
+}
+
+@media screen and ( min-width: 901px ) {
+	#toggle-container {
+		display: none;
 	}
 }

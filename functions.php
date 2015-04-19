@@ -77,8 +77,8 @@ function viking_setup() {
 	
 	// Registro dos menus de navegação usados nesse tema
 	register_nav_menus( array(
-		'header-menu'	=> __('Header Menu', 'viking-theme'),
-		'social-menu'	=> __('Social Menu', 'viking-theme'),
+		'header-menu' => __( 'Header Menu', 'viking-theme' ),
+		'social-menu' => __( 'Social Menu', 'viking-theme' ),
 	) );
 	
 	// Suporte aos formatos de post
@@ -168,9 +168,6 @@ function viking_header_scripts() {
 	if ( ! is_admin() ) :
 		// JQuery
 		wp_enqueue_script('viking_jquery', SCRIPT_URI . '/lib/jquery.js', array(), '2.1.1');
-		
-		// Grid Scripts
-		wp_enqueue_script('grid_js', SCRIPT_URI . '/grid.js', array(), '1.0');
 		
 		// JCycle 2
 		wp_enqueue_script('viking_jcycle2', SCRIPT_URI . '/lib/jcycle2.js', array(), '2.1.5');

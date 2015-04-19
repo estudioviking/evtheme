@@ -33,7 +33,8 @@ class Viking_Walker_Nav extends Walker {
 		$filter_classes[] = 'current-menu-item';
 		$filter_classes[] = 'menu-item';
 		
-		$classes = is_array( $classes ) ? array_intersect( $classes, $filter_classes ) : '';	// Se não quiser usar o filtro de classes, comente essa linha
+		// Se não quiser usar o filtro de classes, comente essa linha
+		$classes = is_array( $classes ) ? array_intersect( $classes, $filter_classes ) : '';
 		
 		// Adiciona a classe 'sub-menu-item' aos itens de sub-menus
 		$classes[] = ($depth > 0) ? 'sub-menu-item' : '';

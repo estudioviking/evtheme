@@ -88,7 +88,7 @@ function viking_login_icon(){
 	
 	echo $output;
 }
-add_action( 'login_head', 'viking_login_icon' );
+//add_action( 'login_head', 'viking_login_icon' );
 
 
 /**
@@ -108,25 +108,30 @@ add_filter( 'style_loader_tag', 'my_style_remove' );
  * 
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
- *//*
+ */
 function my_wp_title( $title, $sep ) {
-	global $paged, $page;
-
-	if ( is_feed() ) return $title;
-
-	// Adiciona o nome do site.
-	$title .= get_bloginfo( 'name', 'display' );
-
-	// Adiciona a descrição do site para a home/front page.
+	$site_name = get_bloginfo( 'name', 'display' );
 	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) $title = "$title $sep $site_description";
-
-	// Adiciona o número da página se necessário.
-	if ( $paged >= 2 || $page >= 2 ) $title = "$title $sep " . sprintf( __( 'Page %s', 'viking-theme' ), max( $paged, $page ) );
-
-	return $title;
+	
+	if ( is_page() || is_archive() ) $title .= ' - ' . $site_description;
+	
+	return str_replace( "$site_name $sep $site_description", "$site_name - $site_description", $title );
 }
-add_filter( 'wp_title', 'my_wp_title', 10, 2 );*/
+add_filter( 'wp_title', 'my_wp_title', 10, 2 );
+
+
+/**
+ * Adiciona o atributo 'role' aos menus de navegação
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function add_role_navigation_to_nav_menu( $nav_menu, $args ) {
+	if( 'nav' != $args->container ) return $nav_menu;
+	
+	return str_replace( '<'. $args->container, '<'. $args->container . ' role="navigation"', $nav_menu );
+}
+add_filter( 'wp_nav_menu', 'add_role_navigation_to_nav_menu', 10, 2 );
 
 
 /**

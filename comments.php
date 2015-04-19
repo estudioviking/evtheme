@@ -9,7 +9,7 @@
  */
 ?>
 
-<div id="comments">
+<section id="comments">
 	<?php
 		/**
 		 * Se o artigo atual for protegido por senha e o visitante ainda não entrou com a senha,
@@ -18,7 +18,7 @@
 		if ( post_password_required() ) : ?>
 			
 	<p class="comments-protected"><?php _e( 'Post is password protected. Enter the password to view any comments.', 'viking-theme' ); ?></p>
-</div><!-- #comments --><?php
+</section><!-- #comments --><?php
 			
 			return;
 		endif;
@@ -75,5 +75,4 @@
 		) );
 	?>
 	
-</div>
-<!-- #comments -->
+</section><!-- #comments -->
