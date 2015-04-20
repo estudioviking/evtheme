@@ -45,10 +45,12 @@
 									<p id="desc" class="sub-title"><?php echo $description; ?></p>
 								</div><!-- #head-txt -->
 								
-								<h6 id="toggle-container" class="clear">
-									<?php _e( 'Click on the button to display the menu.', 'viking-theme' ); ?>
+								<div id="toggle-container">
+									<span class="screen-reader-text">
+										<?php _e( 'Click on the button to display the menu.', 'viking-theme' ); ?>
+									</span>
 									<button id="toggle" type="button"><i class="fa fa-bars"></i></button>
-								</h6><!-- #toggle-container -->
+								</div><!-- #toggle-container -->
 							</hgroup><!-- #brand -->
 							
 							<aside id="nav-header">

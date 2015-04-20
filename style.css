@@ -85,9 +85,9 @@ blockquote {
 	border-color: #963;
 	border-style: solid;
 	border-width: 0 0 0 3px;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 1.4285;	/* 20px */
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.25;	/* 20px */
 	padding: 10px;
 	padding: 1rem;
 }
@@ -99,6 +99,12 @@ blockquote {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Metamorphous', cursive;
 	clear: both;
+}
+
+h1, h2, h3, h4, h5, h6,
+h1 a:hover, h2 a:hover, h3 a:hover,
+h4 a:hover, h5 a:hover, h6 a:hover {
+	font-weight: normal;
 }
 
 h3, h4, h6 {
@@ -136,12 +142,6 @@ h5 {
 h6 {
 	font-size: 14px;
 	font-size: 1.4rem;
-}
-
-h1, h2, h3, h4, h5, h6,
-h1 a:hover, h2 a:hover, h3 a:hover,
-h4 a:hover, h5 a:hover, h6 a:hover {
-	font-weight: normal;
 }
 
 .sub-title {
@@ -614,8 +614,8 @@ ul ul, ol ol, p:last-child,
  * ----------------------------------------------------------------------------
  */
 #sidebar {
-	background: url( img/bg_sidebar.png ) top center;
-	background-size: 100% auto;
+	background: url( img/bg_sidebar.jpg ) top center;
+	/*background-size: 100% auto;*/
 	color: #fc6;
 	padding-top: 0;
 	max-width: 380px;
@@ -1135,9 +1135,14 @@ main > hr:last-child { display: none; }
     html {
     	font-size: 6px;
     }
+    
+    #nav-header {
+    	margin-top: 20px;
+    	margin-top: 3.3333rem;
+    }
 }
 
-@media screen and ( min-width: 0px ) and ( max-width: 600px ) {
+@media screen and ( min-width: 0px ) and ( max-width: 499px ) {
     #viking-slider {
     	display: none;
     }
@@ -1152,19 +1157,42 @@ main > hr:last-child { display: none; }
     .col_8, .col_4 {
     	width: 100%;
     	margin-left: 0 !important;
+    	float: none;
     }
     #nav-header, .sidebar {
     	display: none;
     }
+    
+    #nav-header {
+    	margin-top: 20px;
+    	margin-top: 2rem;
+    }
+    
+    #viking-slider {
+    	max-width: 780px;
+    	max-width: 78rem;
+    	margin-left: auto !important;
+    	margin-right: auto;
+    }
 }
 
-@media screen and ( min-width: 481px ) and ( max-width: 900px ) {
+@media screen and ( min-width: 481px ) and ( max-width: 820px ) {
 	html {
 		font-size: 8px;
 	}
+    
+    #nav-header {
+    	margin-top: 20px;
+    	margin-top: 2.5rem;
+    }
+    
+    #viking-slider {
+    	max-width: 780px;
+    	max-width: 97.5rem;
+    }
 }
 
-@media screen and ( min-width: 901px ) {
+@media screen and ( min-width: 821px ) {
 	#toggle-container {
 		display: none;
 	}

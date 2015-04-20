@@ -11,6 +11,8 @@
 		if ( 900 > windowWidth ) {
 			top = bottom = false;
 			$sidebar.removeAttr( 'style' );
+		} else {
+			$sidebar.find( '#nav-header' ).removeAttr( 'style' );
 		}
 	}
 	
