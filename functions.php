@@ -244,15 +244,15 @@ add_action( 'widgets_init', 'my_remove_recent_comments_style' );
 
 
 /**
- * Altera a meta tag generator no wp_head()
+ * Remove a meta tag generator no wp_head()
  * 
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-function change_generator() {
-	return '<meta name="generator" content="' . get_bloginfo( 'name', 'display' ) . '" />';
+function remove_generator() {
+	return false;
 }
-add_filter( 'the_generator', 'change_generator' );
+add_filter( 'the_generator', 'remove_generator' );
 
 
 /**
@@ -304,257 +304,6 @@ function get_slider() {
 
 
 /**
- * Coleta informações da imagem destacada da postagem
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_get_thumb_meta( $thumbnail_id, $meta ) {
-	$thumb = get_post( $thumbnail_id );
-	
-	$thumb = array(
-		'alt'			=> get_post_meta( $thumb->ID, '_wp_attachment_image_alt', true ),
-		'caption'		=> $thumb->post_excerpt,
-		'description'	=> $thumb->post_content,
-		'href'			=> get_permalink( $thumb->ID ),
-		'src'			=> $thumb->guid,
-		'title'			=> $thumb->post_title
-	);
-	
-	return $thumb[$meta];
-}
-
-
-/**
- * Miniaturas personalizadas para as postagens
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_post_thumb( $size = 'post-size' ) {
-	$thumb_id = get_post_thumbnail_id();
-	
-	$thumb_link_full = wp_get_attachment_image_src( $thumb_id, 'full' );
-	$thumb_link_full = $thumb_link_full[0];
-	
-	$thumb_caption = viking_get_thumb_meta( $thumb_id, 'caption' );
-	?>
-	
-	<figure class="post-thumb<?php if ( is_page() ) : echo ' col_4'; endif; ?>">
-		<a class="link-thumb img-link"
-		   href="<?php if ( is_single() ) : echo $thumb_link_full; else : the_permalink(); endif; ?>"
-		   title="<?php the_title(); ?>"
-		   <?php if ( is_single() ) : ?>data-lightbox="post-<?php the_ID(); ?>" data-title="<?php echo $thumb_caption; ?>"<?php endif; ?>>
-			<?php the_post_thumbnail( $size, array( 'class' => 'img-thumb' ) ); ?>
-		</a>
-	</figure>
-	<!-- .post thumbnail -->
-	
-	<?php
-}
-
-
-/**
- * Detalhes personalizadas para as postagens
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_post_details() {
-	$post = get_post();
-	foreach ( ( array ) get_the_category( $post->ID ) as $categ ) :
-		$categ_slug = sanitize_html_class( $categ->slug, $categ->term_id );
-	endforeach;
-	?>
-	<section class="post-details">
-		<?php viking_post_thumb(); ?>
-		
-		<span class="post-categ shadow categ-<?php echo $categ_slug; ?>"><?php the_category( ', ' ); ?></span>
-		
-		<?php if ( is_single() ) : ?>
-			<div class="post-details-bar">
-				<span class="post-author"><?php the_author_posts_link(); ?></span> | 
-				<span class="post-date"><?php viking_date_link(); ?></span> | 
-				<span class="post-comments"><?php viking_comment_link(); ?></span>
-				<?php if ( is_user_logged_in() ) : ?>
-					 | <?php edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' ); ?>
-				<?php endif; ?>
-			</div>
-		<?php endif; ?>
-	</section>
-	<!-- .post details -->
-	<?php
-}
-
-
-/**
- * Remove as dimensões de largura e altura das miniaturas
- * que evitam imagens fluidas em the_thumbnail
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function remove_thumbnail_dimensions( $html ) {
-	$html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
-	return $html;
-}
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
-
-
-/**
- * Remove valores invalidos do atributo "rel" na lista de categorias
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function remove_category_rel_from_category_list( $thelist ) {
-    return str_replace( 'rel="category tag"', 'rel="tag"', $thelist );
-}
-add_filter( 'the_category', 'remove_category_rel_from_category_list' );
-
-
-/**
- * Cria datas como links
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_date_link() {
-	$ano		= get_the_time( 'Y' );
-	
-	$mes		= get_the_time( 'm' );
-	$mes_nome	= get_the_time( 'F' );
-	$data_mes	= get_the_time( 'F \d\e Y' );
-	
-	$dia		= get_the_time( 'd' );
-	$data_dia	= get_the_time( 'd \d\e F \d\e Y' );
-	
-	$data_title	= get_the_time( 'l, d \d\e F \d\e Y, h:i a' );
-	$data_full	= esc_attr( get_the_date( 'c' ) );
-	
-	$link_dia	= get_day_link( $ano, $mes, $dia );
-	$link_mes	= get_month_link( $ano, $mes );
-	$link_ano	= get_year_link( $ano );
-	
-	$data  = '<time class="date" title="'. $data_title .'" datetime="' . $data_full . '">';
-	$data .= '<a href="' . $link_dia . '" title="Arquivos de ' . $data_dia . '">' . $dia . '</a> de ';
-	$data .= '<a href="' . $link_mes . '" title="Arquivos de ' . $data_mes . '">' . $mes_nome . '</a> de ';
-	$data .= '<a href="' . $link_ano . '" title="Arquivos de ' . $ano . '">' . $ano . '</a>';
-	$data .= '</time>';
-	
-	echo $data;
-}
-
-
-/**
- * Link para os comentários
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_comment_link() {
-	if ( comments_open( get_the_ID() ) )
-		comments_popup_link(
-			__( 'Leave your thoughts', 'viking-theme' ),
-			__( '1 comment', 'viking-theme' ),
-			__( '% comments', 'viking-theme' )
-		);
-}
-
-
-/**
- * Criar resumos personalizados
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_excerpt( $length_callback = '', $more_callback = '' ) {
-	global $post;
-	
-    if ( function_exists( $length_callback ) ) {
-    	add_filter( 'excerpt_length', $length_callback );
-	}
-	
-	if ( function_exists( $more_callback ) ) {
-		add_filter( 'excerpt_more', $more_callback );
-	}
-	
-	$output = get_the_excerpt();
-	$output = apply_filters( 'wptexturize', $output );
-	$output = apply_filters( 'convert_chars', $output );
-	$output = '<section class="post-content clear"><p>' . $output . '</p></section>';
-	
-	echo $output;
-}
-
-
-/**
- * Tamanho em palavras para os resumos personalizados.
- * Uso: viking_excerpt( 'viking_index' );
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_index( $length ) {
-	return 50;
-}
-
-
-/**
- * Tamanho em palavras para os resumos personalizados do slider.
- * Uso: viking_excerpt( 'viking_length_slider' );
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_length_slider( $lenght ) {
-	return 10;
-}
-
-
-/**
- * Cria link Ver Artigo personalizado para a postagem
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_view_article( $more ) {
-	global $post;
-	
-	$tagmore  = '...<br />';
-	$tagmore .= '<a class="button view-article" ';
-	$tagmore .= 'href="' . get_permalink( $post->ID ) . '" ';
-	$tagmore .= 'title ="Ver artigo: ' . get_the_title() . '">';
-	$tagmore .= 'Ver artigo';
-	$tagmore .= '</a>';
-	
-	return $tagmore;
-}
-add_filter( 'excerpt_more', 'viking_view_article' );
-
-
-/**
- * Paginador para postagens com links "Próximo" e "Anterior", sem plugins.
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_pagination() {
-	global $wp_query;
-	$big = 999999999;
-	
-	echo paginate_links( array(
-		'base'		=> str_replace( $big, '%#%', get_pagenum_link( $big ) ),
-		'format'	=> '?paged=%#%',
-		'current'	=> max( 1, get_query_var( 'paged' ) ),
-		'total'		=> $wp_query->max_num_pages
-	) );
-}
-add_action( 'init', 'viking_pagination' );
-
-
-/**
  * Gravatar personalizado
  * Acesse em Configurações > Discussão
  * ----------------------------------------------------------------------------
@@ -586,33 +335,6 @@ function enable_threaded_comments() {
 	endif;
 }
 add_action( 'get_header', 'enable_threaded_comments' );
-
-
-/**
- * Navegação dos comentários
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_comment_nav() {
-	// Há comentários para navegação?
-	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav class="nav comment-nav" role="navigation">
-			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'viking-theme' ); ?></h2>
-			<div class="nav-links">
-				<?php
-					if ( $prev_link = get_previous_comments_link( __( 'Older comments', 'viking-theme' ) ) ) :
-						printf( '<div class="nav-previous">%s</div>', $prev_link );
-					endif;
-	
-					if ( $next_link = get_next_comments_link( __( 'Newer comments', 'viking-theme' ) ) ) :
-						printf( '<div class="nav-next">%s</div>', $next_link );
-					endif;
-				?>
-			</div><!-- .nav-links -->
-		</nav><!-- .comment-nav -->
-	<?php endif;
-}
 
 /**
  * Actions e Filtros
@@ -650,3 +372,5 @@ remove_filter( 'the_excerpt', 'wpautop' );		// Remove completamente tags <p> dos
  * ----------------------------------------------------------------------------
  */
 require INCLUDES_PATH . '/template-tags.php';
+
+require INCLUDES_PATH . '/viking_contact_form.php';
