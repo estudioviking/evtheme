@@ -782,16 +782,11 @@ ul ul, ol ol, p:last-child,
 	position: relative;
 }
 
-.page .edit-link {
-	position: absolute;
-	top: 20px;
-	top: 2rem;
-	right: 20px;
-	right: 2rem;
-}
-
-.home .page .edit-link {
-	top: 0;
+.edit-link {
+	display: block;
+	padding: 10px 20px;
+	padding: 1rem 2rem;
+	text-align: right;
 }
 
 article.post {
@@ -845,9 +840,9 @@ main > hr:last-child { display: none; }
 
 .post-details-bar {
 	background-color: #520;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 2.8571;		/* 40px */
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 2.5;		/* 40px */
 	text-align: center;
 }
 

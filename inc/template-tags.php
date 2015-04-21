@@ -73,7 +73,7 @@ add_action( 'login_enqueue_scripts', 'viking_login_icon' );
 
 
 /**
- * Remove 'text/css' das folhas de estilo
+ * Remove 'text/css' dos links de folhas de estilo no head
  * 
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
@@ -139,6 +139,7 @@ function my_archive_title( $title ) {
 	return $title;
 }
 add_filter( 'get_the_archive_title', 'my_archive_title' );
+
 
 /**
  * Paginação de Artigos
@@ -251,14 +252,12 @@ function viking_post_details() {
 				<span class="post-author"><?php the_author_posts_link(); ?></span> | 
 				<span class="post-date"><?php viking_date_link(); ?></span> | 
 				<span class="post-comments"><?php viking_comment_link(); ?></span>
-				<?php if ( is_user_logged_in() ) : ?>
-					 | <?php edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' ); ?>
-				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 	</section>
 	<!-- .post details -->
 	<?php
+		edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' );
 }
 
 

@@ -13,10 +13,9 @@
 		<?php if ( ! is_page( 'home' ) ) : ?>
 			<h1 id="page-title"><?php the_title(); ?></h1>
 		<?php endif; ?>
-		
-		<?php edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' ); ?>
-		
 	</header><!-- .post header -->
+		
+	<?php edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' ); ?>
 	
 	<section class="post-content">
 		<?php the_content(); ?>
