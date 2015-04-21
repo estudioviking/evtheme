@@ -44,14 +44,14 @@
 									$description = get_bloginfo( 'description', 'display' ); ?>
 									<p id="desc" class="sub-title"><?php echo $description; ?></p>
 								</div><!-- #head-txt -->
-								
-								<div id="toggle-container">
-									<span class="screen-reader-text">
-										<?php _e( 'Click on the button to display the menu.', 'viking-theme' ); ?>
-									</span>
-									<button id="toggle" type="button"><i class="fa fa-bars"></i></button>
-								</div><!-- #toggle-container -->
 							</hgroup><!-- #brand -->
+							
+							<div id="toggle-container">
+								<span class="screen-reader-text">
+									<?php _e( 'Click on the button to display the menu.', 'viking-theme' ); ?>
+								</span>
+								<button id="toggle" type="button"><i class="fa fa-bars"></i></button>
+							</div><!-- #toggle-container -->
 							
 							<aside id="nav-header">
 								<?php

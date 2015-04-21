@@ -162,20 +162,6 @@ hr {
 	clear: both;
 }
 
-#toggle-container {
-	font-size: 30px;
-	font-size: 3rem;
-	line-height: 1.6666; /* 50px */
-}
-
-#toggle {
-	float: right;
-	width: 50px;
-	width: 5rem;
-	height: 50px;
-	height: 5rem;
-}
-
 
 /**
  * Links
@@ -294,27 +280,27 @@ form span.required {
 
 ::-webkit-input-placeholder {
 	color: #444;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 2.1428;	/* 30px */
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.875;		/* 30px */
 	font-style: italic;
 	text-align: inherit;
 }
 
 ::-moz-placeholder {
 	color: #444;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 2.1428;	/* 30px */
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.875;		/* 30px */
 	font-style: italic;
 	text-align: inherit;
 }
 
 :-ms-input-placeholder {
 	color: #444;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 2.1428;	/* 30px */
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.875;		/* 30px */
 	font-style: italic;
 	text-align: inherit;
 }
@@ -517,11 +503,15 @@ ul ul, ol ol, p:last-child,
 
 #principal, #footer, #viking-slider {
 	margin-left: 33.8984%;
+}
+
+#sidebar, #principal, #footer, #viking-slider {
 	-webkit-box-shadow: 2px 5px 10px 0px #000;
 			box-shadow: 2px 5px 10px 0px #000;
 	-webkit-box-shadow: 2px 5px 10px 0px rgba( 0, 0, 0, 0.5 );
 			box-shadow: 2px 5px 10px 0px rgba( 0, 0, 0, 0.5 );
 }
+
 
 #principal, #viking-slider {
 	margin-top: 20px;
@@ -684,14 +674,30 @@ ul ul, ol ol, p:last-child,
  * Ajustes para o cabeçalho do tema.
  * ----------------------------------------------------------------------------
  */
-#brand {
-}
-#brand > * {
+#header {
+	position: relative;
 }
 
 #logo-header {
 	max-width: 100%;
 	margin: 0 auto;
+}
+
+#toggle-container {
+	font-size: 30px;
+	font-size: 3rem;
+	line-height: 1.6666; /* 50px */
+}
+
+#toggle {
+	width: 50px;
+	width: 5rem;
+	height: 50px;
+	height: 5rem;
+	position: absolute;
+	top: 40px;
+	top: 4rem;
+	right: 0;
 }
 
 
@@ -1083,33 +1089,20 @@ main > hr:last-child { display: none; }
  * Ajustes para o formulário de contato do tema.
  * ----------------------------------------------------------------------------
  */
-#contact-form {
-	border: 2px solid #ccc;
-	margin: 40px auto;
-	margin: 4rem auto;	/* 40 auto / $rembase */
-	width: 500px;
-	width: 50rem;		/* 500 / $rembase */
+.form-message {
+	background-color: #fff;
+	background-color: rgba( 255, 255, 255, 0.3 );
 }
 
-	#contact-form input[type=text] {
-		width: 300px;
-		width: 30rem;	/* 300 / $rembase */
-		font-style: italic;
-	}
-	
-	#contact-form input[type=submit] {
-		padding-right: 30px;
-		padding-right: 3rem;	/* 30 / $rembase */
-		padding-left: 30px;
-		padding-left: 3rem;		/* 30 / $rembase */
-		text-align: center;
-	}
-	
-	#contact-form textarea { width: 100%; }
+.form-message.error {
+	color: #d33;
+	border: 2px solid #d33;
+}
 
-.sucesso, .falha { text-align: center; font-weight: bold; }
-.sucesso { color: #02c800; }
-.falha { color: #d00; }
+.form-message.success {
+	color: #090;
+	border: 2px solid #090;
+}
 
 
 /**
@@ -1131,23 +1124,6 @@ main > hr:last-child { display: none; }
  * Media Queries
  * ============================================================================
  */
-@media screen and ( min-width: 0px ) and ( max-width: 480px ) {
-    html {
-    	font-size: 6px;
-    }
-    
-    #nav-header {
-    	margin-top: 20px;
-    	margin-top: 3.3333rem;
-    }
-}
-
-@media screen and ( min-width: 0px ) and ( max-width: 499px ) {
-    #viking-slider {
-    	display: none;
-    }
-}
-
 @media screen and ( min-width: 0px ) and ( max-width: 900px ) {
 	#sidebar {
     	position: static;
@@ -1176,7 +1152,35 @@ main > hr:last-child { display: none; }
     }
 }
 
-@media screen and ( min-width: 481px ) and ( max-width: 820px ) {
+@media screen and ( min-width: 0px ) and ( max-width: 300px ) {
+	#toggle-container {
+		margin-top: 20px;
+		margin-top: 2rem;
+		text-align: right;
+	}
+	
+	#toggle {
+		position: relative;
+		top: 0;
+	}
+}
+
+@media screen and ( min-width: 0px ) and ( max-width: 500px ) {
+    html {
+    	font-size: 6px;
+    }
+    
+    #nav-header {
+    	margin-top: 20px;
+    	margin-top: 3.3333rem;
+    }
+    
+    #viking-slider {
+    	display: none;
+    }
+}
+
+@media screen and ( min-width: 501px ) and ( max-width: 900px ) {
 	html {
 		font-size: 8px;
 	}
@@ -1192,7 +1196,7 @@ main > hr:last-child { display: none; }
     }
 }
 
-@media screen and ( min-width: 821px ) {
+@media screen and ( min-width: 901px ) {
 	#toggle-container {
 		display: none;
 	}
