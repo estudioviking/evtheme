@@ -1,12 +1,10 @@
 ( function( $ ) {
-	var $window, $sidebar, $body, windowHeight, bodyHeight, sidebarHeight, top = false,
+	var $window, $body, $sidebar, windowHeight, bodyHeight, sidebarHeight, top = false,
 	    bottom = false, topOffset = 0, lastWindowPos = 0, scrollLenght, scrollDif;
 	
+	// Controla o visual do tema dependendo da largura da janela
 	function resize() {
 		windowWidth   = $window.width();
-		windowHeight  = $window.height();
-		bodyHeight    = $body.height();
-		sidebarHeight = $sidebar.height();
 
 		if ( 900 > windowWidth ) {
 			top = bottom = false;
@@ -16,7 +14,9 @@
 		}
 	}
 	
+	// Controla a posição da sidebar conforme o scroll da janela
 	function scroll() {
+		windowWidth		 = $window.width();
 		windowHeight	 = $window.height();
 		bodyHeight		 = $body.height();
 		sidebarHeight	 = $sidebar.height();
@@ -62,6 +62,7 @@
 		lastWindowPos = windowPos;
 	}
 	
+	// Executa as funções resize e scroll
 	function resize_and_scroll() {
 		resize();
 		scroll();
@@ -77,6 +78,7 @@
 		$window.scroll( resize_and_scroll );
 		$window.resize( resize_and_scroll );
 		
+		// Função ao clicar no botão #toggle
 		$( '#toggle' ).click( function() {
 			$( '#nav-header' ).slideToggle();
 		} );
@@ -102,16 +104,6 @@
 		$( '.reply' ).addClass( 'clear' );
 		$( 'a.comment-reply-link' ).addClass( 'button' );
 		
-		/*
-		// Ajustes dos ícones para o header-menu
-		$( '#header-menu > li > a' ).prepend( '<i class="fa"></i> ' );
-		$( '#header-menu > li:nth(0) > a > i' ).addClass( 'fa-home' );
-		$( '#header-menu > li:nth(1) > a > i' ).addClass( 'fa-desktop' );
-		$( '#header-menu > li:nth(2) > a > i' ).addClass( 'fa-image' );
-		$( '#header-menu > li:nth(3) > a > i' ).addClass( 'fa-newspaper-o' );
-		$( '#header-menu > li:nth(4) > a > i' ).addClass( 'fa-group' );
-		*/
-		
 		// Ajustes dos ícones para os post-details
 		$( '.post-categ > a' ).prepend( '<i class="fa fa-folder-open"></i> ' );
 		$( '.post-author > a' ).prepend( '<i class="fa fa-user"></i> ' );
@@ -119,17 +111,8 @@
 		$( '.post-comments > a' ).prepend( '<i class="fa fa-comments"></i> ' );
 		$( '.edit-link > a' ).prepend( '<i class="fa fa-pencil"></i> ' );
 		
-		/*
-		// Ajustes dos ícones para os widgets
-		$( '.widget_recent_entries > .widget-title' ).prepend( '<i class="fa fa-newspaper-o"></i> ' );
-		$( '.widget_recent_comments > .widget-title' ).prepend( '<i class="fa fa-comments"></i> ' );
-		$( '.widget_archive > .widget-title' ).prepend( '<i class="fa fa-book"></i> ' );
-		$( '.widget_categories > .widget-title' ).prepend( '<i class="fa fa-folder-open"></i> ' );
-		$( '.widget_meta > .widget-title' ).prepend( '<i class="fa fa-gear"></i> ' );
-		*/
-		
 		// Ajustes para o lightbox
-		var content_id = $( '.page article, .single article' ).attr( 'id' );
+		var content_id = $( 'article.page, article.post' ).attr( 'id' );
 		var link_img = $( '.page #principal .post-content a:has( img ), .single #principal .post-content a:has( img )' );
 		
 		link_img.attr( 'data-lightbox', content_id );
@@ -137,8 +120,8 @@
 		link_img.each( function() {
 			if ( $( this ).parent( 'figure' ) ) {
 				var figure = $( this ).parent( 'figure' );
-				var figcaption = figure.children( 'figcaption' );
-				var caption_txt = figcaption.text();
+				var figcaption = figure.children( 'figcaption' ).text();
+				var caption_txt = figcaption;
 				
 				figcaption.parent().children( 'a' ).attr( 'data-title', caption_txt );
 			}
