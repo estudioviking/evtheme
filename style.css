@@ -656,7 +656,7 @@ ul ul, ol ol, p:last-child,
 }
 
 #sidebar li:first-child > a,
-.widget_recent_comments li {
+.widget_recent_comments li:first-child {
 	border-top: none;
 }
 
@@ -787,6 +787,10 @@ ul ul, ol ol, p:last-child,
 	padding: 10px 20px;
 	padding: 1rem 2rem;
 	text-align: right;
+}
+
+#comments .edit-link {
+	display: inline;
 }
 
 article.post {

@@ -102,7 +102,7 @@
 		$( '.comment-body, .comment-content' ).addClass( 'inner' );
 		$( '.comment-content' ).addClass( 'radius2' );
 		$( '.reply' ).addClass( 'clear' );
-		$( 'a.comment-reply-link' ).addClass( 'button' );
+		$( 'a.comment-reply-link' ).addClass( 'button radius2' );
 		
 		// Ajustes dos ícones para os post-details
 		$( '.post-categ > a' ).prepend( '<i class="fa fa-folder-open"></i> ' );

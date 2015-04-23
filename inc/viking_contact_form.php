@@ -2,9 +2,6 @@
 /**
  * Funções para incrementar o formulário de contato em qualquer lugar do tema ou post
  * 
- * Eventualmente, algumas das funcionalidades aqui poderia ser substituída
- * por características do wordpress
- * 
  * @package Estúdio Viking
  * @since 1.0
  */
@@ -90,6 +87,7 @@ function deliver_contact_form_mail() {
  * Shortcode para inserir o formulário de contato
  * 
  * @since Estúdio Viking 1.0
+ * @uses [my_contact_form]
  * ----------------------------------------------------------------------------
  */
 function viking_contact_form() {

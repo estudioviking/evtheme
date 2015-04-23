@@ -25,22 +25,19 @@ define( 'SCRIPT_URI', THEME_URI . '/js' );
 
 /**
  * Configura o valor da largura do conteúdo baseado no design do tema
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 if ( ! isset( $content_width ) ) $content_width = 620;
 
 
 /**
- * Inclusão de recursos ao tema
+ * Walker personalizado para construção de menus
  * 
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-// Utilidades
-require INCLUDES_PATH . '/viking_utilities.php';
-// Shortcodes
-require INCLUDES_PATH . '/viking_shortcodes.php';
-// Inclui o Walker personalizado para construção de menus
 require_once INCLUDES_PATH . '/class_viking_walker_nav.php';
 
 
@@ -227,72 +224,6 @@ add_action( 'wp_enqueue_scripts', 'viking_post_nav_background' );
 
 
 /**
- * Remove estilos de comentários recentes injetados no wp_head()
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function my_remove_recent_comments_style() {
-	global $wp_widget_factory;
-	
-	remove_action( 'wp_head', array(
-		$wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
-		'recent_comments_style'
-	) );
-}
-add_action( 'widgets_init', 'my_remove_recent_comments_style' );
-
-
-/**
- * Remove a meta tag generator no wp_head()
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function remove_generator() {
-	return false;
-}
-add_filter( 'the_generator', 'remove_generator' );
-
-
-/**
- * Remove barra de administração
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function remove_admin_bar() {
-	return false;
-}
-add_filter( 'show_admin_bar', 'remove_admin_bar' );
-
-
-/**
- * Adiciona o "slug" de página como classe no elemento <body>
- * Créditos: Starkers Wordpress Theme
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function add_slug_to_body_class( $classes ) {
-	global $post;
-	
-	if ( is_home() || is_page( 'home' ) ) {
-		$key = array_search( 'blog', $classes );
-		
-		if ( $key > -1 ) unset( $classes[$key] );
-	} elseif ( is_page() ) {
-		$classes[] = sanitize_html_class( $post->post_name );
-	} elseif ( is_singular() ) {
-		$classes[] = sanitize_html_class( $post->post_name );
-	}
-	
-	return $classes;
-}
-add_filter( 'body_class', 'add_slug_to_body_class' );
-
-
-/**
  * Chamada para o slider
  * 
  * @since Estúdio Viking 1.0
@@ -336,41 +267,20 @@ function enable_threaded_comments() {
 }
 add_action( 'get_header', 'enable_threaded_comments' );
 
+
 /**
- * Actions e Filtros
+ * Inclusão de recursos ao tema
  * 
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-// Remove Actions
-remove_action( 'wp_head', 'feed_links_extra', 3 );						// Mostra os links extras de feed como feeds de categoria
-remove_action( 'wp_head', 'feed_links', 2 );							// Mostra os links para os feeds gerais: Postagens e Feed de Comentários
-remove_action( 'wp_head', 'rsd_link' );									// Mostra os links para os Really Simple Discovery service endpoint, EditURI link
-remove_action( 'wp_head', 'wlwmanifest_link' );							// Mostra o link para o arquivo manifest do Windows Live Writer
-remove_action( 'wp_head', 'index_rel_link' );							// Index link
-remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );				// Prev link
-remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );				// Start link
-remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );			// Mostra links relacionado para as postagens adjacentes a postagem atual
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-remove_action( 'wp_head', 'rel_canonical' );
-remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-
-// Adiciona Filtros
-add_filter( 'the_excerpt', 'shortcode_unautop' );							// Remove tags <p> automáticos nos resumos (apenas para resumos manuais)
-add_filter( 'the_excerpt', 'do_shortcode' );								// Permite que Shortcodes sejam executados nos resumos (apenas para resumos manuais)
-add_filter( 'widget_text', 'do_shortcode' );								// Permite shortcodes nas Sidebar Dinâmicas
-add_filter( 'widget_text', 'shortcode_unautop' );							// Remove tags <p> nas Sidebar Dinâmicas (better!)
-
-// Remove Filtros
-remove_filter( 'the_excerpt', 'wpautop' );		// Remove completamente tags <p> dos resumos de postagem
-
-
-/**
- * Tags de modelo personalizadas para este tema
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-require INCLUDES_PATH . '/template-tags.php';
-
-require INCLUDES_PATH . '/viking_contact_form.php';
+// Limpeza e otimização do tema
+require_once INCLUDES_PATH . '/cleanup.php';
+// Shortcodes úteis no tema
+require_once INCLUDES_PATH . '/shortcodes.php';
+// Funções para algumas utilidades básicas no tema
+require_once INCLUDES_PATH . '/utilities.php';
+// Funções exclusivas do tema
+require_once INCLUDES_PATH . '/template-tags.php';
+// Funções para incrementar o formulário de contato no tema ou post
+require_once INCLUDES_PATH . '/viking_contact_form.php';

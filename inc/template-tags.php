@@ -35,7 +35,7 @@ function my_favicon(){
 	for ( $i = 0; $i < $apple_icons_count; $i++ ) :
 		$size = ( $apple_icons_size[$i] == '' ) ? '' : ' sizes="' . $apple_icons_size[$i] . '"';
 		
-		$favicons .='<link rel="apple-touch-icon"' . $size . ' href="' . ICONS_URI . $apple_icons_name[$i] . '.png" />';
+		$favicons .='<link rel="apple-touch-icon"' . $size . ' href="' . ICONS_URI . '/' . $apple_icons_name[$i] . '.png" />';
 	endfor;
 	
 	echo $favicons;
@@ -73,18 +73,6 @@ add_action( 'login_enqueue_scripts', 'viking_login_icon' );
 
 
 /**
- * Remove 'text/css' dos links de folhas de estilo no head
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function my_style_remove( $tag ) {
-	return preg_replace( '~\s+type=["\'][^"\']++["\']~', '', $tag );
-}
-add_filter( 'style_loader_tag', 'my_style_remove' );
-
-
-/**
  * Título das páginas
  * 
  * @since Estúdio Viking 1.0
@@ -99,6 +87,28 @@ function my_wp_title( $title, $sep ) {
 	return str_replace( "$site_name $sep $site_description", "$site_name - $site_description", $title );
 }
 add_filter( 'wp_title', 'my_wp_title', 10, 2 );
+
+
+/**
+ * Adiciona o nome da página como classe no elemento <body>
+ * Créditos: Starkers Wordpress Theme
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function add_name_to_body_class( $classes ) {
+	global $post;
+	
+	if ( is_home() || is_page( 'home' ) ) {
+		$key = array_search( 'blog', $classes );
+		if ( $key > -1 ) unset( $classes[$key] );
+	} elseif ( is_page() || is_singular() ) {
+		$classes[] = sanitize_html_class( $post->post_name );
+	}
+	
+	return $classes;
+}
+add_filter( 'body_class', 'add_name_to_body_class' );
 
 
 /**
@@ -131,7 +141,7 @@ function my_archive_title( $title ) {
 	elseif ( is_day() ) :
 		$title = sprintf( __( 'Posts of the day: %s', 'viking-theme' ), get_the_date( get_option( 'date_format' ) ) );
 	elseif ( is_month() ) :
-		$title = sprintf( __( 'Posts of the month: %s', 'viking-theme' ), get_the_date( 'F\/Y' ) );
+		$title = sprintf( __( 'Posts of the month: %s', 'viking-theme' ), get_the_date( 'F \/ Y' ) );
 	elseif ( is_year() ) :
 		$title = sprintf( __( 'Posts of the year: %s', 'viking-theme' ), get_the_date( 'Y' ) );
 	endif;
@@ -223,8 +233,7 @@ function viking_post_thumb( $size = 'post-size' ) {
 		   <?php if ( is_single() ) : ?>data-lightbox="post-<?php the_ID(); ?>" data-title="<?php echo $thumb_caption; ?>"<?php endif; ?>>
 			<?php the_post_thumbnail( $size, array( 'class' => 'img-thumb' ) ); ?>
 		</a>
-	</figure>
-	<!-- .post thumbnail -->
+	</figure><!-- .post thumbnail -->
 	
 	<?php
 }
@@ -238,9 +247,11 @@ function viking_post_thumb( $size = 'post-size' ) {
  */
 function viking_post_details() {
 	$post = get_post();
+	
 	foreach ( ( array ) get_the_category( $post->ID ) as $categ ) :
 		$categ_slug = sanitize_html_class( $categ->slug, $categ->term_id );
 	endforeach;
+	
 	?>
 	<section class="post-details">
 		<?php viking_post_thumb(); ?>
@@ -254,38 +265,10 @@ function viking_post_details() {
 				<span class="post-comments"><?php viking_comment_link(); ?></span>
 			</div>
 		<?php endif; ?>
-	</section>
-	<!-- .post details -->
+	</section><!-- .post details -->
 	<?php
 		edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' );
 }
-
-
-/**
- * Remove as dimensões de largura e altura das miniaturas
- * que evitam imagens fluidas em the_thumbnail
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function remove_thumbnail_dimensions( $html ) {
-	$html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
-	return $html;
-}
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
-
-
-/**
- * Remove valores invalidos do atributo "rel" na lista de categorias
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function remove_category_rel_from_category_list( $thelist ) {
-    return str_replace( 'rel="category tag"', 'rel="tag"', $thelist );
-}
-add_filter( 'the_category', 'remove_category_rel_from_category_list' );
 
 
 /**
@@ -295,29 +278,29 @@ add_filter( 'the_category', 'remove_category_rel_from_category_list' );
  * ----------------------------------------------------------------------------
  */
 function viking_date_link() {
-	$ano		= get_the_time( 'Y' );
+	$year		= get_the_time( 'Y' );
 	
-	$mes		= get_the_time( 'm' );
-	$mes_nome	= get_the_time( 'F' );
-	$data_mes	= get_the_time( 'F \d\e Y' );
+	$month		= get_the_time( 'm' );
+	$month_name	= get_the_time( 'F' );
+	$month_date	= get_the_time( 'F \/ Y' );
 	
-	$dia		= get_the_time( 'd' );
-	$data_dia	= get_the_time( 'd \d\e F \d\e Y' );
+	$day		= get_the_time( 'd' );
+	$day_date	= get_the_time( get_option( 'date_format' ) );
 	
-	$data_title	= get_the_time( 'l, d \d\e F \d\e Y, h:i a' );
-	$data_full	= esc_attr( get_the_date( 'c' ) );
+	$time_title	= get_the_time( 'l, ' . get_option( 'date_format' ) . ', h:ia' );
+	$time_datetime	= esc_attr( get_the_date( 'c' ) );
 	
-	$link_dia	= get_day_link( $ano, $mes, $dia );
-	$link_mes	= get_month_link( $ano, $mes );
-	$link_ano	= get_year_link( $ano );
+	$day_link	= '<a href="' . get_day_link( $year, $month, $day ) . '" title="' . sprintf( __( 'Posts of %s', 'viking-theme' ), $day_date ) . '">' . $day . '</a>';
+	$month_link	= '<a href="' . get_month_link( $year, $month ) . '" title="' . sprintf( __( 'Posts of %s', 'viking-theme' ), $month_date ) . '">' . $month_name . '</a>';
+	$year_link	= '<a href="' . get_year_link( $year ) . '" title="' . sprintf( __( 'Posts of %s', 'viking-theme' ), $year ) . '">' . $year . '</a>';
 	
-	$data  = '<time class="date" title="'. $data_title .'" datetime="' . $data_full . '">';
-	$data .= '<a href="' . $link_dia . '" title="Arquivos de ' . $data_dia . '">' . $dia . '</a> de ';
-	$data .= '<a href="' . $link_mes . '" title="Arquivos de ' . $data_mes . '">' . $mes_nome . '</a> de ';
-	$data .= '<a href="' . $link_ano . '" title="Arquivos de ' . $ano . '">' . $ano . '</a>';
-	$data .= '</time>';
 	
-	echo $data;
+	
+	$output  = sprintf( '<time class="date" title="%s" datetime="%s">' , $time_title, $time_datetime );
+	$output .= sprintf( __( '%s of %s of %s', 'viking-theme' ), $day_link, $month_link, $year_link );
+	$output .= '</time>';
+	
+	echo $output;
 }
 
 

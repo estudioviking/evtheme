@@ -1,7 +1,5 @@
 <?php
 /**
- * Funções de algumas utilidades
- * 
  * Funções para algumas utilidades básicas no tema
  *
  * @package Estúdio Viking
