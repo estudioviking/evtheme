@@ -169,27 +169,6 @@ function viking_post_pagination() {
 
 
 /**
- * Cria link Ver Artigo personalizado para a postagem
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-function viking_view_article( $more ) {
-	global $post;
-	
-	$tagmore  = '...<br />';
-	$tagmore .= '<a class="button view-article" ';
-	$tagmore .= 'href="' . get_permalink( $post->ID ) . '" ';
-	$tagmore .= 'title ="Ver artigo: ' . get_the_title() . '">';
-	$tagmore .= 'Ver artigo';
-	$tagmore .= '</a>';
-	
-	return $tagmore;
-}
-add_filter( 'excerpt_more', 'viking_view_article' );
-
-
-/**
  * Coleta informações da imagem destacada da postagem
  * 
  * @since Estúdio Viking 1.0
@@ -337,12 +316,7 @@ function viking_excerpt( $length_callback = '', $more_callback = '' ) {
 		add_filter( 'excerpt_more', $more_callback );
 	}
 	
-	$output = get_the_excerpt();
-	$output = apply_filters( 'wptexturize', $output );
-	$output = apply_filters( 'convert_chars', $output );
-	$output = '<section class="post-content clear"><p>' . $output . '</p></section>';
-	
-	echo $output;
+	the_excerpt();
 }
 
 
@@ -368,6 +342,27 @@ function viking_index( $length ) {
 function viking_length_slider( $lenght ) {
 	return 10;
 }
+
+
+/**
+ * Cria link Ver Artigo personalizado para a postagem
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function viking_view_article( $more ) {
+	global $post;
+	
+	$tagmore  = '...</p><p class="view-article">';
+	$tagmore .= '<a class="button" ';
+	$tagmore .= 'href="' . get_permalink( $post->ID ) . '" ';
+	$tagmore .= 'title ="Ver artigo: ' . get_the_title() . '">';
+	$tagmore .= 'Ver artigo';
+	$tagmore .= '</a>';
+	
+	return $tagmore;
+}
+add_filter( 'excerpt_more', 'viking_view_article' );
 
 
 /**

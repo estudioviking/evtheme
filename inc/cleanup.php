@@ -61,9 +61,6 @@ add_filter( 'the_generator', '__return_false' );
 // Remove barra de administração
 add_filter( 'show_admin_bar', '__return_false' );
 
-// Remove tags <p> automáticas nos resumos (apenas para resumos manuais)
-add_filter( 'the_excerpt', 'shortcode_unautop' );
-
 // Permite que Shortcodes sejam executados nos resumos (apenas para resumos manuais)
 add_filter( 'the_excerpt', 'do_shortcode' );
 
@@ -81,7 +78,7 @@ add_filter( 'widget_text', 'shortcode_unautop' );
  * ----------------------------------------------------------------------------
  */
 // Remove completamente tags <p> automáticas dos resumos de postagem
-remove_filter( 'the_excerpt', 'wpautop' );
+//remove_filter( 'the_excerpt', 'wpautop' );
 
 
 /**

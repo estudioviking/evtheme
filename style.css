@@ -858,10 +858,8 @@ main > hr:last-child { display: none; }
 	background-color: #fff;
 }
 
-#principal .post-content .view-article {
-	margin-top: 20px;
-	margin-top: 2rem;
-	float: right;
+#principal .view-article {
+	text-align: right;
 }
 
 .post-footer, #author-bio {

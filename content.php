@@ -28,31 +28,29 @@
 			viking_post_details();
 		?>
 	
-	</header>
-	<!-- .post-header -->
+	</header><!-- .post-header -->
 	
-	<?php
-		if ( is_single() ) : ?>
-			<section class="post-content">
-				<?php the_content(); ?>
-			</section>
-			<!-- .post-content -->
+	<section class="post-content">
+		<?php
+			if ( is_single() ) :
+				the_content();
+			else :
+				viking_excerpt( 'viking_index' );
+			endif;
+		?>
+	</section><!-- .post-content -->
+	
+	<?php if ( is_single() ) : ?>
+		<footer class="post-footer">
+			<?php if ( get_the_author_meta( 'description' ) ) get_template_part( 'author-info' ); ?>
 			
-			<footer class="post-footer">
-				<?php if ( get_the_author_meta( 'description' ) ) get_template_part( 'author-info' ); ?>
-				
-				<p>
-					<?php _e( 'This post was written by ', 'viking-theme' ); the_author_posts_link(); _e( ' in ', 'viking-theme' ); viking_date_link(); ?>.<br />
-					<i class="fa fa-folder-open"></i> <?php _e( 'Categorised in: ', 'viking-theme' ); the_category( ', ' ); // Separado por vírgula ?>.<br />
-					<i class="fa fa-tags"></i> <?php the_tags( __( 'Tags: ', 'viking-theme' ) ); ?>.
-				</p>
-			</footer>
-			<!-- .post-footer -->
-	<?php
-		else :
-			viking_excerpt( 'viking_index' );
-		endif;
-	?>
+			<p>
+				<?php _e( 'This post was written by ', 'viking-theme' ); the_author_posts_link(); _e( ' in ', 'viking-theme' ); viking_date_link(); ?>.<br />
+				<i class="fa fa-folder-open"></i> <?php _e( 'Categorised in: ', 'viking-theme' ); the_category( ', ' ); // Separado por vírgula ?>.<br />
+				<i class="fa fa-tags"></i> <?php the_tags( __( 'Tags: ', 'viking-theme' ) ); ?>.
+			</p>
+		</footer><!-- .post-footer -->
+	<?php endif; ?>
 	
 </article>
 <!-- #post## -->
