@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Estúdio Viking WordPress Theme\n"
-"POT-Creation-Date: 2015-04-20 19:25-0300\n"
+"POT-Creation-Date: 2015-04-23 19:30-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ivanildo Dias <ivanildodias@estudioviking.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
@@ -17,20 +17,20 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../404.php:19
+#: ../404.php:17
 msgid "Page not found"
 msgstr "Página não encontrada"
 
-#: ../404.php:24
+#: ../404.php:22
 msgid "Sorry, nothing to display."
 msgstr ""
 "Desculpe, não encontramos nada que corresponda aos critérios da sua pesquisa."
 
-#: ../404.php:25
+#: ../404.php:23
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr "Nada foi encontrado neste local. Quer tentar uma pesquisa?"
 
-#: ../404.php:28 ../content-none.php:34
+#: ../404.php:26 ../content-none.php:34
 msgid "Return home?"
 msgstr "Voltar para a página inicial?"
 
@@ -49,15 +49,15 @@ msgstr ""
 "Este artigo é protegido por senha. Para ver os comentários, a senha deve ser "
 "digitada."
 
-#: ../comments.php:31 ../comments.php:63 ../functions.php:459
+#: ../comments.php:31 ../comments.php:63 ../inc/template-tags.php:316
 msgid "Leave your thoughts"
 msgstr "Deixe seus comentários"
 
-#: ../comments.php:31 ../functions.php:460
+#: ../comments.php:31 ../inc/template-tags.php:317
 msgid "1 comment"
 msgstr "1 comentário"
 
-#: ../comments.php:31 ../functions.php:461
+#: ../comments.php:31 ../inc/template-tags.php:318
 #, php-format
 msgid "% comments"
 msgstr "% comentários"
@@ -74,11 +74,11 @@ msgstr "Comentários estão fechados."
 msgid "Comment"
 msgstr "Comentário"
 
-#: ../comments.php:68 ../inc/viking_contact_form.php:21
+#: ../comments.php:68 ../inc/viking_contact_form.php:18
 msgid "Name"
 msgstr "Nome"
 
-#: ../comments.php:70 ../inc/viking_contact_form.php:25
+#: ../comments.php:70 ../inc/viking_contact_form.php:22
 msgid "Email"
 msgstr "E-mail"
 
@@ -113,7 +113,7 @@ msgstr ""
 "Parece que não pudemos encontrar o que você está procurando. Talvez a "
 "pesquisa possa ajudar."
 
-#: ../content-page.php:17 ../functions.php:380
+#: ../content-page.php:18 ../inc/template-tags.php:270
 msgid "Edit"
 msgstr "Editar"
 
@@ -147,109 +147,120 @@ msgstr ""
 "Viking</a> em <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">WordPress</"
 "a>."
 
-#: ../functions.php:80
+#: ../functions.php:77
 msgid "Header Menu"
 msgstr "Menu do cabeçalho"
 
-#: ../functions.php:81
+#: ../functions.php:78
 msgid "Social Menu"
 msgstr "Menu Social"
 
-#: ../functions.php:121
+#: ../functions.php:118
 msgid "Widget Area"
 msgstr "Área de Widgets"
 
-#: ../functions.php:123
+#: ../functions.php:120
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Adicione widgets aqui para aparecer em sua barra lateral."
 
-#: ../functions.php:601
-msgid "Comment navigation"
-msgstr "Navegação de comentários"
-
-#: ../functions.php:604
-msgid "Older comments"
-msgstr "Comentários anteriores"
-
-#: ../functions.php:608
-msgid "Newer comments"
-msgstr "Comentários recentes"
-
-#: ../header.php:51
+#: ../header.php:47
 msgid "Click on the button to display the menu."
 msgstr "Clique no botão para exibir o menu."
 
-#: ../inc/template-tags.php:145
+#: ../inc/template-tags.php:136
 #, php-format
 msgid "Posts in category: %s"
 msgstr "Artigos na categoria: %s"
 
-#: ../inc/template-tags.php:147
+#: ../inc/template-tags.php:138
 #, php-format
 msgid "Posts in tag: %s"
 msgstr "Artigos na tag: %s"
 
-#: ../inc/template-tags.php:149
+#: ../inc/template-tags.php:140
 #, php-format
 msgid "Posts of the author: %s"
 msgstr "Artigos do author: %s"
 
-#: ../inc/template-tags.php:151
+#: ../inc/template-tags.php:142
 #, php-format
 msgid "Posts of the day: %s"
 msgstr "Artigos do dia: %s"
 
-#: ../inc/template-tags.php:153
+#: ../inc/template-tags.php:144
 #, php-format
 msgid "Posts of the month: %s"
 msgstr "Artigos do mês: %s"
 
-#: ../inc/template-tags.php:155
+#: ../inc/template-tags.php:146
 #, php-format
 msgid "Posts of the year: %s"
 msgstr "Artigos do ano: %s"
 
-#: ../inc/template-tags.php:170
+#: ../inc/template-tags.php:162
 msgid "Previous page"
 msgstr "Página anterior"
 
-#: ../inc/template-tags.php:171
+#: ../inc/template-tags.php:163
 msgid "Next page"
 msgstr "Próxima página"
 
-#: ../inc/template-tags.php:172
+#: ../inc/template-tags.php:164
 msgid "Page"
 msgstr "Página"
 
-#: ../inc/viking_contact_form.php:22
+#: ../inc/template-tags.php:293 ../inc/template-tags.php:294
+#: ../inc/template-tags.php:295
+#, php-format
+msgid "Posts of %s"
+msgstr "Artigos de %s"
+
+#: ../inc/template-tags.php:300
+#, php-format
+msgid "%s of %s of %s"
+msgstr "%s de %s de %s"
+
+#: ../inc/template-tags.php:383
+msgid "Comment navigation"
+msgstr "Navegação de comentários"
+
+#: ../inc/template-tags.php:386
+msgid "Older comments"
+msgstr "Comentários anteriores"
+
+#: ../inc/template-tags.php:390
+msgid "Newer comments"
+msgstr "Comentários recentes"
+
+#: ../inc/viking_contact_form.php:19
 msgid "Your name"
 msgstr "Seu nome"
 
-#: ../inc/viking_contact_form.php:29
+#: ../inc/viking_contact_form.php:26
 msgid "Subject"
 msgstr "Assunto"
 
-#: ../inc/viking_contact_form.php:30
+#: ../inc/viking_contact_form.php:27
 msgid "What is the subject of the message?"
 msgstr "Qual o assunto da mensagem?"
 
-#: ../inc/viking_contact_form.php:33
+#: ../inc/viking_contact_form.php:30
 msgid "Message"
 msgstr "Mensagem"
 
-#: ../inc/viking_contact_form.php:34
+#: ../inc/viking_contact_form.php:31
 msgid "Enter your message here."
 msgstr "Digite sua mensagem aqui."
 
-#: ../inc/viking_contact_form.php:36
+#: ../inc/viking_contact_form.php:33
 msgid "Send"
 msgstr "Enviar"
 
-#: ../inc/viking_contact_form.php:63
+#: ../inc/viking_contact_form.php:73
 msgid "Thanks for contacting us, expect a response soon."
 msgstr "Obrigado por entrar em contato conosco, aguarde uma resposta em breve."
 
-#: ../inc/viking_contact_form.php:64
+#: ../inc/viking_contact_form.php:74
 msgid "An unexpected error occurred. Try again later."
 msgstr "Ocorreu um erro inesperado. Tente novamente mais tarde."
 
