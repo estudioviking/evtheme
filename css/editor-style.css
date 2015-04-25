@@ -1,0 +1,88 @@
+/**
+ * Theme Name: Estúdio Viking
+ * Description: Estilo usado no TinyMCE editor.
+ */
+
+
+body {
+	color: #420;
+	font-family: "Book Antiqua", sans-serif;
+	font-size: 18px;
+	line-height: 1.6666;	/* 30px */
+	text-align: justify;
+	max-width: 740px;
+	margin: 0 auto;
+}
+
+p, h1, h2, h3, h4, h5, h6, blockquote,
+pre, code, ul, ol, form, form li {
+	margin-bottom: 20px;
+}
+
+ul ul, ol ol, p:last-child {
+	margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Metamorphous', cursive;
+	clear: both;
+}
+
+h1, h2, h3, h4, h5, h6,
+h1 a:hover, h2 a:hover, h3 a:hover,
+h4 a:hover, h5 a:hover, h6 a:hover {
+	font-weight: normal;
+}
+
+h3, h4, h6 {
+	line-height: 1.4285;	/* 40px, 30px, 20px */
+}
+
+h1 {
+	font-size: 40px;
+	line-height: 1.25;		/* 50px */
+}
+
+h2 {
+	font-size: 32px;
+	line-height: 1.5625;	/* 50px */
+}
+
+h3 {
+	font-size: 28px;
+}
+
+h4 {
+	font-size: 21px;
+}
+
+h5 {
+	font-size: 18px;
+	line-height: 1.6666;	/* 30px */
+}
+
+h6 {
+	font-size: 14px;
+}
+
+.sub-title {
+    margin-top: -20px;
+}
+
+#tinymce .alignleft {
+	float: left;
+	margin: 0 20px 10px 0;
+	margin: 0 2rem 1rem 0;
+}
+
+#tinymce .alignright {
+	float: right;
+	margin: 0 0 10px 20px;
+	margin: 0 0 1rem 2rem;
+}
+
+#tinymce .aligncenter {
+	display: block;
+	margin: 0 auto 20px;
+	margin: 0 auto 2rem;
+}

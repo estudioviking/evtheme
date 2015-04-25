@@ -94,7 +94,7 @@
 		$( '.button, button, html input[type="button"], input[type="reset"], input[type="submit"]' ).addClass( 'transition' );
 		
 		// Ajuste de imagens nas postagens
-		$( '.post-content img' ).addClass( 'shadow' );
+		//$( '.post-content img' ).addClass( 'shadow' );
 		$( 'a:has( img )' ).addClass( 'img-link' );
 		
 		// Ajustes dos comentários
@@ -120,8 +120,8 @@
 		link_img.each( function() {
 			if ( $( this ).parent( 'figure' ) ) {
 				var figure = $( this ).parent( 'figure' );
-				var figcaption = figure.children( 'figcaption' ).text();
-				var caption_txt = figcaption;
+				var figcaption = figure.children( 'figcaption' );
+				var caption_txt = figcaption.text();
 				
 				figcaption.parent().children( 'a' ).attr( 'data-title', caption_txt );
 			}

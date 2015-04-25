@@ -369,8 +369,8 @@ form span.required {
 
 .aligncenter {
 	display: block;
-	margin: 0 auto 10px;
-	margin: 0 auto 1rem;
+	margin: 0 auto 20px;
+	margin: 0 auto 2rem;
 }
 
 .img-link {

@@ -337,10 +337,6 @@ input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
 
-fieldset {
-	border: 1px solid #c0c0c0;
-}
-
 textarea {
 	overflow: auto;
 }

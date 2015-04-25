@@ -99,6 +99,12 @@ function viking_setup() {
 
 	// Inclui o arquivo que dá suporte a cabeçalho personalizado
     require INCLUDES_PATH . '/custom-header.php';
+	
+	// Estilo personalizado para o editor
+	add_editor_style( array(
+		'css/editor-style.css',
+		'http://fonts.googleapis.com/css?family=Metamorphous&subset=latin,latin-ext'
+	) );
 }
 endif; // viking_setup
 add_action( 'after_setup_theme', 'viking_setup' );
@@ -164,19 +170,20 @@ add_action( 'wp_enqueue_scripts', 'viking_styles' );
 function viking_header_scripts() {
 	if ( ! is_admin() ) :
 		// JQuery
-		wp_enqueue_script('viking_jquery', SCRIPT_URI . '/lib/jquery.js', array(), '2.1.1');
+		wp_enqueue_script( 'viking_jquery', SCRIPT_URI . '/lib/jquery.js', array(), '2.1.3' );
+		//wp_enqueue_script( 'jquery' );
 		
 		// JCycle 2
-		wp_enqueue_script('viking_jcycle2', SCRIPT_URI . '/lib/jcycle2.js', array(), '2.1.5');
+		wp_enqueue_script( 'viking_jcycle2', SCRIPT_URI . '/lib/jcycle2.js', array(), '2.1.5' );
 		
 		// Lightbox 2
-		wp_enqueue_script('viking_lightbox', SCRIPT_URI . '/lib/lightbox.js', array(), '2.7.1');
+		wp_enqueue_script( 'viking_lightbox', SCRIPT_URI . '/lib/lightbox.js', array(), '2.7.1' );
 		
 		// Modernizr
-		wp_enqueue_script('viking_modernizr', SCRIPT_URI . '/lib/modernizr.js', array(), '2.8.3');
+		wp_enqueue_script( 'viking_modernizr', SCRIPT_URI . '/lib/modernizr.js', array(), '2.8.3' );
 		
 		// Scripts personalizados do tema
-		wp_enqueue_script('viking_scripts', SCRIPT_URI . '/geral.js', array(), '2.0');
+		wp_enqueue_script( 'viking_scripts', SCRIPT_URI . '/geral.js', array(), '2.0' );
 	endif;
 }
 add_action( 'init', 'viking_header_scripts');
