@@ -94,8 +94,29 @@
 		$( '.button, button, html input[type="button"], input[type="reset"], input[type="submit"]' ).addClass( 'transition' );
 		
 		// Ajuste de imagens nas postagens
-		//$( '.post-content img' ).addClass( 'shadow' );
 		$( 'a:has( img )' ).addClass( 'img-link' );
+		$( '.img-link' ).each( function () {
+		    var link = $( this );
+		    var img = link.find( 'img' );
+		    
+		    link.width( img.width() );
+		    img.addClass( 'transition' );
+		    
+		    if ( img.hasClass( 'aligncenter' ) ) {
+		        img.removeClass( 'aligncenter' );
+		        link.addClass( 'aligncenter' );
+		    }
+            
+            if ( img.hasClass( 'alignleft' ) ) {
+                img.removeClass( 'alignleft' );
+                link.addClass( 'alignleft' );
+            }
+            
+            if ( img.hasClass( 'alignright' ) ) {
+                img.removeClass( 'alignright' );
+                link.addClass( 'alignriht' );
+            }
+		} );
 		
 		// Ajustes dos comentários
 		$( '#comments .avatar' ).addClass( 'alignleft' );
