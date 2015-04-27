@@ -128,11 +128,23 @@ add_filter( 'style_loader_tag', 'my_style_remove' );
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-function remove_thumbnail_dimensions( $html ) {
-	return $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+function remove_img_dimensions( $html ) {
+	return preg_replace( '/(width|height)=\"\d*\"\s/', "", $html);
 }
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
+add_filter( 'post_thumbnail_html', 'remove_img_dimensions', 10 );
+add_filter( 'image_send_to_editor', 'remove_img_dimensions', 10 );
+//add_filter( 'media_send_to_editor', 'remove_img_dimensions', 10 );
+//add_filter( 'get_image_tag', 'remove_img_dimensions', 10, 1 );
+//add_filter( 'image_add_caption_shortcode', 'remove_img_dimensions', 10, 1 );
+add_filter( 'the_content', 'remove_img_dimensions', 10 );
+
+
+function remove_img_captioned_dimensions(  $id, $align, $width, $html, $caption ) {
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html);
+	
+	return $shcode = '[caption id="' . $id . '" align="align' . $align	. '" width="' . $width . '"]' . $html . ' ' . $caption . '[/caption]';
+}
+//add_filter( 'image_add_caption_shortcode', 'remove_img_captioned_dimensions', 10, 5 );
 
 
 /**
