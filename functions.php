@@ -58,9 +58,6 @@ function viking_setup() {
 	// Habilita a tag <title>
 	add_theme_support( 'title-tag' );
 	
-	// Registro interno dos menus, não usando diretamente do tema
-	add_theme_support( 'menus' );
-	
 	// Suporte a miniaturas
     add_theme_support( 'post-thumbnails' );
 		// Miniatura grande
