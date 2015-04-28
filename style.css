@@ -862,17 +862,24 @@ main > hr:last-child { display: none; }
 }
 
 .post-content .img-link {
-	background-color: #000;
+	background-color: #fff;
 	display: table;
 }
 
 .post-content img {
-	opacity: 0.8;
+	opacity: 0.9;
 }
 
 .post-content .img-link:hover img,
 .post-content .img-link:focus img {
 	opacity: 1;
+}
+
+.post-content figcaption {
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1.4285;	/* 30px */
+	text-align: center;
 }
 
 #principal .view-article {

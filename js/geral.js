@@ -99,7 +99,7 @@
 		    var link = $( this );
 		    var img = link.find( 'img' );
 		    
-		    link.width( img.width() );
+		    //link.width( img.width() );
 		    img.addClass( 'transition' );
 		    
 		    if ( img.hasClass( 'aligncenter' ) ) {
