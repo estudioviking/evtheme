@@ -427,38 +427,51 @@ form span.required {
  * Ajustes para os menus de navegação do tema.
  * ----------------------------------------------------------------------------
  */
-.nav-menu .menu-item { list-style: none; }
+.nav-menu .menu-item {
+	list-style: none;
+}
 
 .nav-menu {
 	display: table;
 	width: 100%;
 }
 
-.nav-menu > .menu-item { display: table-cell; }
+.nav-menu > .menu-item {
+	display: table-cell;
+}
 
-.nav-menu > .menu-item > .menu-link { text-align: center; }
+.nav-menu > .menu-item > .menu-link {
+	text-align: center;
+}
 
 .menu-item {
 	position: relative;
 	margin-left: 0;
 }
 
-.menu-link { display: block; }
+.menu-item > span {
+	padding: 10px;
+	padding: 1rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.menu-item > span:hover {
+	cursor: pointer;
+}
+
+.menu-link {
+	display: block;
+}
 
 .sub-menu {
-	position: absolute;
-	top: 50%;
-	z-index: 1000;
-	opacity: 0;
-	visibility: hidden;
-}
-.menu-item:hover>.sub-menu {
-	top: 100%;
-	opacity: 1;
-	visibility: visible;
+	display: none;
 }
 
-.sub-menu-item { margin: 0; }
+.sub-menu-item {
+	margin: 0;
+}
 
 .sub-menu .menu-link {  }
 

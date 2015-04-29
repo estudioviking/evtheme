@@ -125,6 +125,13 @@
 		$( '.reply' ).addClass( 'clear' );
 		$( 'a.comment-reply-link' ).addClass( 'button radius2' );
 		
+		$( '#header-menu .menu-item:has( ul )' ).append( '<span>+</span>' );
+		$( '#header-menu .menu-item:has( ul )' ).find( 'span' ).each( function() {
+			$( this ).click( function() {
+				$( this ).parent( 'li' ).find( '.sub-menu' ).slideToggle();
+			} );
+		} );
+		
 		// Ajustes dos ícones para os post-details
 		$( '.post-categ > a' ).prepend( '<i class="fa fa-folder-open"></i> ' );
 		$( '.post-author > a' ).prepend( '<i class="fa fa-user"></i> ' );

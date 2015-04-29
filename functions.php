@@ -294,12 +294,12 @@ add_filter( 'walker_nav_menu_start_el', 'viking_nav_description', 10, 4 );
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-function class_nav_item( $classes ) {
+function classes_nav_item( $classes, $item, $depth ) {
 	$classes[] = ( $depth > 0 ) ? 'sub-menu-item' : '';
 	
 	return $classes;
 }
-add_filter( 'nav_menu_link_attributes', 'class_nav_item', 10, 1 );
+add_filter( 'nav_menu_css_class', 'classes_nav_item', 10, 3 );
 
 
 /**
