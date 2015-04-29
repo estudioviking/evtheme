@@ -273,6 +273,58 @@ add_action( 'get_header', 'enable_threaded_comments' );
 
 
 /**
+ * Descrição para os itens dos Nav Menus
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function viking_nav_description( $item_output, $item, $depth, $args ) {
+	if ( 'header-menu' == $args->theme_location && $item->description ) :
+		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-desc">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
+	endif;
+	
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'viking_nav_description', 10, 4 );
+
+
+/**
+ * Classe para os links dos Nav Menus
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function class_nav_item( $classes ) {
+	$classes[] = ( $depth > 0 ) ? 'sub-menu-item' : '';
+	
+	return $classes;
+}
+add_filter( 'nav_menu_link_attributes', 'class_nav_item', 10, 1 );
+
+
+/**
+ * Classe para os links dos Nav Menus
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function class_nav_link( $atts ) {
+	$atts['class']  = ( $depth <= 0 ) ? 'menu-link' : 'sub-menu-link menu-link';
+	
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'class_nav_link', 10, 1 );
+
+
+/**
+ * Remove o "id" dos itens dos Nav Menus
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+add_filter( 'nav_menu_item_id', '__return_false' );
+
+/**
  * Inclusão de recursos ao tema
  * 
  * @since Estúdio Viking 1.0

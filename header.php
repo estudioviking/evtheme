@@ -57,7 +57,7 @@
 											'container'			=> 'nav',
 											'container_id'		=> 'header-menu-nav',
 											'menu_id'			=> 'header-menu',
-											'walker'			=> new Viking_Walker_Nav()
+											//'walker'			=> new Viking_Walker_Nav()
 										) );
 										echo '<!-- #header-menu-nav -->';
 									endif;
@@ -68,7 +68,7 @@
 											'container'			=> 'nav',
 											'container_id'		=> 'social-menu-nav',
 											'menu_id'			=> 'social-menu',
-											'walker'			=> new Viking_Walker_Nav()
+											//'walker'			=> new Viking_Walker_Nav()
 										) );
 										echo '<!-- #social-menu-nav -->';
 									endif;
