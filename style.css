@@ -183,11 +183,16 @@ a:hover, a:focus {
 }
 
 /* Imagens */
-img, picture, video, embed {
+img, picture, figure, embed,
+iframe, object, video {
 	max-width: 100%;
 }
 
 a > img { display: block; }
+
+embed, iframe, object, video {
+	vertical-align: middle;
+}
 
 /* Formulários */
 input, textarea {
@@ -859,6 +864,7 @@ main > hr:last-child { display: none; }
 	background-color: transparent;
 	padding: 0;
 	width: 100%;
+	height: auto;
 }
 
 .post-content .img-link {
