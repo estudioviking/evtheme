@@ -35,14 +35,15 @@
 		
 		<?php viking_comment_nav(); ?>
 		
-		<ul class="comments-list">
+		<ol class="comments-list">
 			<?php // Lista de comentários
 				wp_list_comments( array(
+					'style'		  => 'ol',
 					'short_ping'  => true,
 					'avatar_size' => 72,
 				) );
 			?>
-		</ul><!-- .comments-list -->
+		</ol><!-- .comments-list -->
 		
 		<?php viking_comment_nav(); ?>
 		
