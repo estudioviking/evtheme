@@ -82,7 +82,7 @@ function my_wp_title( $title, $sep ) {
 	$site_name = get_bloginfo( 'name', 'display' );
 	$site_description = get_bloginfo( 'description', 'display' );
 	
-	if ( is_page() || is_archive() ) $title .= ' - ' . $site_description;
+	if ( is_page() || is_archive() || is_single() ) $title .= ' - ' . $site_description;
 	
 	return str_replace( "$site_name $sep $site_description", "$site_name - $site_description", $title );
 }
