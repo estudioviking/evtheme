@@ -32,15 +32,6 @@ define( 'SCRIPT_URI', THEME_URI . '/js' );
 if ( ! isset( $content_width ) ) $content_width = 620;
 
 
-/**
- * Walker personalizado para construção de menus
- * 
- * @since Estúdio Viking 1.0
- * ----------------------------------------------------------------------------
- */
-require_once INCLUDES_PATH . '/class_viking_walker_nav.php';
-
-
 if ( ! function_exists( 'viking_setup' ) ) :
 /**
  * Setup de Features suportadas pelo tema
@@ -294,12 +285,12 @@ add_filter( 'walker_nav_menu_start_el', 'viking_nav_description', 10, 4 );
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-function classes_nav_item( $classes, $item, $depth ) {
+function classes_nav_item( $classes, $item, $args, $depth ) {
 	$classes[] = ( $depth > 0 ) ? 'sub-menu-item' : '';
 	
 	return $classes;
 }
-add_filter( 'nav_menu_css_class', 'classes_nav_item', 10, 3 );
+add_filter( 'nav_menu_css_class', 'classes_nav_item', 10, 4 );
 
 
 /**
@@ -308,12 +299,12 @@ add_filter( 'nav_menu_css_class', 'classes_nav_item', 10, 3 );
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-function class_nav_link( $atts ) {
-	$atts['class']  = ( $depth <= 0 ) ? 'menu-link' : 'sub-menu-link menu-link';
+function class_nav_link( $atts, $item, $args, $depth  ) {
+	$atts['class']  = ( $depth <= 0 ) ? 'menu-link' : 'menu-link sub-menu-link';
 	
 	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'class_nav_link', 10, 1 );
+add_filter( 'nav_menu_link_attributes', 'class_nav_link', 10, 4 );
 
 
 /**

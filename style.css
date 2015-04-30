@@ -449,16 +449,12 @@ form span.required {
 	margin-left: 0;
 }
 
-.menu-item > span {
-	padding: 10px;
-	padding: 1rem;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.menu-item > span:hover {
-	cursor: pointer;
+.toggle-sub-menu {
+    position: absolute;
+    top: 10px;
+    top: 1rem;
+    right: 10px;
+    right: 1rem;
 }
 
 .menu-link {
@@ -467,6 +463,8 @@ form span.required {
 
 .sub-menu {
 	display: none;
+	margin-left: 30px;
+	margin-left: 3rem;
 }
 
 .sub-menu-item {
@@ -540,77 +538,6 @@ ul ul, ol ol, p:last-child,
 	padding: 2rem;
 }
 
-
-/**
- * Slider
- *
- * Ajustes para o slider do tema.
- * ----------------------------------------------------------------------------
- */
-.cycle-slideshow {
-	position: relative;
-}
-
-.viking-slide {
-	width: 100%;
-	height: 100%;
-}
-
-#slider-navigation, .slider-caption {
-	position: absolute;
-}
-
-.slider-caption {
-	background-color: #fff;
-	background-color: rgba( 255, 255, 255, 0.8 );
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	z-index: 999;
-}
-
-.slider-caption .post-content,
-.slider-caption p {
-	margin-bottom: 0;
-}
-
-.slider-caption .post-title {
-	margin-bottom: 10px;
-	margin-bottom: 1rem;
-}
-
-.slider-caption .view-article {
-	position: absolute;
-	bottom: 20px;
-	bottom: 2rem;
-	right: 20px;
-	right: 2rem;
-}
-
-#slider-navigation {
-	top: 20px;
-	top: 2rem;
-	right: 20px;
-	right: 2rem;
-	text-align: center;
-	text-shadow: 2px 2px 3px #000;
-	text-shadow: 2px 2px 3px rgba( 0, 0, 0, 0.3 );
-	z-index: 9999;
-}
-#slider-navigation a { color: #fff; }
-
-#slider-pager {
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 1.4285;	/* 20px */
-}
-.cycle-pager-active {
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.25;	/* 20px */
-}
-
-
 /**
  * Sidebar
  *
@@ -619,7 +546,6 @@ ul ul, ol ol, p:last-child,
  */
 #sidebar {
 	background: url( img/bg_sidebar.jpg ) top center;
-	/*background-size: 100% auto;*/
 	color: #fc6;
 	padding-top: 0;
 	max-width: 380px;
@@ -662,6 +588,7 @@ ul ul, ol ol, p:last-child,
 }
 
 #sidebar li a,
+#sidebar .sub-menu-item:first-child a,
 .widget_recent_comments li {
 	border-top: 1px dashed #fc6;
 	border-top: 0.1rem dashed #fc6;
@@ -778,6 +705,77 @@ ul ul, ol ol, p:last-child,
 	background-color: transparent;
 	color: #fa0;
 }
+
+
+/**
+ * Slider
+ *
+ * Ajustes para o slider do tema.
+ * ----------------------------------------------------------------------------
+ */
+.cycle-slideshow {
+	position: relative;
+}
+
+.viking-slide {
+	width: 100%;
+	height: 100%;
+}
+
+#slider-navigation, .slider-caption {
+	position: absolute;
+}
+
+.slider-caption {
+	background-color: #fff;
+	background-color: rgba( 255, 255, 255, 0.8 );
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.slider-caption .post-content,
+.slider-caption p {
+	margin-bottom: 0;
+}
+
+.slider-caption .post-title {
+	margin-bottom: 10px;
+	margin-bottom: 1rem;
+}
+
+.slider-caption .view-article {
+	position: absolute;
+	bottom: 20px;
+	bottom: 2rem;
+	right: 20px;
+	right: 2rem;
+}
+
+#slider-navigation {
+	top: 20px;
+	top: 2rem;
+	right: 20px;
+	right: 2rem;
+	text-align: center;
+	text-shadow: 2px 2px 3px #000;
+	text-shadow: 2px 2px 3px rgba( 0, 0, 0, 0.3 );
+	z-index: 9999;
+}
+#slider-navigation a { color: #fff; }
+
+#slider-pager {
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1.4285;	/* 20px */
+}
+.cycle-pager-active {
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.25;	/* 20px */
+}
+
 
 
 /**

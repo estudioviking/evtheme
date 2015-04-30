@@ -125,11 +125,14 @@
 		$( '.reply' ).addClass( 'clear' );
 		$( 'a.comment-reply-link' ).addClass( 'button radius2' );
 		
-		$( '#header-menu .menu-item:has( ul )' ).append( '<span>+</span>' );
-		$( '#header-menu .menu-item:has( ul )' ).find( 'span' ).each( function() {
-			$( this ).click( function() {
-				$( this ).parent( 'li' ).find( '.sub-menu' ).slideToggle();
-			} );
+		$( '#header-menu .menu-item:has( ul ) > a' ).after( '<button class="toggle-sub-menu" type="button"><span class="fa fa-angle-down"></span></button>' );
+		$( '.toggle-sub-menu' ).click( function( e ) {
+			var _this = $( this );
+			
+			e.preventDefault();
+			_this.find( 'span' ).toggleClass( 'fa-angle-down' );
+			_this.find( 'span' ).toggleClass( 'fa-angle-up' );
+			_this.next( '.sub-menu' ).slideToggle();
 		} );
 		
 		// Ajustes dos ícones para os post-details
