@@ -12,7 +12,7 @@
 
 				<footer id="footer" class="col_8" role="contentinfo">
 					<p id="copyright">
-						&copy; <?php echo date( 'Y' ) . ' ' . do_shortcode( '[home-link]' ) . ' - ' . __( 'All rights reserved.', 'viking-theme' ) . '<br />' .
+						&copy; <?php echo date( 'Y' ) . ' ' . do_shortcode( '[home-link]' ) . ' - ' . __( 'All rights reserved.', 'viking-theme' ) .
 						sprintf(
 							__( 'Powered by <a href="%s" rel="nofollow" target="_blank">Estúdio Viking</a> on <a href="%s" rel="nofollow" target="_blank">WordPress</a>.', 'viking-theme' ),
 							'https://github.com/ivanildodias/evtheme',
