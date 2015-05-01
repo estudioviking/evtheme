@@ -233,44 +233,6 @@ q:before, q:after {
 
 
 /**
- * Listas
- * ============================================================================
- */
-ol, ul {
-	list-style: none;
-}
-
-li {
-	margin-left: 20px;
-	margin-left: 2rem;
-}
-
-ol li {
-	list-style: decimal;
-}
-
-ol ol li {
-	list-style: upper-alpha;
-}
-
-ol ol ol li {
-	list-style: upper-roman
-}
-
-ul li {
-	list-style: disc;
-}
-
-ul ul li {
-	list-style: circle;
-}
-
-ul ul ul li {
-	list-style: square;
-}
-
-
-/**
  * Conteúdo Incorporado
  * ============================================================================
  */

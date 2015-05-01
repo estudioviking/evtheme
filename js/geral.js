@@ -90,32 +90,31 @@
 		$( 'form, fildset, input, button, .button, .input-group, textarea, pre' ).addClass( 'radius2' );
 		
 		// Adicionando a classe .transition
-		$( 'a, .sub-menu, .widget li' ).addClass( 'transition' );
+		$( 'a, .widget li' ).addClass( 'transition' );
 		$( '.button, button, html input[type="button"], input[type="reset"], input[type="submit"]' ).addClass( 'transition' );
 		
 		// Ajuste de imagens nas postagens
 		$( 'a:has( img )' ).addClass( 'img-link' );
 		$( '.img-link' ).each( function () {
-		    var link = $( this );
-		    var img = link.find( 'img' );
-		    
-		    //link.width( img.width() );
-		    img.addClass( 'transition' );
-		    
-		    if ( img.hasClass( 'aligncenter' ) ) {
-		        img.removeClass( 'aligncenter' );
-		        link.addClass( 'aligncenter' );
-		    }
-            
-            if ( img.hasClass( 'alignleft' ) ) {
-                img.removeClass( 'alignleft' );
-                link.addClass( 'alignleft' );
-            }
-            
-            if ( img.hasClass( 'alignright' ) ) {
-                img.removeClass( 'alignright' );
-                link.addClass( 'alignriht' );
-            }
+			var link = $( this );
+			var img = link.find( 'img' );
+			
+			img.addClass( 'transition' );
+			
+			if ( img.hasClass( 'aligncenter' ) ) {
+				img.removeClass( 'aligncenter' );
+				link.addClass( 'aligncenter' );
+			}
+			
+			if ( img.hasClass( 'alignleft' ) ) {
+				img.removeClass( 'alignleft' );
+				link.addClass( 'alignleft' );
+			}
+			
+			if ( img.hasClass( 'alignright' ) ) {
+				img.removeClass( 'alignright' );
+				link.addClass( 'alignriht' );
+			}
 		} );
 		
 		// Ajustes dos comentários
@@ -125,13 +124,14 @@
 		$( '.reply' ).addClass( 'clear' );
 		$( 'a.comment-reply-link' ).addClass( 'button radius2' );
 		
-		$( '#header-menu .menu-item:has( ul ) > a' ).after( '<button class="toggle-sub-menu" type="button"><span class="fa fa-angle-down"></span></button>' );
-		$( '.toggle-sub-menu' ).click( function( e ) {
+		// Ajustes do header-menu
+		$( '#header-menu .sub-menu' ).hide();
+		$( '#header-menu .menu-item-has-children > a' ).after( '<button class="toggle-sub-menu transition" type="button"><i class="fa fa-angle-down"></i></button>' );
+		$( '.toggle-sub-menu' ).click( function() {
 			var _this = $( this );
 			
-			e.preventDefault();
-			_this.find( 'span' ).toggleClass( 'fa-angle-down' );
-			_this.find( 'span' ).toggleClass( 'fa-angle-up' );
+			_this.children( 'i' ).toggleClass( 'fa-angle-down' );
+			_this.children( 'i' ).toggleClass( 'fa-angle-up' );
 			_this.next( '.sub-menu' ).slideToggle();
 		} );
 		

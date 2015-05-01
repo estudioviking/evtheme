@@ -151,6 +151,53 @@ h6 {
 
 
 /**
+ * Listas
+ * ----------------------------------------------------------------------------
+ */
+ol, ul {
+	list-style: none;
+}
+
+li {
+	margin-left: 40px;
+	margin-left: 4rem;
+}
+
+ol li {
+	list-style: decimal;
+}
+
+ol ol li {
+	list-style: upper-alpha;
+}
+
+ol ol ol li {
+	list-style: upper-roman
+}
+
+ul li {
+	list-style: disc;
+}
+
+ul ul li {
+	list-style: circle;
+}
+
+ul ul ul li {
+	list-style: square;
+}
+
+dl {
+	margin-left: 25px;
+	margin-left: 2.5rem;
+}
+
+dt {
+	font-weight: bold;
+}
+
+
+/**
  * Elementos
  * ============================================================================
  */
@@ -160,6 +207,35 @@ hr {
 	border-width: 0;
 	border-bottom: 3px dotted #630;
 	clear: both;
+}
+
+.post-content hr {
+	margin: 30px 0;
+	margin: 3rem 0;
+}
+
+
+/**
+ * Tabelas
+ * ----------------------------------------------------------------------------
+ */
+.post-content table {
+	width: 100%;
+}
+
+tr > * {
+	border: 1px solid #963;
+	padding: 10px;
+	padding: 1rem;
+}
+
+th {
+	border-bottom-width: 2px;
+	border-bottom-color: #630;
+}
+
+td {
+	
 }
 
 
@@ -331,7 +407,11 @@ form span.required {
 	clear: both;
 }
 
-.hidden, .screen-reader-text {
+.hidden {
+	display: none;
+}
+
+.screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
 }
@@ -462,7 +542,6 @@ form span.required {
 }
 
 .sub-menu {
-	display: none;
 	margin-left: 30px;
 	margin-left: 3rem;
 }
@@ -479,7 +558,7 @@ form span.required {
  * ============================================================================
  */
 p, h1, h2, h3, h4, h5, h6, blockquote,
-pre, code, ul, ol, form, form li,
+pre, code, ul, ol, dd, form, form li,
 #header, #header-menu-nav, .widget {
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
@@ -565,7 +644,8 @@ ul ul, ol ol, p:last-child,
 
 #sidebar .widget-title,
 #sidebar li > a:hover,
-#sidebar li.current-menu-item > a {
+#sidebar li.current-menu-item > a,
+#sidebar li.current-menu-ancestor > a {
 	color: #fc6;
 }
 
@@ -603,7 +683,8 @@ ul ul, ol ol, p:last-child,
 
 #sidebar li > a:hover, .widget-title,
 .widget_recent_comments li:hover,
-#sidebar li.current-menu-item > a {
+#sidebar li.current-menu-item > a,
+#sidebar li.current-menu-ancestor > a {
 	background-color: #630;
 	background-color: rgba( 102, 51, 0, 0.5 );
 }
@@ -1151,6 +1232,9 @@ main > hr:last-child { display: none; }
 
 #copyright {
 	text-align: center;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.25;	/* 20px */
 }
 
 
@@ -1218,15 +1302,15 @@ main > hr:last-child { display: none; }
 	html {
 		font-size: 8px;
 	}
+	
+	.conteiner, #viking-slider {
+		max-width: 780px;
+		max-width: 97.5rem;
+	}
     
     #nav-header {
     	margin-top: 20px;
     	margin-top: 2.5rem;
-    }
-    
-    #viking-slider {
-    	max-width: 780px;
-    	max-width: 97.5rem;
     }
 }
 
