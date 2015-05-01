@@ -2,11 +2,7 @@
 /**
  * Template Name: Página de Exemplo
  * 
- * O template para exibir páginas
- * 
- * Este é o template que exibe todas as páginas por padrão.
- * Por favor, note que esta é a construtor WordPress de páginas e que
- * as outras "páginas" em seu site WordPress usarão um template diferente.
+ * O template para exibir todos os formatos HTML suportados e estilizados pelo tema
  * 
  * @package Estúdio Viking
  * @since 1.0
@@ -51,7 +47,7 @@ get_header();
 					<del>O jantar é às 5:00.</del> <ins>Melhor às 7:00.</ins>
 				</p>
 				<p>
-					Esse <span style="text-decoration:line-through;">texto</span> foi rasurado.
+					Esse <span style="text-decoration: line-through;">texto</span> foi rasurado.
 				</p>
 				
 				<hr>
@@ -162,6 +158,25 @@ Cuidado com a ave Sobe-Sobe
 				<p>
 					E aqui está um pouco de texto posterior.
 				</p>
+				
+				<hr>
+				
+				<h3>Formulários</h3>
+				<p>
+					Veremos como fica a apresentação padrão dos elementos de um formulário.
+				</p>
+				<form action="" id="form-example">
+					<p>
+						O &lt;fieldset&gt; agrupa elementos relacionados de um formulário.
+					</p>
+					<fieldset>
+						<legend>Essa é a legenda de um &lt;fieldset&gt;</legend>
+						<div class="form-group">
+							<label for="input">Esse é o &lt;label&gt;</label>
+							<input type="text" name="input" value="Isso é um input de texto" />
+						</div>
+					</fieldset>
+				</form>
 			</section><!-- .post content -->
 		</article><!-- #post## -->
 	

@@ -271,6 +271,19 @@ embed, iframe, object, video {
 }
 
 /* Formulários */
+fieldset {
+	border: 1px solid #420;
+	padding: 20px;
+	padding: 2rem;
+	-webkit-border-radius: 2px;
+			border-radius: 2px;
+}
+
+legend {
+	padding: 0 10px;
+	padding: 0 1rem;
+}
+
 input, textarea {
 	background-color: #fff;
 	background-color: rgba( 255, 255, 255, 0.8 );
@@ -412,15 +425,13 @@ form span.required {
 }
 
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
+	clip: rect( 1px, 1px, 1px, 1px );
 	position: absolute !important;
 }
 
 .radius2 {
 	-webkit-border-radius: 2px;
 			border-radius: 2px;
-	-webkit-border-radius: 0.2rem;
-			border-radius: 0.2rem;
 }
 
 .transition,
