@@ -304,6 +304,7 @@ textarea {
 }
 
 optgroup {
+	font-style: italic;
 	font-weight: bold;
 }
 

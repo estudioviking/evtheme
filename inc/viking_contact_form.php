@@ -13,7 +13,7 @@
  * ----------------------------------------------------------------------------
  */
 function html_contact_form() {
-	$html = '<form id="contact-form" action="' . esc_url( get_the_permalink() ) . '" method="post">' .
+	$html = '<form id="contact-form" action="' . esc_url( get_the_permalink() ) . '#contact-form" method="post">' .
 				'<div class="form-group">' .
 					'<label for="cf-name">' . __( 'Name', 'viking-theme' ) . ' <span class="required">*</span></label>' .
 					'<input type="text" name="cf-name" placeholder="' . __( 'Your name', 'viking-theme' ) . '" value="' . ( isset( $_POST['cf-name'] ) ? esc_attr( $_POST['cf-name'] ) : '' ) . '" size="40" required>' .
@@ -87,10 +87,10 @@ function deliver_contact_form_mail() {
  * Shortcode para inserir o formulário de contato
  * 
  * @since Estúdio Viking 1.0
- * @uses [my_contact_form]
+ * @uses [viking_contact_form]
  * ----------------------------------------------------------------------------
  */
-function viking_contact_form() {
+function render_viking_contact_form() {
 	ob_start();
 	
 	deliver_contact_form_mail();
@@ -98,4 +98,4 @@ function viking_contact_form() {
 	
 	return ob_get_clean();
 }
-add_shortcode( 'my_contact_form', 'viking_contact_form' );
+add_shortcode( 'viking_contact_form', 'render_viking_contact_form' );

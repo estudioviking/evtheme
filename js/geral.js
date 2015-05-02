@@ -87,7 +87,7 @@
 		$( '.pagination .prev, .pagination .next' ).addClass( 'button' ).removeClass( 'page-numbers' );
 		
 		// Adicionando a classe .radius2
-		$( 'form, fildset, input, button, .button, .input-group, textarea, pre' ).addClass( 'radius2' );
+		$( 'form, fildset, input, button, .button, .input-group, textarea, pre, select' ).addClass( 'radius2' );
 		
 		// Adicionando a classe .transition
 		$( 'a, .widget li' ).addClass( 'transition' );

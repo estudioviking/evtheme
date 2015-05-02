@@ -103,11 +103,19 @@ get_header();
 				
 				<h3>Tabela</h3>
 				<table>
-					<tbody>
+					<caption>Tabela de Exemplo - Isso é um <code>&lt;caption&gt;</code></caption>
+					<thead>
 						<tr>
 							<th>Cabeçalho da tabela 1</th>
 							<th>Cabeçalho da tabela 2</th>
 							<th>Cabeçalho da tabela 3</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Divisão 1</td>
+							<td>Divisão 2</td>
+							<td>Divisão 3</td>
 						</tr>
 						<tr>
 							<td>Divisão 1</td>
@@ -125,6 +133,11 @@ get_header();
 							<td>Divisão 3</td>
 						</tr>
 					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3">Rodapé da tabela</td>
+						</tr>
+					</tfoot>
 				</table>
 				
 				<hr>
@@ -167,15 +180,53 @@ Cuidado com a ave Sobe-Sobe
 				</p>
 				<form action="" id="form-example">
 					<p>
-						O &lt;fieldset&gt; agrupa elementos relacionados de um formulário.
+						O <code>&lt;fieldset&gt;</code> agrupa elementos relacionados de um formulário.
 					</p>
 					<fieldset>
-						<legend>Essa é a legenda de um &lt;fieldset&gt;</legend>
+						<legend>Essa é a legenda de um <code>&lt;fieldset&gt;</code></legend>
 						<div class="form-group">
-							<label for="input">Esse é o &lt;label&gt;</label>
-							<input type="text" name="input" value="Isso é um input de texto" />
+							<label for="input">Esse é o <code>&lt;label&gt;</code></label>
+							<input type="text" name="input" placeholder="Isso é um input de texto" />
+						</div>
+						<div class="form-group">
+							<label for="file">Selecione um arquivo:</label>
+							<input type="file" name="file" placeholder="Isso é um input de arquivo" />
+						</div>
+						<div class="form-group">
+							<label for="textarea">Esse é outro <code>&lt;label&gt;</code></label>
+							<textarea name="textarea" placeholder="Isso é uma área de texto"></textarea>
 						</div>
 					</fieldset>
+					<p>
+						Elementos de um <code>&lt;select&gt;</code>.
+					</p>
+					<div class="form-group">
+						<label for="select">Selecione uma opção:</label>
+						<select name="select">
+							<optgroup label="Grupo 1">
+								<option value="1">Opção 1</option>
+								<option value="2">Opção 2</option>
+								<option value="3">Opção 3</option>
+							</optgroup>
+							<optgroup label="Grupo 2">
+								<option value="1">Opção 1</option>
+								<option value="2">Opção 2</option>
+								<option value="3">Opção 3</option>
+							</optgroup>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="radio">Botões Radio:</label>
+						<input name="radio" type="radio" value="radio_1" /> Radio 1
+						<input name="radio" type="radio" value="radio_2" /> Radio 2
+						<input name="radio" type="radio" value="radio_3" /> Radio 3
+					</div>
+					<div class="form-group">
+						<label for="checkbox">Checkboxes:</label>
+						<input name="checkbox" type="checkbox" value="check_1" /> Checkbox 1
+						<input name="checkbox" type="checkbox" value="check_2" /> Checkbox 2
+						<input name="checkbox" type="checkbox" value="check_3" /> Checkbox 3
+					</div>
 				</form>
 			</section><!-- .post content -->
 		</article><!-- #post## -->
