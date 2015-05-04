@@ -193,6 +193,10 @@ Cuidado com a ave Sobe-Sobe
 							<input type="file" name="file" placeholder="Isso é um input de arquivo" />
 						</div>
 						<div class="form-group">
+							<label for="url">Digite seu site:</label>
+							<input type="url" name="url" placeholder="Isso é um input do tipo url" />
+						</div>
+						<div class="form-group">
 							<label for="textarea">Esse é outro <code>&lt;label&gt;</code></label>
 							<textarea name="textarea" placeholder="Isso é uma área de texto"></textarea>
 						</div>
