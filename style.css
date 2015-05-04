@@ -71,7 +71,7 @@ body {
 pre {
 	background: url( "img/bg_pre.png" ) top left repeat #fff;
 	color: #333;
-	border: 1px solid #eee;
+	border: 1px solid #963;
 	padding: 20px;
 	padding: 2rem;
 	font-size: 14px;
@@ -205,7 +205,7 @@ hr {
 	margin: 20px;
 	margin: 2rem;
 	border-width: 0;
-	border-bottom: 3px dotted #630;
+	border-bottom: 3px dotted #963;
 	clear: both;
 }
 
@@ -275,9 +275,7 @@ a:visited {
 }
 
 a:hover, a:focus {
-	color: #fc6;
-	text-shadow: 2px 2px 2px #000;
-	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.75 );
+	color: #c90;
 	cursor: pointer;
 }
 
@@ -303,7 +301,7 @@ embed, iframe, object, video {
  * ----------------------------------------------------------------------------
  */
 fieldset {
-	border: 1px solid #420;
+	border: 1px solid #963;
 	padding: 20px;
 	padding: 2rem;
 	-webkit-border-radius: 2px;
@@ -338,14 +336,6 @@ input, textarea {
 	background-color: rgba( 255, 255, 255, 0.8 );
 }
 
-select {
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.25;	/* 20px */
-	padding: 2.5px 5px;
-	padding: 0.25rem 0.5rem;
-}
-
 input[type="radio"], input[type="checkbox"] {
 	margin-left: 20px;
 	margin-left: 2rem;
@@ -369,6 +359,14 @@ input[type="checkbox"]:first-of-type {
 textarea, select, optgroup {
 	padding: 0 5px;
 	padding: 0 0.5rem;
+}
+
+select {
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.25;	/* 20px */
+	padding: 3.5px 5px;
+	padding: 0.35rem 0.5rem;
 }
 
 .button, a.button, button, html input[type="button"],
@@ -640,7 +638,7 @@ form span.required {
  * Espaçamentos Gerais
  * ============================================================================
  */
-p, h1, h2, h3, h4, h5, h6,
+p, h1, h2, h3, h4, h5, h6, hgroup,
 blockquote, pre, code,
 ul, ol, dd,
 form, form li, fieldset,
@@ -757,7 +755,6 @@ ul ul, ol ol,
 #sidebar .sub-menu-item:first-child a,
 .widget_recent_comments li {
 	border-top: 1px dashed #fc6;
-	border-top: 0.1rem dashed #fc6;
 	padding: 10px;
 	padding: 1rem;
 }
@@ -1215,7 +1212,7 @@ main > hr:last-child { display: none; }
 .author-heading {}
 
 .author-avatar {
-	border: 5px solid #630;
+	border: 5px solid #963;
 }
 
 .author-avatar, #comments .avatar {
