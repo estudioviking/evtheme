@@ -266,6 +266,10 @@ a, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
 }
 
+.post-content a {
+	text-decoration: underline;
+}
+
 a, a:link {
 	color: #963;
 }
@@ -642,7 +646,7 @@ p, h1, h2, h3, h4, h5, h6, hgroup,
 blockquote, pre, code,
 ul, ol, dd,
 form, form li, fieldset,
-#header, #header-menu-nav, .widget {
+#header, #header-menu-nav, #social-menu-nav, .widget {
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
 }
@@ -809,7 +813,7 @@ ul ul, ol ol,
 /**
  * Header-Menu
  *
- * Ajustes para o meno do cabeçalho do tema.
+ * Ajustes para o menu do cabeçalho do tema.
  * ----------------------------------------------------------------------------
  */
 #header-menu > li > a {
@@ -826,6 +830,56 @@ ul ul, ol ol,
 	top: 0;
 	left: 10px;
 	left: 1rem;
+}
+
+
+/**
+ * Social-Menu
+ *
+ * Ajustes para o menu social do cabeçalho do tema.
+ * ----------------------------------------------------------------------------
+ */
+#social-menu {
+}
+
+#social-menu ul {
+}
+
+#social-menu li {
+}
+
+#social-menu li a {
+	color: #630;
+	font-family: FontAwesome;
+	font-size: 2.5rem;
+	line-height: 1.2;	/* 30px */
+	width: 30px;
+	width: 3rem;
+	margin: 0 auto;
+	padding: 0;
+	text-shadow: none;
+	text-shadow: none;
+}
+
+#social-menu li a:hover {
+	background-color: unset;
+	color: #963;
+}
+
+#social-menu a[href*="facebook.com"]:before {
+	content: "\f230";
+}
+
+#social-menu a[href*="twitter.com"]:before {
+	content: "\f099";
+}
+
+#social-menu a[href*="youtube.com"]:before {
+	content: "\f167";
+}
+
+#social-menu a[href*="instagram.com"]:before {
+	content: "\f16d";
 }
 
 

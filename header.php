@@ -56,8 +56,7 @@
 											'theme_location'	=> 'header-menu',
 											'container'			=> 'nav',
 											'container_id'		=> 'header-menu-nav',
-											'menu_id'			=> 'header-menu',
-											//'walker'			=> new Viking_Walker_Nav()
+											'menu_id'			=> 'header-menu'
 										) );
 										echo '<!-- #header-menu-nav -->';
 									endif;
@@ -68,7 +67,10 @@
 											'container'			=> 'nav',
 											'container_id'		=> 'social-menu-nav',
 											'menu_id'			=> 'social-menu',
-											//'walker'			=> new Viking_Walker_Nav()
+											'menu_class'		=> 'nav-menu',
+											'depth'				=> 1,
+											'link_before'		=> '<span class="screen-reader-text">',
+											'link_after'		=> '</span>'
 										) );
 										echo '<!-- #social-menu-nav -->';
 									endif;
