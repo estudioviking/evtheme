@@ -3,47 +3,47 @@
  * Suporte a cabeçalho personalizado
  * ----------------------------------------------------------------------------
  */
-
-/**
- * Diretório dos cabeçalhos personalizados
- * %s é um placeholder para o diretório URI do tema.
- */
-$headers_uri = '%s/img/headers/';
-
-add_theme_support( 'custom-header', array(
-	// Imagem e cor de texto padrão
-	'default-image'          => $headers_uri . 'logo_header.png',
-	'default-text-color'     => '000',
+function viking_custom_header_setup() {
+	add_theme_support( 'custom-header', array(
+		// Imagem e cor de texto padrão
+		'default-image'          => $headers_uri . 'logo_header.png',
+		'default-text-color'     => '000',
+		
+		// Tamanho padrão para as imagens
+		'width'                  => 340,
+		'height'                 => 120,
+		
+		// Opções extras
+		'random-default'         => false,	// Cabeçalho aleatório
+		'flex-height'            => true,	// Altura flexível
+		'flex-width'             => false,	// Largura flexível
+		'header-text'            => true,	// Habilita suporte a personalização do texto
+		'uploads'                => true,	// Permite upload de imagens
+		
+		// Estilo que vai apareceer no head do site
+		'wp-head-callback'       => 'viking_header_style',
+	) );
 	
-	// Tamanho padrão para as imagens
-	'width'                  => 340,
-	'height'                 => 120,
+	/**
+	 * Pacote de imagens personalizadas para o cabeçalho
+	 * Remova os comentários para habilitar
+	 * ----------------------------------------------------------------------------
+	 */
 	
-	// Opções extras
-	'random-default'         => false,	// Cabeçalho aleatório
-	'flex-height'            => true,	// Altura flexível
-	'flex-width'             => false,	// Largura flexível
-	'header-text'            => true,	// Habilita suporte a personalização do texto
-	'uploads'                => true,	// Permite upload de imagens
-	
-	// Estilo que vai apareceer no head do site
-	'wp-head-callback'       => 'viking_header_style',
-) );
-
-/**
- * Pacote de imagens personalizadas para o cabeçalho
- * Remova os comentários para habilitar
- * ----------------------------------------------------------------------------
- */
-/*
-register_default_headers( array(
-	'exemplo' => array(
-		'url'           => $headers_uri . 'exemplo.png',
-		'thumbnail_url' => $headers_uri . 'exemplo-thumbnail.png',
-		'description'   => _x( 'Exemplo', 'header image description', 'viking-theme' )
-	),
-) );
-*/
+	/**
+	 * Diretório dos cabeçalhos personalizados
+	 * %s é um placeholder para o diretório URI do tema.
+	 */
+	$headers_uri = '%s/img/headers/';
+	register_default_headers( array(
+		'logo_header' => array(
+			'url'           => $headers_uri . 'logo_header.png',
+			'thumbnail_url' => $headers_uri . 'logo_header-thumbnail.png',
+			'description'   => _x( 'Estúdio Viking Brand', 'header image description', 'viking-theme' )
+		),
+	) );
+}
+add_action( 'after_setup_theme', 'viking_custom_header_setup', 11 );
 
 /**
  * Elementos que vão aparecer no head do site após personalização
