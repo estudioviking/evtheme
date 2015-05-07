@@ -48,36 +48,6 @@
 								</span>
 								<button id="toggle" type="button"><i class="fa fa-bars"></i></button>
 							</div><!-- #toggle-container -->
-							
-							<aside id="nav-header">
-								<?php
-									if ( has_nav_menu( 'header-menu' ) ) :
-										wp_nav_menu( array(
-											'theme_location'	=> 'header-menu',
-											'container'			=> 'nav',
-											'container_id'		=> 'header-menu-nav',
-											'menu_id'			=> 'header-menu'
-										) );
-										echo '<!-- #header-menu-nav -->';
-									endif;
-									
-									if ( has_nav_menu( 'social-menu' ) ) :
-										wp_nav_menu( array(
-											'theme_location'	=> 'social-menu',
-											'container'			=> 'nav',
-											'container_id'		=> 'social-menu-nav',
-											'menu_id'			=> 'social-menu',
-											'menu_class'		=> 'nav-menu',
-											'depth'				=> 1,
-											'link_before'		=> '<span class="screen-reader-text">',
-											'link_after'		=> '</span>'
-										) );
-										echo '<!-- #social-menu-nav -->';
-									endif;
-									
-									get_search_form();
-								?>
-							</aside><!-- #nav-header -->
 						</header><!-- #header -->
 						
 						<?php get_sidebar(); ?>

@@ -29,7 +29,7 @@ define( 'SCRIPT_URI', THEME_URI . '/js' );
  * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
-if ( ! isset( $content_width ) ) $content_width = 620;
+if ( ! isset( $content_width ) ) $content_width = 740;
 
 
 if ( ! function_exists( 'viking_setup' ) ) :
@@ -107,15 +107,15 @@ add_action( 'after_setup_theme', 'viking_setup' );
  * ----------------------------------------------------------------------------
  */
 function viking_widgets_init() {
-	// Define Sidebar Widget Area 1
+	// Define Sidebar Widget Area
 	register_sidebar( array(
 		'name'			=> __( 'Widget Area', 'viking-theme' ),
 		'id'			=> 'widget-area',
 		'description'	=> __( 'Add widgets here to appear in your sidebar.', 'viking-theme' ),
-		'before_widget'	=> '<section id="%1$s" class="widget %2$s">',
+		'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
 		'before_title'	=> '<h2 class="widget-title inner">',
 		'after_title'	=> '</h2><div class="widget-content inner">',
-		'after_widget'	=> '</div></section>'
+		'after_widget'	=> '</div></aside>'
 	) );
 }
 add_action( 'widgets_init', 'viking_widgets_init' );

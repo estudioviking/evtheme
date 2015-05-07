@@ -293,7 +293,9 @@ iframe, object, video {
 	max-width: 100%;
 }
 
-a > img { display: block; }
+a > img {
+	display: block;
+}
 
 embed, iframe, object, video {
 	vertical-align: middle;
@@ -385,7 +387,7 @@ input[type="reset"], input[type="submit"] {
 	display: inline-block;
 	background-color: #963;
 	color: #fff;
-	font-weight: bold;
+	text-decoration: none;
 	text-shadow: 2px 2px 2px #000;
 	text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.75 );
 	-webkit-box-shadow: inset -1px -1px 1px 0 #630;
@@ -587,97 +589,37 @@ form span.required {
 
 
 /**
- * Menus de Navegação
+ * Estrutura
  *
- * Ajustes para os menus de navegação do tema.
- * ----------------------------------------------------------------------------
- */
-.nav-menu .menu-item {
-	list-style: none;
-}
-
-.nav-menu {
-	display: table;
-	width: 100%;
-}
-
-.nav-menu > .menu-item {
-	display: table-cell;
-}
-
-.nav-menu > .menu-item > .menu-link {
-	text-align: center;
-}
-
-.menu-item {
-	position: relative;
-	margin-left: 0;
-}
-
-.toggle-sub-menu {
-    position: absolute;
-    top: 10px;
-    top: 1rem;
-    right: 10px;
-    right: 1rem;
-}
-
-.menu-link {
-	display: block;
-}
-
-.sub-menu {
-	margin-left: 30px;
-	margin-left: 3rem;
-}
-
-.sub-menu-item {
-	margin: 0;
-}
-
-.sub-menu .menu-link {  }
-
-
-/**
- * Espaçamentos Gerais
+ * Ajustes para estruturação geral do tema.
  * ============================================================================
  */
 p, h1, h2, h3, h4, h5, h6, hgroup,
 blockquote, pre, code,
 ul, ol, dd,
 form, form li, fieldset,
-#header, #header-menu-nav, #social-menu-nav, .widget {
+#header, #search,
+#header-menu-nav, #social-menu-nav,
+.widget, .archive .post-footer, #author-info {
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
 }
 
 ul ul, ol ol,
 *:last-child,
-#search-form {
+#page, #search-form,
+#viking-slider, .comment-form {
 	margin-bottom: 0;
 }
 
 
-/**
- * Estrutura
- *
- * Ajustes para estruturação geral do tema.
- * ----------------------------------------------------------------------------
- */
-#header, .widget,
-.archive .post-footer,
-#author-info {
-	margin-bottom: 20px;
-	margin-bottom: 2rem;
+#principal, #viking-slider {
+	margin-top: 20px;
+	margin-top: 2rem;
 }
 
 .conteiner {
 	position: static;
-}
-
-#page, .widget:last-child, #author-info:last-child,
-#search-form, #viking-slider, .comment-form {
-	margin-bottom: 0;
 }
 
 #principal, #footer, #viking-slider {
@@ -689,12 +631,6 @@ ul ul, ol ol,
 			box-shadow: 2px 5px 10px 0px #000;
 	-webkit-box-shadow: 2px 5px 10px 0px rgba( 0, 0, 0, 0.5 );
 			box-shadow: 2px 5px 10px 0px rgba( 0, 0, 0, 0.5 );
-}
-
-
-#principal, #viking-slider {
-	margin-top: 20px;
-	margin-top: 2rem;
 }
 
 #sidebar, .slider-caption, #page-title,
@@ -811,6 +747,58 @@ ul ul, ol ol,
 
 
 /**
+ * Menus de Navegação
+ *
+ * Ajustes para os menus de navegação do tema.
+ * ----------------------------------------------------------------------------
+ */
+.nav-menu .menu-item {
+	list-style: none;
+}
+
+.nav-menu {
+	display: table;
+	width: 100%;
+}
+
+.nav-menu > .menu-item {
+	display: table-cell;
+}
+
+.nav-menu > .menu-item > .menu-link {
+	text-align: center;
+}
+
+.menu-item {
+	position: relative;
+	margin-left: 0;
+}
+
+.toggle-sub-menu {
+    position: absolute;
+    top: 10px;
+    top: 1rem;
+    right: 10px;
+    right: 1rem;
+}
+
+.menu-link {
+	display: block;
+}
+
+.sub-menu {
+	margin-left: 30px;
+	margin-left: 3rem;
+}
+
+.sub-menu-item {
+	margin: 0;
+}
+
+.sub-menu .menu-link {  }
+
+
+/**
  * Header-Menu
  *
  * Ajustes para o menu do cabeçalho do tema.
@@ -870,16 +858,36 @@ ul ul, ol ol,
 	content: "\f230";
 }
 
-#social-menu a[href*="twitter.com"]:before {
-	content: "\f099";
-}
-
-#social-menu a[href*="youtube.com"]:before {
-	content: "\f167";
+#social-menu a[href*="github.com"]:before {
+	content: "\f09b";
 }
 
 #social-menu a[href*="instagram.com"]:before {
 	content: "\f16d";
+}
+
+#social-menu a[href*="linkedin.com"]:before {
+	content: "\f08c";
+}
+
+#social-menu a[href*="pinterest.com"]:before {
+	content: "\f0d2";
+}
+
+#social-menu a[href*="plus.google.com"]:before {
+	content: "\f0d4";
+}
+
+#social-menu a[href*="twitter.com"]:before {
+	content: "\f099";
+}
+
+#social-menu a[href*="vimeo.com"]:before {
+	content: "\f194";
+}
+
+#social-menu a[href*="youtube.com"]:before {
+	content: "\f167";
 }
 
 
@@ -1115,6 +1123,8 @@ main > hr:last-child { display: none; }
 	font-size: 1.4rem;
 	line-height: 1.4285;	/* 30px */
 	text-align: center;
+	margin-top: 5px;
+	margin-top: 0.5rem;
 }
 
 #principal .view-article {
@@ -1390,7 +1400,7 @@ main > hr:last-child { display: none; }
     	margin-left: 0 !important;
     	float: none;
     }
-    #nav-header, .sidebar {
+    #nav-header, .widget-area {
     	display: none;
     }
     
@@ -1423,11 +1433,6 @@ main > hr:last-child { display: none; }
 @media screen and ( min-width: 0px ) and ( max-width: 500px ) {
     html {
     	font-size: 6px;
-    }
-    
-    #nav-header {
-    	margin-top: 20px;
-    	margin-top: 3.3333rem;
     }
     
     #viking-slider {
