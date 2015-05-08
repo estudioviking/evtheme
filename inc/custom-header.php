@@ -1,6 +1,16 @@
 <?php
 /**
- * Suporte a cabeçalho personalizado
+ * Cabeçalho Personalizado para o tema
+ *
+ * @package Estúdio Viking
+ * @since 1.0
+ */
+
+
+/**
+ * Configuração principal para cabeçalho personalizado no tema
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_custom_header_setup() {
@@ -45,9 +55,12 @@ function viking_custom_header_setup() {
 }
 add_action( 'after_setup_theme', 'viking_custom_header_setup', 11 );
 
+
 /**
  * Elementos que vão aparecer no head do site após personalização
  * na área de administração do cabeçalho personalizado do site.
+ * 
+ * @since Estúdio Viking 1.0
  * ----------------------------------------------------------------------------
  */
 function viking_header_style() {
@@ -137,4 +150,3 @@ function viking_header_style() {
 	</style>
 	<?php
 }
-?>
