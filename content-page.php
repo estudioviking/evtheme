@@ -9,10 +9,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<header class="post-header<?php if ( is_page( 'home' ) ) echo ' inner'; ?>">
-		<?php if ( ! is_page( 'home' ) ) : ?>
-			<h1 id="page-title"><?php the_title(); ?></h1>
-		<?php endif; ?>
+	<header class="post-header">
+		<h1 id="page-title"<?php if ( is_home() || is_front_page() ) echo ' class="screen-reader-text"'; ?>>
+			<?php the_title(); ?>
+		</h1>
 	</header><!-- .post header -->
 		
 	<?php edit_post_link( __( 'Edit', 'viking-theme' ), '<span class="edit-link">', '</span>' ); ?>
