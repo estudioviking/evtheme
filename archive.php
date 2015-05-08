@@ -26,7 +26,16 @@ get_header();
 	<header id="page-header">
 		<?php
 			the_archive_title( '<h1 id="page-title">', '</h1>' );
-			the_archive_description( '<div class="taxonomy-description">', '</div>' );
+			
+			if ( is_author() ) :
+				if ( get_the_author_meta( 'description' ) ) : ?>
+					<div id="author-bio">
+						<?php get_template_part( 'author-info' ); ?>
+					</div><!-- #author-bio --><?php
+				endif;
+			else:
+				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+			endif;
 		?>
 	</header><!-- #page-header -->
 	
