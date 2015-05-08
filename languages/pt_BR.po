@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Estúdio Viking WordPress Theme\n"
-"POT-Creation-Date: 2015-04-23 19:30-0300\n"
+"POT-Creation-Date: 2015-05-07 16:09-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ivanildo Dias <ivanildodias@estudioviking.com>\n"
 "Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
@@ -49,15 +49,15 @@ msgstr ""
 "Este artigo é protegido por senha. Para ver os comentários, a senha deve ser "
 "digitada."
 
-#: ../comments.php:31 ../comments.php:63 ../inc/template-tags.php:316
+#: ../comments.php:31 ../comments.php:64 ../inc/template-tags.php:295
 msgid "Leave your thoughts"
 msgstr "Deixe seus comentários"
 
-#: ../comments.php:31 ../inc/template-tags.php:317
+#: ../comments.php:31 ../inc/template-tags.php:296
 msgid "1 comment"
 msgstr "1 comentário"
 
-#: ../comments.php:31 ../inc/template-tags.php:318
+#: ../comments.php:31 ../inc/template-tags.php:297
 #, php-format
 msgid "% comments"
 msgstr "% comentários"
@@ -66,23 +66,23 @@ msgstr "% comentários"
 msgid "on"
 msgstr "em"
 
-#: ../comments.php:54
+#: ../comments.php:55
 msgid "Comments are closed here."
 msgstr "Comentários estão fechados."
 
-#: ../comments.php:65
+#: ../comments.php:66
 msgid "Comment"
 msgstr "Comentário"
 
-#: ../comments.php:68 ../inc/viking_contact_form.php:18
+#: ../comments.php:69 ../inc/viking-contact-form.php:18
 msgid "Name"
 msgstr "Nome"
 
-#: ../comments.php:70 ../inc/viking_contact_form.php:22
+#: ../comments.php:71 ../inc/viking-contact-form.php:22
 msgid "Email"
 msgstr "E-mail"
 
-#: ../comments.php:72
+#: ../comments.php:73
 msgid "Website"
 msgstr "Site"
 
@@ -113,23 +113,23 @@ msgstr ""
 "Parece que não pudemos encontrar o que você está procurando. Talvez a "
 "pesquisa possa ajudar."
 
-#: ../content-page.php:18 ../inc/template-tags.php:270
+#: ../content-page.php:18 ../inc/template-tags.php:249 ../page-example.php:21
 msgid "Edit"
 msgstr "Editar"
 
-#: ../content.php:45
+#: ../content.php:48
 msgid "This post was written by "
 msgstr "Este artigo foi escrito por "
 
-#: ../content.php:45
+#: ../content.php:48
 msgid " in "
 msgstr " em "
 
-#: ../content.php:46
+#: ../content.php:49
 msgid "Categorised in: "
 msgstr "Categorizado em: "
 
-#: ../content.php:47
+#: ../content.php:50
 msgid "Tags: "
 msgstr "Tags: "
 
@@ -147,25 +147,30 @@ msgstr ""
 "Viking</a> em <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">WordPress</"
 "a>."
 
-#: ../functions.php:77
+#: ../functions.php:65
 msgid "Header Menu"
 msgstr "Menu do cabeçalho"
 
-#: ../functions.php:78
+#: ../functions.php:66
 msgid "Social Menu"
 msgstr "Menu Social"
 
-#: ../functions.php:118
+#: ../functions.php:112
 msgid "Widget Area"
 msgstr "Área de Widgets"
 
-#: ../functions.php:120
+#: ../functions.php:114
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Adicione widgets aqui para aparecer em sua barra lateral."
 
-#: ../header.php:47
+#: ../header.php:48
 msgid "Click on the button to display the menu."
 msgstr "Clique no botão para exibir o menu."
+
+#: ../inc/custom-header.php:52
+msgctxt "header image description"
+msgid "Estúdio Viking Brand"
+msgstr "Marca do Estúdio Viking"
 
 #: ../inc/template-tags.php:136
 #, php-format
@@ -180,7 +185,7 @@ msgstr "Artigos na tag: %s"
 #: ../inc/template-tags.php:140
 #, php-format
 msgid "Posts of the author: %s"
-msgstr "Artigos do author: %s"
+msgstr "Artigos do autor: %s"
 
 #: ../inc/template-tags.php:142
 #, php-format
@@ -209,58 +214,58 @@ msgstr "Próxima página"
 msgid "Page"
 msgstr "Página"
 
-#: ../inc/template-tags.php:293 ../inc/template-tags.php:294
-#: ../inc/template-tags.php:295
+#: ../inc/template-tags.php:272 ../inc/template-tags.php:273
+#: ../inc/template-tags.php:274
 #, php-format
 msgid "Posts of %s"
 msgstr "Artigos de %s"
 
-#: ../inc/template-tags.php:300
+#: ../inc/template-tags.php:279
 #, php-format
 msgid "%s of %s of %s"
 msgstr "%s de %s de %s"
 
-#: ../inc/template-tags.php:383
+#: ../inc/template-tags.php:378
 msgid "Comment navigation"
 msgstr "Navegação de comentários"
 
-#: ../inc/template-tags.php:386
+#: ../inc/template-tags.php:381
 msgid "Older comments"
 msgstr "Comentários anteriores"
 
-#: ../inc/template-tags.php:390
+#: ../inc/template-tags.php:385
 msgid "Newer comments"
 msgstr "Comentários recentes"
 
-#: ../inc/viking_contact_form.php:19
+#: ../inc/viking-contact-form.php:19
 msgid "Your name"
 msgstr "Seu nome"
 
-#: ../inc/viking_contact_form.php:26
+#: ../inc/viking-contact-form.php:26
 msgid "Subject"
 msgstr "Assunto"
 
-#: ../inc/viking_contact_form.php:27
+#: ../inc/viking-contact-form.php:27
 msgid "What is the subject of the message?"
 msgstr "Qual o assunto da mensagem?"
 
-#: ../inc/viking_contact_form.php:30
+#: ../inc/viking-contact-form.php:30
 msgid "Message"
 msgstr "Mensagem"
 
-#: ../inc/viking_contact_form.php:31
+#: ../inc/viking-contact-form.php:31
 msgid "Enter your message here."
 msgstr "Digite sua mensagem aqui."
 
-#: ../inc/viking_contact_form.php:33
+#: ../inc/viking-contact-form.php:33
 msgid "Send"
 msgstr "Enviar"
 
-#: ../inc/viking_contact_form.php:73
+#: ../inc/viking-contact-form.php:73
 msgid "Thanks for contacting us, expect a response soon."
 msgstr "Obrigado por entrar em contato conosco, aguarde uma resposta em breve."
 
-#: ../inc/viking_contact_form.php:74
+#: ../inc/viking-contact-form.php:74
 msgid "An unexpected error occurred. Try again later."
 msgstr "Ocorreu um erro inesperado. Tente novamente mais tarde."
 
@@ -273,7 +278,7 @@ msgstr "Últimos Artigos"
 msgid "Search results for: %s"
 msgstr "Resultados da pesquisa para: %s"
 
-#: ../searchform.php:5
+#: ../searchform.php:13 ../searchform.php:15
 msgid "Search"
 msgstr "Pesquisar"
 
