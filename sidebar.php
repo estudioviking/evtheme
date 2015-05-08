@@ -9,7 +9,7 @@
  */
 ?>
 
-<section id="sidebar-content">
+<section id="sidebar-content" role="complementary">
 	<div id="nav-header">
 		<?php
 			if ( has_nav_menu( 'header-menu' ) ) :
@@ -35,7 +35,24 @@
 				) );
 				echo '<!-- #social-menu-nav -->';
 			endif;
-			
+			/*
+			if ( class_exists( 'PLL_Widget_Languages' ) ) :
+				$instance = array(
+					'show_flags'				=> 1,
+					'hide_if_no_translation'	=> 1
+				);
+				
+				$args = array(
+					'title'			=> __( 'Language Switcher', 'viking-theme' ),
+					'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
+					'before_title'	=> '<h2 class="widget-title inner screen-reader-text">',
+					'after_title'	=> '</h2><div class="widget-content inner">',
+					'after_widget'	=> '</div></aside>'
+				);
+				
+				the_widget( 'PLL_Widget_Languages', $instance, $args );
+			endif;
+			*/
 			get_search_form();
 		?>
 	</div><!-- #nav-header -->

@@ -596,7 +596,7 @@ form span.required {
  */
 p, h1, h2, h3, h4, h5, h6, hgroup,
 blockquote, pre, code,
-ul, ol, dd,
+ul, ol, dl, dd,
 form, form li, fieldset,
 #header, #search,
 #header-menu-nav, #social-menu-nav,
@@ -707,7 +707,8 @@ ul ul, ol ol,
 #sidebar li > a:hover, .widget-title,
 .widget_recent_comments li:hover,
 #sidebar li.current-menu-item > a,
-#sidebar li.current-menu-ancestor > a {
+#sidebar li.current-menu-ancestor > a,
+.widget_polylang li.current-lang a {
 	background-color: #630;
 	background-color: rgba( 102, 51, 0, 0.5 );
 }
@@ -827,22 +828,14 @@ ul ul, ol ol,
  * Ajustes para o menu social do cabeçalho do tema.
  * ----------------------------------------------------------------------------
  */
-#social-menu {
-}
-
-#social-menu ul {
-}
-
-#social-menu li {
-}
-
 #social-menu li a {
 	color: #630;
 	font-family: FontAwesome;
-	font-size: 2.5rem;
-	line-height: 1.2;	/* 30px */
-	width: 30px;
-	width: 3rem;
+	font-size: 30px;
+	font-size: 3rem;
+	line-height: 1.3333;	/* 40px */
+	width: 40px;
+	width: 4rem;
 	margin: 0 auto;
 	padding: 0;
 	text-shadow: none;
@@ -850,7 +843,7 @@ ul ul, ol ol,
 }
 
 #social-menu li a:hover {
-	background-color: unset;
+	background-color: transparent;
 	color: #963;
 }
 
@@ -930,6 +923,30 @@ ul ul, ol ol,
 #sidebar .widget_recent_comments li a:hover {
 	background-color: transparent;
 	color: #fa0;
+}
+
+.widget_polylang .widget-title {
+	clip: rect( 1px, 1px, 1px, 1px );
+	position: absolute !important;
+}
+
+.widget_polylang ul {
+	display: table;
+	width: 100%
+}
+
+.widget_polylang li {
+	display: table-cell;
+	width: 50%;
+}
+
+.widget_polylang a {
+	border-top: none !important;
+	text-align: center;
+}
+
+.widget_polylang img {
+	display: inline;
 }
 
 
