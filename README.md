@@ -1,13 +1,14 @@
 # EV Theme
-Tema Wordpress do **Estúdio Viking**
+Tema [WordPress](https://br.wordpress.org/) do **Estúdio Viking**
 
 * [Website](http://estudioviking.com/)
 * [GitHub](https://github.com/ivanildodias/evtheme)
 
 ## Descrição do projeto
-O EV Theme é um tema desenvolvido para Wordpress, com diversar funcionalidades já inclusas para evitar o uso desnecessário de inúmeros plugins.
-Sempre tentando seguir o [Wordpress Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/) para manter o padrão no projeto inteiro.
-O tema é totalmente desenvolvido em HTML5.
+O EV Theme é um tema desenvolvido para [WordPress](https://br.wordpress.org/), com diversar funcionalidades já inclusas para evitar o uso desnecessário de inúmeros plugins.
+Sempre tentando seguir o [WordPress Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/) para manter o padrão no projeto inteiro.
+
+O tema é totalmente responsivo e desenvolvido em HTML5 e CSS3.
 
 ## Instalação
 Envie a pasta "evtheme" para a pasta de temas padrão do WordPress **"wp-content/themes"** ou simplesmente envie o arquivo zipado utilizando o instalador de temas do WordPress.
@@ -21,17 +22,17 @@ Envie a pasta "evtheme" para a pasta de temas padrão do WordPress **"wp-content
 * [Shortcodes](https://codex.wordpress.org/Shortcode)
 * Box de informações do autor
 * Formulário de contato
+* [Lightbox v2.7.1](http://lokeshdhakar.com/projects/lightbox2/)
+* [Font Awesome v4.3.0](http://fontawesome.io) (Fonte de ícones)
 * Entre outras...
 
 ## Contribua com o Projeto
-O EV Theme é um projeto **Open Source**. Qualquer pessoa pode ajudar a melhorá-lo.
-Contribua com as suas sugestões!
+O EV Theme é um projeto **Open Source**. Qualquer pessoa pode ajudar a melhorá-lo contribuindo com as suas opiniões, sugestões ou reportando erros!
 
 Para contribuir basta clicar no botão **Fork**, criar um *Branch*, arrumar o código e enviá-lo com um **Pull Request**.
-Reporte erros ou faça suas sugestões utilizando o [Issues](https://github.com/wpbrasil/evtheme/issues)
-
+Reporte erros ou faça suas sugestões utilizando o [Issues](https://github.com/estudioviking/evtheme/issues)
 
 ## Copyright e Licença
-&copy; Copyright 2013 - 2015 - Estúdio Viking.
+&copy; Copyright 2013 - 2015 | **[Estúdio Viking](http://estudioviking.com/)**.
 
-O código PHP esta licenciado sob a Licença [GPLv2](http://www.gnu.org/licenses/gpl-2.0.txt). Todos os arquivos CSS, JS, imagens e outros que não incluam arquivos PHP estão licenciados como [MIT](http://opensource.org/licenses/MIT) ou pela licença especificada dentro de seus arquivos.
+O código PHP esta licenciado sob a Licença [GPLv2](http://www.gnu.org/licenses/gpl-2.0.txt). Todos os arquivos CSS, JS, imagens e outros que não incluam arquivos PHP estão licenciados como [MIT](http://opensource.org/licenses/MIT) ou pela licença especificada dentro de seus próprios arquivos.
