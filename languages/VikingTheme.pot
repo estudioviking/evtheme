@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Ignus Theme\n"
-"POT-Creation-Date: 2015-05-07 16:09-0300\n"
-"PO-Revision-Date: 2015-05-07 16:09-0300\n"
-"Last-Translator: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
-"Language-Team: Ivanildo Dias <ivanildodiasdesigner@gmail.com>\n"
+"Project-Id-Version: Estúdio Viking WordPress Theme v1.0\n"
+"POT-Creation-Date: 2015-05-08 14:05-0300\n"
+"PO-Revision-Date: 2015-05-08 14:05-0300\n"
+"Last-Translator: Ivanildo Dias <ivanildodias@estudioviking.com>\n"
+"Language-Team: Ivanildo Dias <ivanildodias@estudioviking.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -159,6 +159,14 @@ msgstr ""
 #: inc/custom-header.php:52
 msgctxt "header image description"
 msgid "Estúdio Viking Brand"
+msgstr ""
+
+#: inc/polylang-support.php:23
+msgid "Language Switcher"
+msgstr ""
+
+#: inc/polylang-support.php:42
+msgid "Choose the website language:"
 msgstr ""
 
 #: inc/template-tags.php:136

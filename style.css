@@ -753,20 +753,21 @@ ul ul, ol ol,
  * Ajustes para os menus de navegação do tema.
  * ----------------------------------------------------------------------------
  */
-.nav-menu .menu-item {
-	list-style: none;
-}
-
 .nav-menu {
 	display: table;
 	width: 100%;
+	text-align: center
 }
 
-.nav-menu > .menu-item {
-	display: table-cell;
+.nav-menu li {
+	list-style: none;
 }
 
-.nav-menu > .menu-item > .menu-link {
+.nav-menu > li {
+	display: inline-block;
+}
+
+.nav-menu > li > a {
 	text-align: center;
 }
 
@@ -796,7 +797,7 @@ ul ul, ol ol,
 	margin: 0;
 }
 
-.sub-menu .menu-link {  }
+.sub-menu-link {  }
 
 
 /**
@@ -836,6 +837,7 @@ ul ul, ol ol,
 	line-height: 1.3333;	/* 40px */
 	width: 40px;
 	width: 4rem;
+	border-top: none;
 	margin: 0 auto;
 	padding: 0;
 	text-shadow: none;
@@ -925,27 +927,31 @@ ul ul, ol ol,
 	color: #fa0;
 }
 
-.widget_polylang .widget-title {
-	clip: rect( 1px, 1px, 1px, 1px );
-	position: absolute !important;
+.polylang-switcher-caption,
+#polylang-switcher ul{
+	width: 100%;
 }
 
-.widget_polylang ul {
-	display: table;
-	width: 100%
-}
-
-.widget_polylang li {
-	display: table-cell;
-	width: 50%;
-}
-
-.widget_polylang a {
-	border-top: none !important;
+.polylang-switcher-caption {
+	color: #fff;
+	display: table-caption;
 	text-align: center;
 }
 
-.widget_polylang img {
+#polylang-switcher ul {
+	display: table;
+}
+
+#polylang-switcher li {
+	display: table-cell;
+}
+
+#polylang-switcher li a {
+	border-top: none;
+	text-align: center;
+}
+
+#polylang-switcher img {
 	display: inline;
 }
 
@@ -1425,13 +1431,6 @@ main > hr:last-child { display: none; }
     	margin-top: 20px;
     	margin-top: 2rem;
     }
-    
-    #viking-slider {
-    	max-width: 780px;
-    	max-width: 78rem;
-    	margin-left: auto !important;
-    	margin-right: auto;
-    }
 }
 
 @media screen and ( min-width: 0px ) and ( max-width: 300px ) {
@@ -1462,7 +1461,7 @@ main > hr:last-child { display: none; }
 		font-size: 8px;
 	}
 	
-	.conteiner, #viking-slider {
+	.conteiner {
 		max-width: 780px;
 		max-width: 97.5rem;
 	}

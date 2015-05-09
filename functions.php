@@ -331,3 +331,5 @@ require_once INCLUDES_PATH . '/utilities.php';
 require_once INCLUDES_PATH . '/template-tags.php';
 // Funções para incrementar o formulário de contato no tema ou post
 require_once INCLUDES_PATH . '/viking-contact-form.php';
+// Funções para incrementar o seletor de idioma no tema
+require_once INCLUDES_PATH . '/polylang-support.php';

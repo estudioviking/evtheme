@@ -390,3 +390,7 @@ function viking_comment_nav() {
 		</nav><!-- .comment-nav -->
 	<?php endif;
 }
+
+
+
+
