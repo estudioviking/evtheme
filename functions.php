@@ -80,9 +80,9 @@ function viking_setup() {
 	add_theme_support( 'custom-background', array(
 		'default-color'			=> 'fff',
 		'default-image'			=> THEME_URI . '/img/bg_site.jpg',
-		'default-repeat'		=> 'repeat',
+		'default-repeat'		=> 'repeat-x',
 		'default-position-x'	=> 'center',
-		'default-attachment'	=> 'scroll'
+		'default-attachment'	=> 'fixed'
 	) );
 
 	// Inclui o arquivo que dá suporte a cabeçalho personalizado
