@@ -13,7 +13,8 @@ add_action( 'admin_init', 'ev_settings_init' );
 
 
 function ev_add_admin_menu() {
-	add_theme_page( 'Estúdio Viking', 'Estúdio Viking', 'manage_options', 'estudio_viking', 'ev_options_page' );
+	add_menu_page( 'Estúdio Viking', 'Estúdio Viking', 'manage_options', 'estudio_viking', 'ev_options_page' );
+	add_submenu_page( 'estudio_viking', 'Estúdio Viking', 'Estúdio Viking', 'manage_options', 'estudio_viking_2', 'ev_options_page_2' );
 }
 
 
@@ -65,6 +66,23 @@ function ev_settings_init() {
 		'ev_select_field_4_render', 
 		'theme_options_page', 
 		'ev_theme_options_page_section' 
+	);
+	
+	register_setting( 'theme_options_page_2', 'ev_settings' );
+	
+	add_settings_section(
+		'ev_theme_options_page_section_2', 
+		__( 'Your section description', 'viking-theme' ), 
+		'ev_settings_section_callback', 
+		'theme_options_page_2'
+	);
+
+	add_settings_field( 
+		'ev_select_field_4', 
+		__( 'Settings field description', 'viking-theme' ), 
+		'ev_select_field_4_render', 
+		'theme_options_page_2', 
+		'ev_theme_options_page_section_2' 
 	);
 
 
@@ -152,3 +170,20 @@ function ev_options_page(  ) {
 
 }
 
+function ev_options_page_2(  ) { 
+
+	?>
+	<form action='options.php' method='post'>
+		
+		<h2>Estúdio Viking</h2>
+		
+		<?php
+		settings_fields( 'theme_options_page_2' );
+		do_settings_sections( 'theme_options_page_2' );
+		submit_button();
+		?>
+		
+	</form>
+	<?php
+
+}

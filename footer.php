@@ -11,12 +11,14 @@
 ?>
 
 				<footer id="footer" class="col_8" role="contentinfo">
-					<p id="copyright">
+					<p id="copyright"><?php global $ev_options; echo $ev_options['ev_options_footer_text']; ?>
+						<!--
 						&copy; <?php echo date( 'Y' ) . ' ' . do_shortcode( '[home-link]' ) . ' - ' . __( 'All rights reserved.', 'viking-theme' ) . ' ' .
 						sprintf(
 							__( 'Powered by <a href="%s" rel="nofollow" target="_blank">Estúdio Viking</a> on <a href="%s" rel="nofollow" target="_blank">WordPress</a>.', 'viking-theme' ),
 							'https://github.com/estudioviking/evtheme',
 							'http://wordpress.org/' ); ?>
+						-->
 					</p><!-- #copyright -->
 				</footer><!-- #footer -->
 				

@@ -1,196 +1,185 @@
 <?php
-
-add_action( 'admin_init', 'theme_options_init' );
-add_action( 'admin_menu', 'theme_options_add_page' );
+/**
+ * Opções para personalização do tema
+ * 
+ * @package Estúdio Viking
+ * @since 1.0
+ */
 
 /**
- * Init plugin options to white list our options
+ * Adiciona o menu de personalização do tema
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
  */
-function theme_options_init(){
-	register_setting( 'sample_options', 'sample_theme_options', 'theme_options_validate' );
+function ev_options_menu_pages() {
+	// Menu de Opções Gerais
+	add_menu_page(
+		__( 'Viking General Options', 'viking-theme' ),	// Título da página
+		__( 'Viking Options', 'viking-theme' ),			// Título do menu
+		'edit_theme_options',							// Capacidade
+		'ev_general_options_page',						// Termo único do Menu
+		'ev_general_options_page_screen',				// Função de exibição
+		'',												// Ícone
+		61												// Posição
+	);
+	
+	// Menu de Estilos
+	add_submenu_page(
+		'ev_general_options_page',						// Termo único do menu pai
+		__( 'Viking Style Options', 'viking-theme' ),	// Título da página
+		__( 'Style Options', 'viking-theme' ),			// Título do sub-menu
+		'edit_theme_options',							// Capacidade
+		'ev_style_options_page',						// Termo único do sub-menu
+		'ev_style_options_page_screen'					// Função de exibição
+	);
+}
+add_action( 'admin_menu', 'ev_options_menu_pages' );
+
+
+/**
+ * Registro das opções do menu de personalização do tema
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function ev_options_init(){
+	// Registro das configurações
+	register_setting(
+		'ev_general_options',	// Grupo de opções
+		'ev_theme_options'		// Nome da opção
+		//'ev_options_validate'	// Função para validar opções
+	);
+	
+	/**
+	 * Seção de Opções Gerais
+	 * ----------------------------------------------------------------------------
+	 */
+	add_settings_section(
+		'ev_general_options_page_section',			// Id
+		__( 'General Options', 'viking-theme' ),	// Título
+		'ev_general_settings_section_callback',		// Função para exibição da seção
+		'ev_general_options'						// Grupo de opções em que a seção é exibida
+	);
+	
+	// Texto do rodapé
+	add_settings_field(
+		'ev_options_footer_text',							// Id
+		__( 'Custom footer-text', 'viking-theme' ),			// Título
+		'ev_textarea_field_render',							// Função de exibição do campo
+		'ev_general_options',								// Grupo de opções em que o campo é exibido
+		'ev_general_options_page_section',					// Seção de opções em que o campo é exibido
+		array(												// Argumentos do campo
+			'id'			=> 'ev_options_footer_text',
+			'desc'			=> __( 'Type your custom copyright text displayed on footer', 'viking-theme' ),
+			'field_class'	=> 'large-text',
+			'rows'			=> 3,
+			'default'		=> '&copy; ' . date( 'Y' ) . ' ' . do_shortcode( '[home-link]' ) . ' - ' . __( 'All rights reserved.', 'viking-theme' ) . ' ' .
+							   sprintf(
+							   		__( 'Powered by <a href="%s" rel="nofollow" target="_blank">Estúdio Viking</a> on <a href="%s" rel="nofollow" target="_blank">WordPress</a>.', 'viking-theme' ),
+							   		'https://github.com/estudioviking/evtheme',
+							   		'http://wordpress.org/' )
+		)
+	);
+}
+add_action( 'admin_init', 'ev_options_init' );
+
+
+/**
+ * Função para exibição da seção de opções gerais do tema
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function ev_general_settings_section_callback( $arg ) {
+	echo $output = '<p>' . __( 'General options to customize Estúdio Viking theme.', 'viking-theme' ) . '</p>';
 }
 
+
 /**
- * Load up the menu page
+ * Função para a exibição de textarea gerais
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
  */
-function theme_options_add_page() {
-	add_menu_page( __( 'Theme Options', 'sampletheme' ), __( 'Theme Options', 'sampletheme' ), 'edit_theme_options', 'theme_options', 'theme_options_do_page', '', 15 );
+function ev_textarea_field_render( $args ) {
+	global $ev_options;
+	
+	$id			= ( $args['id'] ) ? $args['id'] : '';
+	$slug		= 'ev_theme_options[' . $id . ']';
+	$desc		= $args['desc'];
+	$class		= ( $args['field_class'] ) ? 'class="' . $args['field_class'] . '" ' : '';
+	$cols		= ( $args['cols'] ) ? $args['cols'] : 50;
+	$rows		= ( $args['rows'] ) ? $args['rows'] : 10;
+	$default	= $args['default'];
+	$value		= $ev_options[ $id ];
+	
+	if ( ! isset( $value ) ) $value = $default;
+	
+	$field_output  = '<textarea id="' . esc_attr( $slug ) . '" name="' . esc_attr( $slug ) . '" ' . $class . 'cols="' . esc_attr( $cols ) . '" rows="' . esc_attr( $rows ) . '">';
+	$field_output .= esc_textarea( $value );
+	$field_output .= '</textarea>';
+	
+	if ( $desc ) :
+		$field_output .= '<p id="' . esc_attr( $slug ) . '-description" class="description">' . $desc .'</p>';
+	endif;
+	
+	if ( $default ) :
+		$field_output .= '<p id="' . esc_attr( $slug ) . '-default"><strong>Default: </strong>' . esc_html( $default ) . '</p>';
+		
+		add_filter( 'default_option_' . $id, $default, 10, 1 );
+	endif;
+	
+	echo $field_output;
 }
 
-/**
- * Create arrays for our select and radio options
- */
-$select_options = array(
-	'0' => array(
-		'value' =>	'0',
-		'label' => __( 'Zero', 'sampletheme' )
-	),
-	'1' => array(
-		'value' =>	'1',
-		'label' => __( 'One', 'sampletheme' )
-	),
-	'2' => array(
-		'value' => '2',
-		'label' => __( 'Two', 'sampletheme' )
-	),
-	'3' => array(
-		'value' => '3',
-		'label' => __( 'Three', 'sampletheme' )
-	),
-	'4' => array(
-		'value' => '4',
-		'label' => __( 'Four', 'sampletheme' )
-	),
-	'5' => array(
-		'value' => '3',
-		'label' => __( 'Five', 'sampletheme' )
-	)
-);
-
-$radio_options = array(
-	'yes' => array(
-		'value' => 'yes',
-		'label' => __( 'Yes', 'sampletheme' )
-	),
-	'no' => array(
-		'value' => 'no',
-		'label' => __( 'No', 'sampletheme' )
-	),
-	'maybe' => array(
-		'value' => 'maybe',
-		'label' => __( 'Maybe', 'sampletheme' )
-	)
-);
 
 /**
- * Create the options page
+ * Cria a página de opções gerais do tema
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
  */
-function theme_options_do_page() {
-	global $select_options, $radio_options;
-
+function ev_general_options_page_screen() {
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
-
+	
 	?>
 	<div class="wrap">
-		<?php screen_icon(); echo "<h2>" . get_current_theme() . __( ' Theme Options', 'sampletheme' ) . "</h2>"; ?>
-
-		<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
-		<div class="updated fade"><p><strong><?php _e( 'Options saved', 'sampletheme' ); ?></strong></p></div>
-		<?php endif; ?>
-
+		<h2><?php echo esc_html( get_current_theme() . __( ' General Theme Options', 'viking-theme' ) ); ?></h2>
+		
+		<?php
+			if ( false !== $_REQUEST['settings-updated'] ) :
+				settings_errors();
+			endif;
+		?>
+		
 		<form method="post" action="options.php">
-			<?php settings_fields( 'sample_options' ); ?>
-			<?php $options = get_option( 'sample_theme_options' ); ?>
-
-			<table class="form-table">
-
-				<?php
-				/**
-				 * A sample checkbox option
-				 */
-				?>
-				<tr valign="top"><th scope="row"><?php _e( 'A checkbox', 'sampletheme' ); ?></th>
-					<td>
-						<input id="sample_theme_options[option1]" name="sample_theme_options[option1]" type="checkbox" value="1" <?php checked( '1', $options['option1'] ); ?> />
-						<label class="description" for="sample_theme_options[option1]"><?php _e( 'Sample checkbox', 'sampletheme' ); ?></label>
-					</td>
-				</tr>
-
-				<?php
-				/**
-				 * A sample text input option
-				 */
-				?>
-				<tr valign="top"><th scope="row"><?php _e( 'Some text', 'sampletheme' ); ?></th>
-					<td>
-						<input id="sample_theme_options[sometext]" class="regular-text" type="text" name="sample_theme_options[sometext]" value="<?php esc_attr_e( $options['sometext'] ); ?>" />
-						<label class="description" for="sample_theme_options[sometext]"><?php _e( 'Sample text input', 'sampletheme' ); ?></label>
-					</td>
-				</tr>
-
-				<?php
-				/**
-				 * A sample select input option
-				 */
-				?>
-				<tr valign="top"><th scope="row"><?php _e( 'Select input', 'sampletheme' ); ?></th>
-					<td>
-						<select name="sample_theme_options[selectinput]">
-							<?php
-								$selected = $options['selectinput'];
-								$p = '';
-								$r = '';
-
-								foreach ( $select_options as $option ) {
-									$label = $option['label'];
-									if ( $selected == $option['value'] ) // Make default first in list
-										$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
-									else
-										$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";
-								}
-								echo $p . $r;
-							?>
-						</select>
-						<label class="description" for="sample_theme_options[selectinput]"><?php _e( 'Sample select input', 'sampletheme' ); ?></label>
-					</td>
-				</tr>
-
-				<?php
-				/**
-				 * A sample of radio buttons
-				 */
-				?>
-				<tr valign="top"><th scope="row"><?php _e( 'Radio buttons', 'sampletheme' ); ?></th>
-					<td>
-						<fieldset><legend class="screen-reader-text"><span><?php _e( 'Radio buttons', 'sampletheme' ); ?></span></legend>
-						<?php
-							if ( ! isset( $checked ) )
-								$checked = '';
-							foreach ( $radio_options as $option ) {
-								$radio_setting = $options['radioinput'];
-
-								if ( '' != $radio_setting ) {
-									if ( $options['radioinput'] == $option['value'] ) {
-										$checked = "checked=\"checked\"";
-									} else {
-										$checked = '';
-									}
-								}
-								?>
-								<label class="description"><input type="radio" name="sample_theme_options[radioinput]" value="<?php esc_attr_e( $option['value'] ); ?>" <?php echo $checked; ?> /> <?php echo $option['label']; ?></label><br />
-								<?php
-							}
-						?>
-						</fieldset>
-					</td>
-				</tr>
-
-				<?php
-				/**
-				 * A sample textarea option
-				 */
-				?>
-				<tr valign="top"><th scope="row"><?php _e( 'A textbox', 'sampletheme' ); ?></th>
-					<td>
-						<textarea id="sample_theme_options[sometextarea]" class="large-text" cols="50" rows="10" name="sample_theme_options[sometextarea]"><?php echo esc_textarea( $options['sometextarea'] ); ?></textarea>
-						<label class="description" for="sample_theme_options[sometextarea]"><?php _e( 'Sample text box', 'sampletheme' ); ?></label>
-					</td>
-				</tr>
-			</table>
-
-			<p class="submit">
-				<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'sampletheme' ); ?>" />
-			</p>
+			<?php
+				settings_fields( 'ev_general_options' );
+				do_settings_sections( 'ev_general_options' );
+				submit_button();
+			?>
 		</form>
 	</div>
 	<?php
 }
 
+
+/**
+ * Cria a página de opções de estilo do tema
+ * 
+ * @since Estúdio Viking 1.0
+ * ----------------------------------------------------------------------------
+ */
+function ev_style_options_page_screen() {
+	echo 'Style Page';
+}
+
 /**
  * Sanitize and validate input. Accepts an array, return a sanitized array.
  */
-function theme_options_validate( $input ) {
+function ev_options_validate( $input ) {
 	global $select_options, $radio_options;
 
 	// Our checkbox value is either 0 or 1
@@ -217,4 +206,5 @@ function theme_options_validate( $input ) {
 	return $input;
 }
 
-// adapted from http://planetozh.com/blog/2009/05/handling-plugins-options-in-wordpress-28-with-register_setting/
+
+$ev_options = get_option( 'ev_theme_options' );
