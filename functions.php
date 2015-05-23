@@ -73,7 +73,7 @@ function viking_setup() {
 	
 	// Suporte a elementos HTML5
 	add_theme_support( 'html5', array(
-		'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
+		'caption', 'comment-form', 'comment-list', 'gallery', 'search-form', 'widgets'
 	) );
 	
 	// Suporte a background personalizado
